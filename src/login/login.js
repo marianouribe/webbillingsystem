@@ -17,12 +17,8 @@ class Login extends Component{
         //this.setState({userIdInput:this.props.userIdInput});
         //    var userIdInput = document.getElementById('userIdInput');
             this._buttonClick = this._buttonClick.bind(this);
-            this.state = {userIdInput: ''};
-            this.state = {userIdBorderInput: ''};
-            this.state = {passwordInput: ''};
-            this.state = {passwordPasswordInput: ''};
+            this.state = {userIdInput: '', userIdBorderInput: '', passwordInput: '', passwordPasswordInput: ''};
             
-           
        }
 
     _handleUserIdChange=(event)=>{
@@ -54,9 +50,9 @@ class Login extends Component{
             this.setState({passwordPasswordInput: "form-control valida-border-succes"});
         }
 
-        ReactDOM.render(<Menu />, document.getElementById('root'));
+        // ReactDOM.render(<Menu />, document.getElementById('root'));
  
-        if (this.state.userIdInput !== '' || this.state.passwordInput  !== ''){
+        if (this.state.userIdInput !== '' && this.state.passwordInput  !== ''){
             
                 ReactDOM.render(<Menu />, document.getElementById('root'));
                 // console.log(this.state.userIdInput);
@@ -67,17 +63,13 @@ class Login extends Component{
     }
 
     componentDidMount(){
-        this.setState({userIdBorderInput: "form-control valida-border-succes"});
-        this.setState({passwordPasswordInput: "form-control valida-border-succes"});
-        this.setState({userIdInput:''});
-        this.setState({passwordInput: ''});
+        this.setState({userIdBorderInput: "form-control valida-border-succes",
+        passwordPasswordInput: "form-control valida-border-succes" },{userIdInput:''},{passwordInput: ''});
     }
 
     componentWillMount(){
-        this.setState({userIdBorderInput: "form-control valida-border-danger"});
-        this.setState({passwordPasswordInput: "form-control valida-border-danger"});
-        this.setState({userIdInput:''});
-        this.setState({passwordInput: ''});
+        this.setState({userIdBorderInput: "form-control valida-border-succes",
+        passwordPasswordInput: "form-control valida-border-succes" },{userIdInput:''},{passwordInput: ''});
     }
     
     render(){
