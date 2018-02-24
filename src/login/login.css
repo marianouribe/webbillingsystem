@@ -1,14 +1,25 @@
 body {
     /* background-color: #e6f2ff; */
-    background-color: #DADADA;
+    background-color: rgba(218, 218, 218, 0.342);
 }
 
-.container.login-container {
+.container.login-container .login-form {
     margin-top: 15%;
 }
 
+
+/* 
+.container.login-container h2 {
+    position: absolute;
+    top: 16%;
+    text-align: center;
+    padding-left: 30px;
+    color: #0275d8;
+} */
+
+
+/*
 .card.login-card {
-    /* padding: 10px 0px 2px; */
     background-color: #fff;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
     -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
@@ -17,45 +28,40 @@ body {
 
 .card.login-card-acceso {
     font-weight: bold;
-    /* opacity: 0.6; */
-}
+} */
 
 div.brand {
     display: block;
     text-align: center;
     font-size: 25px;
-    padding-bottom: 10px;
+    padding-bottom: 40px;
     color: #0275d8;
 }
 
-
-/* 
 img.login-img {
-    padding: 0 0 .5rem;
-    padding-right: 10px;
+    padding: 150px 80px 0px;
+    /* padding-right: 10px; */
     max-width: 100%;
     height: auto;
-    
-} */
+}
 
 form.login-form {
-    max-width: 350px;
+    max-width: 300px;
     margin: auto;
 }
 
 input.form-control {
-    opacity: 1;
+    opacity: 0.6;
     font-size: 13px;
     transition: opacity 0.3s ease;
 }
 
 .form-control.valida-border-succes {
     border-color: rgb(189, 186, 186);
-    
 }
 
 .form-control.valida-border-danger {
-    border:1px solid red;
+    border-color: red;
 }
 
 .form-group[class*="left icon-login"].input>input {
@@ -73,34 +79,32 @@ i.fas.icon-login {
     /* margin: 0em; */
     /* height: 100%; */
     width: 2.67142857em;
-    opacity: 0.5;
+    opacity: 0.6;
     transition: opacity 0.3s ease;
 }
 
+button.btn.btn-primary,
+button.btn.btn-outline-primary {
+    width: 120px;
+    padding: 8px 8px 8px 8px;
+    text-align: center;
+    border-radius: 20px 20px 20px 20px;
+    font-size: 12px;
+    margin-left: 15px;
+    cursor: pointer;
+}
 
-/* .form-group.left.icon.input>i.fa-lock::before,
-.form-group.left.icon.input>i.fa-lock::after { */
+.fas.fa-arrow-right {
+    padding-left: 7px;
+}
 
+div .font-size-text {
+    font-size: 12px;
+}
 
-/* left: 0px; */
-
-
-/* position: absolute; */
-
-
-/* text-align: center; */
-
-
-/* top: 28%; */
-
-
-/* width: 100%; */
-
-
-/* margin-top: -38px; */
-
-
-/* } */
+div.verticalLine {
+    border-left: 1px solid #ff0000;
+}
 
 
 /* 
@@ -114,14 +118,28 @@ i.fas.icon-login {
     margin-top: -0.5em;
 } */
 
-a.login-create-new-access {
+
+/* a.login-create-new-access {
     margin: auto;
     padding: 5px;
     font-size: 12px;
     text-align: center;
     display: block;
-}
+} */
 
 .modalFormWrapper {
     padding: 2rem;
 }
+/* 
+@media only screen and (max-width: 780px) {
+    [class*="col-"] {
+        width: 100%;
+         margin-left: -3px; 
+    }
+    .form-group[class*="left icon-login"].input>input {
+        padding-left: 2.67142857em !important;
+        padding-right: 1em !important;
+        
+        
+    }
+} */

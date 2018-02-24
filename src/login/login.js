@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 //import logo from '../App/logo.svg';
-// import logo from '../assets/Logo.png';
+import logo from '../assets/logo.jpg'
 import './login.css';
 
 import Menu from '../menu/menu';
@@ -45,7 +45,7 @@ class Login extends Component{
         }
         
         if (this.state.passwordInput === ''){
-           this.setState({passwordPasswordInput: "form-control valida-border-danger"});
+            this.setState({passwordPasswordInput: "form-control valida-border-danger"});
         }else {
             this.setState({passwordPasswordInput: "form-control valida-border-succes"});
         }
@@ -64,12 +64,12 @@ class Login extends Component{
 
     componentDidMount(){
         this.setState({userIdBorderInput: "form-control valida-border-succes",
-        passwordPasswordInput: "form-control valida-border-succes" },{userIdInput:''},{passwordInput: ''});
+        passwordPasswordInput: "form-control valida-border-succes" ,userIdInput:'',passwordInput: ''});
     }
 
     componentWillMount(){
         this.setState({userIdBorderInput: "form-control valida-border-succes",
-        passwordPasswordInput: "form-control valida-border-succes" },{userIdInput:''},{passwordInput: ''});
+        passwordPasswordInput: "form-control valida-border-succes" ,userIdInput:'',passwordInput: ''});
     }
     
     render(){
@@ -84,48 +84,52 @@ class Login extends Component{
         // }
 
         // <img src={logo} className="img-fluid login-img"/>
+//Web Billing System
 
+                    // <div className="col-4">
+                    //     <h2>Web Billing System</h2>
+                    //     <img src={logo} className="img-fluid login-img"/>
+                    // </div>
         return(
             <div className="container login-container">
-                <div className="row">
-                    <div className="col"></div>
-                    <div className="col-sd-12 col-md-4">
+                <div>
+                    <form className="login-form">
                         <div className="brand fa fa-desktop"> Web Billing System</div>
-                        <div className="card login-card">
-                            <div className="card-block">
-                                <form className="login-form">
-                                    <div className="form-group left icon-login input">
-                                        <span className="input-group-lg"><i className="fas icon-login fa-user"></i></span>
-                                        <input type="text" className={this.state.userIdBorderInput} id='userIdInput'
-                                        placeholder="Usuario" onChange={this._handleUserIdChange}/>
-                                    </div>
-                                    <div className="form-group left icon-login input">
-                                        <i className="fas icon-login fa-lock"></i>
-                                        <input type="password" className={this.state.passwordPasswordInput} id="passwordInput" 
-                                        placeholder="Clave" onChange={this._handlePasswordChange}/>
-                                    </div>
-                                    <button className="btn btn-md btn-primary btn-block" 
-                                    onClick = {this._buttonClick.bind(this)}>Aceptar</button>
-                                    
-                                </form>
+                        <div className="form-group left icon-login input">
+                            <span className="input-group-lg"><i className="fas icon-login fa-user"></i></span>
+                            
+                            <input type="text" className={this.state.userIdBorderInput} id='userIdInput'
+                            placeholder="Usuario" onChange={this._handleUserIdChange}/>
+                        </div>
+                        <div className="form-group left icon-login input">
+                            <i className="fas icon-login fa-lock"></i>
+                            <input type="password" className={this.state.passwordPasswordInput} id="passwordInput" 
+                            placeholder="Clave" onChange={this._handlePasswordChange}/>
+                        </div>
+                        <div className="row" >
+                            <div className="col-6">
+                                <a href="#" className="font-size-text" data-toggle="modal" 
+                                data-target="#loginRecuperarClaveModal">Olvidó su clave</a>
+                            </div>
+                            <div className="col-4">
+                                <button className="btn btn-primary" 
+                                onClick = {this._buttonClick.bind(this)}>Aceptar <i class="fas fa-arrow-right"></i></button>
                             </div>
                         </div>
-                        <br/>
-                        <div className="card login-card-acceso">
-                            <div className="row" >
-                                <div className="col-6">
-                                    <a href="#" className="login-create-new-access"
-                                    data-toggle="modal" data-target="#loginSolicitarAccesoModal">Solicitar Acceso</a>
-                                </div>
-                                <div className="col-6">
-                                    <a href="#" className="login-create-new-access">Cambiar Clave?</a>
-                                </div>
+                        <hr/>
+                
+                        <div className="row" >
+                            <div className="col-6">
+                                <label className="font-size-text">Necesitas Una Cuenta?</label>
+                            </div>
+                            <div className="col-4">
+                                <button className="btn btn-outline-primary"  data-toggle="modal" 
+                                data-target="#loginSolicitarAccesoModal">Crear Cuenta</button>
                             </div>
                         </div>
-                    </div>
-                    <div className="col"></div>
+                    </form>      
                 </div>
-
+                
                 <div className = "modal fade" id = "loginSolicitarAccesoModal" role = "dialog" 
                 aria-labelledby = "loginSolicitarAccesoLabel" aria-hidden = "true" > 
                     <div className="modal-dialog" role="document">
@@ -178,6 +182,50 @@ class Login extends Component{
                                 </div>
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <button type="button" className="btn btn-primary">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className = "modal fade" id = "loginRecuperarClaveModal" role = "dialog" 
+                aria-labelledby = "loginRecuperarClaveLabel" aria-hidden = "true" > 
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <div>
+                                    <i className = "fas fa-user-plus fa-2x"></i> 
+                                </div>
+                                <h5 className="modal-title" id="loginContentLabel">Recuperar Clave</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                <div className="container-fluid">
+                                    <div className="row">
+                                        <div className="col-sm-12">
+                                            <div className="modalFormWrapper">
+                                                <form>
+                                                    <div className="form-group">
+                                                        <label for="formUserId">Usuario</label>
+                                                        <input type="text" className="form-control" id="formUserId" 
+                                                        placeholder="Id de usuario"/>
+                                                    </div>
+                                                    <div className="form-group">
+                                                        <label for="formUserEmail">Email</label>
+                                                        <input type="email" className="form-control" id="formUserEmail" 
+                                                        placeholder="Email"/>
+                                                    </div>
+                                                </form>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-primary" data-dismiss="modal">Cerrar</button>
                                     <button type="button" className="btn btn-primary">Enviar</button>
                                 </div>
                             </div>
