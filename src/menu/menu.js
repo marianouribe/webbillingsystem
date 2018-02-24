@@ -15,67 +15,58 @@ class Menu extends Component{
     _handleSalir = () =>{
         ReacDom.render(<Login />, document.getElementById('root'));
     }
+
+    // <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
     render() {
         return (
-            <div  className="container-fluid">
-                <div className="row">
-                    <div className="col-sm-3">
-                        <div className="nav-side-menu">
-                            <div className="brand fa fa-desktop"> Web Billing System</div>
-                            <i className="fas fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-                            <div className="menu-list">
-                                <ul id="menu-content" className="menu-content collapse out">
-                                    <li data-toggle="collapse" data-target="#newFacturacion" className="collapsed">
-                                        <a href="#"><i className="far fa-money-bill-alt fa-lg"></i>Facturación</a><i className="fa fa-angle-down"></i>
-                                    </li>
-                                    <ul className="sub-menu collapse" id="newFacturacion">
-                                         <li onClick={this._handleFacturar}><a><i className="fa fa-angle-right"></i>Facturar</a></li>
-                                         <li><a href="#"><i className="fa fa-angle-right"></i>Conduce</a></li>
-                                         <li><a href="#"><i className="fa fa-angle-right"></i>Devolución</a></li>
-                                         <li><a href="#"><i className="fa fa-angle-right"></i>Cotización</a></li>
-                                    </ul>
-                                    
-                                    <li data-toggle="collapse" data-target="#newCxc" className="collapsed">
-                                        <a href="#"><i className="far fa-credit-card fa-lg"></i>Cuentas Por Cobrar</a><i className="fa fa-angle-down"></i>
-                                    </li>
-                                    <ul className="sub-menu collapse" id="newCxc">
-                                         <li><a href="#"><i className="fa fa-angle-right"></i>Cobro</a></li>
-                                    </ul>
-                                    <li data-toggle="collapse" data-target="#newCxcConsulta" className="collapsed">
-                                        <a href="#"><i className="fas fa-closed-captioning fa-lg"></i>Consultas</a><i className="fa fa-angle-down"></i>
-                                    </li>
-                                    <ul className="sub-menu collapse" id="newCxcConsulta">
-                                        <li><a href="#"><i className="fa fa-angle-right"></i>Consulta Cliente</a></li>
-                                        <li><a href="#"><i className="fa fa-angle-right"></i>Cobros del dia</a></li>
-                                        <li><a href="#"><i className="fa fa-angle-right"></i>Resultado del dia</a></li>
-                                    </ul>
-                                    <li data-toggle="collapse" data-target="#newMantenimiento" className="collapsed">
-                                        <a href="#"><i className="fas fa-cogs fa-lg"></i>Mantenimiento</a><i className="fa fa-angle-down"></i>
-                                    </li>
-                                    <ul className="sub-menu collapse" id="newMantenimiento">
-                                         <li><a href="#"><i className="fa fa-angle-right"></i>Clientes</a></li>
-                                         <li><a href="#"><i className="fa fa-angle-right"></i>Productos</a></li>
-                                         <li><a href="#"><i className="fa fa-angle-right"></i>Clasificación</a></li>
-                                         <li><a href="#"><i className="fa fa-angle-right"></i>Almacen</a></li>
-                                    </ul>
-                                    <li data-toggle="collapse" data-target="#newSeguridad" className="collapsed">
-                                        <a href="#"><i class="far fa-user-circle fa-lg"></i>Seguridad</a><i className="fa fa-angle-down"></i>
-                                    </li>
-                                    <ul className="sub-menu collapse" id="newSeguridad">
-                                         <li><a href="#"><i className="fa fa-angle-right"></i>Usuario</a></li>
-                                         <li><a href="#"><i className="fa fa-angle-right"></i>Perfiles</a></li>
-                                         <li><a href="#"><i className="fa fa-angle-right"></i>Permisos</a></li>
-                                    </ul>
-                                    <li data-toggle="collapse" data-target="#newSalir" className="collapsed"
-                                    onClick={() => this._handleSalir()}>
-                                        <a><i className="fas fa-sign-out-alt fa-lg" ></i>Salir</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+            <div>
+                
+                    <nav className = "navbar navbar-toggleable-md navbar-inverse bg-faded"> 
+                        <a className = "navbar-brand" href = "#" > 
+                            <h2 clasName="navbar-brand mb-0"><i className = "fa fa-desktop"></i>WBSystem </h2>
+                        </a>
+                        
+                        <form className="form-inline navbar-right my-2 my-lg-0">
+                            <input className="form-control mr-sm-2 my-lg-0" type="text" placeholder="Buscar"/>
+                            <button className="btn btn-outline-secondary my-2 my-sm-0" type="submit">Buscar</button>
+                        </form>
+                    </nav>
+                
+                <nav className = "navbar custom-navbar navbar-toggleable-md navbar-light bg-faded"> 
                     
-                </div>
+                    <div  id="navbarSupportedContent">
+                        <ul className="navbar-nav mr-auto">
+                            
+                                <li>
+                                    <a href="#">
+                                        <i className="fa fa-angle-right"></i>Facturar</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i className="fa fa-angle-right"></i>Conduce</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i className="fa fa-angle-right"></i>Devolución</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i className="fa fa-angle-right"></i>Cotización</a>
+                                </li>
+                            
+                                
+                            <li className="nav-item active">
+                                <a className="nav-link" href="#">Link</a > 
+                            </li> 
+                                <li className = "nav-item active" > 
+                                <a className="nav-link" href="#">Disabled</a> 
+                            </li>
+                        </ul> 
+
+                        
+                    </div>
+                </nav>
+
             </div>
         );
     }
@@ -83,4 +74,18 @@ class Menu extends Component{
 
 export default Menu;
 
-// < div className = "col-sm-9 col-sm-offset-1" > <h1>Web Billing System</h1> < /div>
+// <div className = "col-sm-9 col-sm-offset-1" > <h1>Web Billing System</h1> </div>
+
+
+// <div className="collapse navbar-collapse" id="navbarSupportedContent">
+// <ul className="navbar-nav mr-auto">
+//                         <li className="nav-item active">
+//                             <a className="nav-link" href="#">Home <span class="sr-only">(current)</span> </a> </li>
+//                         <li className="nav-item active">
+//                             <a className="nav-link" href="#">Link</a > 
+//                         </li> 
+//                             <li className = "nav-item active" > 
+//                             <a className="nav-link" href="#">Disabled</a> 
+//                         </li>
+//                     </ul> 
+// </div>
