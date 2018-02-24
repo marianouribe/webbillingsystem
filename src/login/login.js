@@ -23,41 +23,33 @@ class Login extends Component{
 
     _handleUserIdChange=(event)=>{
         this.setState({userIdInput: event.target.value});
-        // console.log(event.target.value);
     }
 
     _handlePasswordChange=(event)=>{
         this.setState({passwordInput: event.target.value});
-        // console.log(event.target.value);
     }
-// var userIdInput = document.getElementById('userIdInput');
-// var passwordInput = document.getElementById('passwordInput');
+
     _buttonClick= (event)=> {
         
-        // var userIdInput = document.getElementById('userIdInput');
-        // var passwordInput = document.getElementById('passwordInput');
-        console.log(this.state.userIdInput);
+
+       const bordercolor  = "form-control ";
         
         if (this.state.userIdInput === ''){
-            this.setState({userIdBorderInput: "form-control valida-border-danger"});
+            this.setState({userIdBorderInput: bordercolor + "valida-border-danger"});
         }else {
-            this.setState({userIdBorderInput: "form-control valida-border-succes"});
+            this.setState({userIdBorderInput: bordercolor + "valida-border-succes"});
         }
         
         if (this.state.passwordInput === ''){
-            this.setState({passwordPasswordInput: "form-control valida-border-danger"});
+            this.setState({passwordPasswordInput: bordercolor + "valida-border-danger"});
         }else {
-            this.setState({passwordPasswordInput: "form-control valida-border-succes"});
+            this.setState({passwordPasswordInput: bordercolor + "valida-border-succes"});
         }
 
-        // ReactDOM.render(<Menu />, document.getElementById('root'));
+        ReactDOM.render(<Menu />, document.getElementById('root'));
  
         if (this.state.userIdInput !== '' && this.state.passwordInput  !== ''){
-            
                 ReactDOM.render(<Menu />, document.getElementById('root'));
-                // console.log(this.state.userIdInput);
-                // console.log(this.state.passwordInput);
-            
         }
         event.preventDefault();
     }
@@ -74,22 +66,6 @@ class Login extends Component{
     
     render(){
       
-
-        // var var Apph;;
-
-        // if (this.props.userIdInput === ""){
-        //     loginform = "login-form has-danger";
-        // }else {
-        //     loginform = "login-form";
-        // }
-
-        // <img src={logo} className="img-fluid login-img"/>
-//Web Billing System
-
-                    // <div className="col-4">
-                    //     <h2>Web Billing System</h2>
-                    //     <img src={logo} className="img-fluid login-img"/>
-                    // </div>
         return(
             <div className="container login-container">
                 <div>
@@ -123,7 +99,7 @@ class Login extends Component{
                                 <label className="font-size-text">Necesitas Una Cuenta?</label>
                             </div>
                             <div className="col-4">
-                                <button className="btn btn-outline-primary"  data-toggle="modal" 
+                                <button type="button" className="btn btn-outline-primary"  data-toggle="modal" 
                                 data-target="#loginSolicitarAccesoModal">Crear Cuenta</button>
                             </div>
                         </div>
@@ -181,7 +157,7 @@ class Login extends Component{
                                     </div>
                                 </div>
                                 <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <button type="button" className="btn btn-primary" data-dismiss="modal">Cerrar</button>
                                     <button type="button" className="btn btn-primary">Enviar</button>
                                 </div>
                             </div>
@@ -195,7 +171,7 @@ class Login extends Component{
                         <div className="modal-content">
                             <div className="modal-header">
                                 <div>
-                                    <i className = "fas fa-user-plus fa-2x"></i> 
+                                    <i className = "fas fa-key fa-2x"></i> 
                                 </div>
                                 <h5 className="modal-title" id="loginContentLabel">Recuperar Clave</h5>
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
