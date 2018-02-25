@@ -57,7 +57,7 @@ i.fas.icon-search {
     /* font-weight: 200; */
     background-color: #093f6eb9;
     /* width: 24%; */
-    /* height: 100%; */
+    height: 100%;
     color: #e1ffff;
 }
 
@@ -134,7 +134,7 @@ i.fas.icon-search {
     /* padding-left: 55px;
     padding-top: 5px;
     padding-bottom: 5px; */
-    padding: 7px 60px 7px;
+    padding: 1px 60px 1px;
 }
 
 .nav.flex-column li a {

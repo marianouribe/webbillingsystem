@@ -42,119 +42,85 @@ class Menu extends Component{
                     
                     <div  id="navbarSupportedContent">
                         <ul id="menu-content" className="navbar-nav collapse">
-                            <li data-toggle="collapse" data-target="#newFacturacion" className="collapsed">
-                                
-                                    <i className="far fa-money-bill-alt fa-lg"></i>Facturación
-                                
+                            <li data-target="#newFacturacion" className="collapsed">
+                                <i className="far fa-money-bill-alt fa-lg"></i>Facturación
                             </li>
                             <ul className="sub-menu" id="newFacturacion">
                                 <li onClick={this._handleFacturar}>
-                                    <a href="#">
-                                        Facturar</a>
+                                    <a href="#">Facturar</a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        Conduce</a>
+                                    <a href="#">Conduce</a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        Devolución</a>
+                                    <a href="#">Devolución</a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        Cotización</a>
+                                    <a href="#">Cotización</a>
                                 </li>
                             </ul>
 
-                            <li data-toggle="collapse" data-target="#newCxc" className="collapsed">
-                                
-                                    <i className="far fa-credit-card fa-lg"></i>Cuentas Por Cobrar
-                                
+                            <li data-target="#newCxc" className="collapsed">
+                                <i className="far fa-credit-card fa-lg"></i>Cuentas Por Cobrar
                             </li>
                             <ul className="sub-menu" id="newCxc">
                                 <li>
-                                    <a href="#">
-                                        Cobro</a>
+                                    <a href="#">Cobro</a>
                                 </li>
                             </ul>
-                            <li data-toggle="collapse" data-target="#newCxcConsulta" className="collapsed">
-                                
-                                    <i className="fas fa-closed-captioning fa-lg"></i>Consultas
-                                
+                            <li data-toggle="#" data-target="#newCxcConsulta" className="collapsed">
+                                <i className="fas fa-closed-captioning fa-lg"></i>Consultas
                             </li>
                             <ul className="sub-menu" id="newCxcConsulta">
                                 <li>
-                                    <a href="#">
-                                        Consulta Cliente</a>
+                                    <a href="#">Consulta Cliente</a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        Cobros del dia</a>
+                                    <a href="#">Cobros del dia</a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        Resultado del dia</a>
+                                    <a href="#">Resultado del dia</a>
                                 </li>
                             </ul>
-                            <li
-                                data-toggle="collapse"
-                                data-target="#newMantenimiento"
-                                className="collapsed">
-                                
-                                    <i className="fas fa-cogs fa-lg"></i>Mantenimiento
-                                
+                            <li data-target="#newMantenimiento" className="collapsed">
+                                <i className="fas fa-cogs fa-lg"></i>Mantenimiento
                             </li>
                             <ul className="sub-menu" id="newMantenimiento">
                                 <li>
-                                    <a href="#">
-                                        Clientes</a>
+                                    <a href="#">Clientes</a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        Productos</a>
+                                    <a href="#">Proveedores</a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        Clasificación</a>
+                                    <a href="#">Productos</a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        Almacen</a>
+                                    <a href="#">Clasificación</a>
+                                </li>
+                                <li>
+                                    <a href="#">Almacen</a>
                                 </li>
                             </ul>
-                            <li data-toggle="collapse" data-target="#newSeguridad" className="collapsed">
-                                
-                                    <i class="far fa-user-circle fa-lg"></i>Seguridad
-                                
+                            <li data-target="#newSeguridad" className="collapsed">
+                                <i class="far fa-user-circle fa-lg"></i>Seguridad
                             </li>
                             <ul className="sub-menu" id="newSeguridad">
                                 <li>
-                                    <a href="#">
-                                        Usuario</a>
+                                    <a href="#">Usuario</a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        Perfiles</a>
+                                    <a href="#">Perfiles</a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        Permisos</a>
+                                    <a href="#">Permisos</a>
                                 </li>
                             </ul>
-                            <li
-                                data-toggle="collapse"
-                                data-target="#newSalir"
-                                className="collapsed"
-                                onClick={() => this._handleSalir()}>
-                                <a>
-                                    <i className="fas fa-sign-out-alt fa-lg"></i>Salir</a>
-                            </li>
+                            <li data-target="#newSalir" className="collapsed" onClick={() => this._handleSalir()}>
+                                <a><i className="fas fa-sign-out-alt fa-lg"></i>Salir</a></li>
                         </ul>
-
-                        
                     </div>
                 </nav>
-
             </div>
         );
     }
