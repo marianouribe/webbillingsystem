@@ -16,9 +16,8 @@ class Login extends Component{
             
         //this.setState({userIdInput:this.props.userIdInput});
         //    var userIdInput = document.getElementById('userIdInput');
-            this._buttonClick = this._buttonClick.bind(this);
             this.state = {userIdInput: '', userIdBorderInput: '', passwordInput: '', passwordPasswordInput: ''};
-            
+            this._buttonClick = this._buttonClick.bind(this);
        }
 
     _handleUserIdChange=(event)=>{

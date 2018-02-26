@@ -43,8 +43,8 @@ class Menu extends Component{
                     
                     <div  id="navbarSupportedContent">
                         <ul id="menu-content" className="navbar-nav collapse">
-                            <li data-target="#newFacturacion" className="collapsed">
-                                <a href="#"><i className="far fas fa-laptop fa-2x"></i>Facturación</a>
+                            <li className="collapsed">
+                                <a href="#" data-toggle="collapse" data-target="#newFacturacion"><i className="far fas fa-laptop fa-2x"></i>Facturación</a>
                             </li>
                             
                             <li data-target="#newCxc" className="collapsed">
@@ -68,6 +68,16 @@ class Menu extends Component{
                         </ul>
                     </div>
                 </nav>
+
+                <div id="newFacturacion" className="collapse">
+                    <div className="Option-Nav-flex-column">
+                        ¡Hola mundo!
+                    </div>
+                    <div className="Option-Nav-flex-column1">
+                        Mariano Uribe
+                    </div>
+                </div>
+
             </div>
         );
     }

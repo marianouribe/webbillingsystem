@@ -169,15 +169,215 @@ i.fas.icon-search {
 } */
 
 @media screen and (max-width: 992px) {
-    /* .navbar {
-        display: block;
-    }
-    a.navbar-brand h2.navbar-brand,
-    .navbar-toggler.custom-toggler {
-        top: 17px;
-    } */
     nav form.navbar-right {
-        /* float: none; */
         display: none;
     }
+}
+
+
+/* 
+* {
+    margin: 0;
+}
+
+header {
+    height: 170px;
+    color: #FFF;
+    font-size: 20px;
+    font-family: Sans-serif;
+    background: #009688;
+    padding-top: 30px;
+    padding-left: 50px;
+} */
+
+
+/* 
+.contenedor {
+    width: 90px;
+    height: 240px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+.botonF1 {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background: #F44336;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    font-size: 36px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: .3s;
+}
+
+span {
+    transition: .5s;
+}
+
+.botonF1:hover span {
+    transform: rotate(360deg);
+}
+
+.botonF1:active {
+    transform: scale(1.1);
+}
+
+.btn5 {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: none;
+    color: #FFF;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    font-size: 28px;
+    outline: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-right: 26px;
+    transform: scale(0);
+}
+
+.botonF2 {
+    background: #2196F3;
+    margin-bottom: 85px;
+    transition: 0.5s;
+}
+
+.botonF3 {
+    background: #673AB7;
+    margin-bottom: 130px;
+    transition: 0.7s;
+}
+
+.botonF4 {
+    background: #009688;
+    margin-bottom: 175px;
+    transition: 0.9s;
+}
+
+.botonF5 {
+    background: #FF5722;
+    margin-bottom: 220px;
+    transition: 0.99s;
+}
+
+.animacionVer {
+    transform: scale(1);
+} */
+
+.mdl-layout {
+    align-items: center;
+    justify-content: center;
+}
+
+.mdl-layout__content {
+    padding: 24px;
+    flex: none;
+}
+
+body,
+html {
+    height: 100%;
+    /*Siempre es necesario cuando trabajamos con alturas*/
+}
+
+.Option-Nav-flex-column {
+    transition: 0.5s;
+    transform: scale(1);
+    /* transform: scale(1.1); */
+    color: #000;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    position: fixed;
+    display: inline-block;
+    /*El div será ubicado con relación a la pantalla*/
+    left: 200px;
+    /*A la derecha deje un espacio de 0px*/
+    right: 0px;
+    /*A la izquierda deje un espacio de 0px*/
+    bottom: 0px;
+    /*Abajo deje un espacio de 0px*/
+    height: 30%;
+    width: 180px;
+    /*alto del div*/
+    /* z-index: 0; */
+    top: 100px;
+}
+
+.Option-Nav-flex-column1 {
+    transition: 0.7s;
+    transform: scale(1);
+    /* transform: scale(1.1); */
+    color: #000;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    position: absolute;
+    /* display: inline-block; */
+    /*El div será ubicado con relación a la pantalla*/
+    left: 400px;
+    /*A la derecha deje un espacio de 0px*/
+    right: 0px;
+    /*A la izquierda deje un espacio de 0px*/
+    bottom: 0px;
+    /*Abajo deje un espacio de 0px*/
+    height: 30%;
+    width: 180px;
+    /*alto del div*/
+    /* z-index: 0; */
+    top: 100px;
+}
+
+.Option-Nav-flex-column:hover {
+    transition: 0.5s;
+    transform: scale(1);
+    transform: scale(1.1);
+    color: #000;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    position: fixed;
+    display: inline-block;
+    /*El div será ubicado con relación a la pantalla*/
+    left: 200px;
+    /*A la derecha deje un espacio de 0px*/
+    right: 0px;
+    /*A la izquierda deje un espacio de 0px*/
+    bottom: 0px;
+    /*Abajo deje un espacio de 0px*/
+    height: 30%;
+    width: 180px;
+    /*alto del div*/
+    /* z-index: 0; */
+    top: 100px;
+}
+
+.Option-Nav-flex-column1:hover {
+    transition: 0.7s;
+    transform: scale(1);
+    transform: scale(1.1);
+    color: #000;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    position: absolute;
+    /* display: inline-block; */
+    /*El div será ubicado con relación a la pantalla*/
+    left: 400px;
+    /*A la derecha deje un espacio de 0px*/
+    right: 0px;
+    /*A la izquierda deje un espacio de 0px*/
+    bottom: 0px;
+    /*Abajo deje un espacio de 0px*/
+    height: 30%;
+    width: 180px;
+    /*alto del div*/
+    /* z-index: 0; */
+    top: 100px;
 }
