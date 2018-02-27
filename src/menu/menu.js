@@ -1,19 +1,44 @@
 import React,{ Component} from "react";
-import ReacDom from 'react-dom';
+import ReactDOM from 'react-dom';
 import './menu.css';
 
 import Login from '../login/login';
 import Factutrar from '../facturar/facturar';
+import { Script } from "vm";
 
 
 class Menu extends Component{
 
+    constructor (props){
+        super(props);
+
+        this.state = {navbarClassMenu: "nav flex-column"};
+        // this._buttonDropDownClick = this._buttonDropDownClick.bind(this);
+    }
+
+    componentDidMount(){
+        this.setState({navbarClassMenu:"nav flex-column"});
+    }
+
+    componentWillMount(){
+        this.setState({navbarClassMenu:"nav flex-column"});
+    }
+
     _handleFacturar = () =>{
-        ReacDom.render(<Factutrar />, document.getElementById('root'));
+        ReactDOM.render(<Factutrar />, document.getElementById('root'));
     }
 
     _handleSalir = () =>{
-        ReacDom.render(<Login />, document.getElementById('root'));
+        ReactDOM.render(<Login />, document.getElementById('root'));
+    }
+
+    _buttonDropDownClick=()=>{
+        if (this.state.navbarClassMenu === "nav flex-column"){
+            this.setState({navbarClassMenu:this.state.navbarClassMenu+" responsive"});
+        }else {
+            this.setState({navbarClassMenu:"nav flex-column"});
+        }
+        
     }
 
     // <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
@@ -23,48 +48,53 @@ class Menu extends Component{
                 
                 <nav className = "navbar navbar-toggleable-md navbar-inverse bg-faded"> 
                     <a className = "navbar-brand" href = "#" > 
-                        <h2 clasName="navbar-brand mb-0"><i className = "fa fa-desktop"></i>  Web Billing System</h2>
+                        <h2 clasName="navbar-brand mb-0"><i className = "fa fa-desktop"></i>  WB System</h2>
                     </a>
-                    <button class="navbar-toggler custom-toggler navbar-toggler-right" type="button" 
-                        data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-                        aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler custom-toggler navbar-toggler-right" 
+                        onClick ={()=>this._buttonDropDownClick()}>
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <form className="form-inline navbar-right my-2 my-lg-0">
                         <div className="form-inline icon-search-custom input">
-                            <i className="fas icon-search fa-search" onClick={()=>this._handleSalir()}></i>
+                            <i className="fas icon-search fa-search" onClick={()=>this._buttonDropDownClick()}></i>
                             <input className="form-control mr-sm-2" type="text" placeholder="Buscar"/>                                
                         </div>
                     </form>
 
                 </nav>
                 
-                <nav className = "nav flex-column"> 
+                <nav className = {this.state.navbarClassMenu}> 
                     
-                    <div  id="navbarSupportedContent">
-                        <ul id="menu-content" className="navbar-nav collapse">
-                            <li data-toggle="collapse" data-target="#newFacturacion" className="collapsed">
-                                <a href="#"><i className="far fas fa-laptop fa-2x"></i>Facturación</a>
+                    <div  id="navbarContentMenu">
+                        <ul id="menu-content" className="navbar-nav">
+                            <li data-toggle="collapse" data-target="#newFacturacion" >
+                                <a href="#"><i className="far fas fa-laptop fa-2x"></i>
+                                <label>Facturación</label></a>
                             </li>
                             
-                            <li data-toggle="collapse" data-target="#newCxc" className="collapsed">
-                                <a href="#"><i className="far fa-closed-captioning fa-2x"></i>Cuentas Por Cobrar</a>
+                            <li data-toggle="collapse" data-target="#newCxc">
+                                <a href="#"><i className="far fa-closed-captioning fa-2x"></i>
+                                <label>Cuentas Por Cobrar</label></a>
                             </li>
                             
-                            <li data-toggle="#" data-target="#newCxcConsulta" className="collapsed">
-                                <a href="#"><i className="far fa-newspaper fa-2x"></i>Consultas</a>
+                            <li data-toggle="#" data-target="#newCxcConsulta" >
+                                <a href="#"><i className="far fa-newspaper fa-2x"></i>
+                                <label>Consultas</label></a>
                             </li>
                             
-                            <li data-target="#newMantenimiento" className="collapsed">
-                                <a href="#"><i className="fas fa-cogs fa-2x"></i>Mantenimiento</a>
+                            <li data-target="#newMantenimiento" >
+                                <a href="#"><i className="fas fa-cogs fa-2x"></i>
+                                <label>Mantenimiento</label></a>
                             </li>
                             
-                            <li data-target="#newSeguridad" className="collapsed">
-                                <a href="#"><i class="far fa-user fa-2x"></i>Seguridad</a>
+                            <li data-target="#newSeguridad" >
+                                <a href="#"><i class="far fa-user fa-2x"></i>
+                                <label>Seguridad</label></a>
                             </li>
                             
-                            <li data-target="#newSalir" className="collapsed" onClick={() => this._handleSalir()}>
-                                <a href="#"><i className="fas fa-sign-out-alt fa-2x"></i>Salir</a></li>
+                            <li data-target="#newSalir"  onClick={() => this._handleSalir()}>
+                                <a href="#"><i className="fas fa-sign-out-alt fa-2x"></i>
+                                <label>Salir</label></a></li>
                         </ul>
                     </div>
                 </nav>
@@ -113,6 +143,7 @@ class Menu extends Component{
                     
                 </div>
 
+                
             </div>
         );
     }
