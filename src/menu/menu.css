@@ -274,110 +274,56 @@ span {
     transform: scale(1);
 } */
 
-.mdl-layout {
-    align-items: center;
-    justify-content: center;
+.menu-custom-row {
+    margin-left: 200px;
 }
 
-.mdl-layout__content {
-    padding: 24px;
-    flex: none;
-}
-
-body,
-html {
-    height: 100%;
-    /*Siempre es necesario cuando trabajamos con alturas*/
-}
-
-.Option-Nav-flex-column {
-    transition: 0.5s;
-    transform: scale(1);
-    /* transform: scale(1.1); */
-    color: #000;
-    background: #fff;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+div.container-custom-menu {
+    /* border: 1px solid red; */
+    /* width: 33%; */
     position: fixed;
-    display: inline-block;
-    /*El div será ubicado con relación a la pantalla*/
-    left: 200px;
-    /*A la derecha deje un espacio de 0px*/
-    right: 0px;
-    /*A la izquierda deje un espacio de 0px*/
-    bottom: 0px;
-    /*Abajo deje un espacio de 0px*/
-    height: 30%;
-    width: 180px;
-    /*alto del div*/
-    /* z-index: 0; */
-    top: 100px;
-}
-
-.Option-Nav-flex-column1 {
-    transition: 0.7s;
-    transform: scale(1);
-    /* transform: scale(1.1); */
-    color: #000;
+    /* position: absolute; */
+    top: 90px;
+    margin: auto;
     background: #fff;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    position: absolute;
-    /* display: inline-block; */
-    /*El div será ubicado con relación a la pantalla*/
-    left: 400px;
-    /*A la derecha deje un espacio de 0px*/
-    right: 0px;
-    /*A la izquierda deje un espacio de 0px*/
-    bottom: 0px;
-    /*Abajo deje un espacio de 0px*/
-    height: 30%;
-    width: 180px;
-    /*alto del div*/
-    /* z-index: 0; */
-    top: 100px;
+    /* right: 0px;
+    bottom: 0px; */
+    /* height: 250px; */
+    width: 220px;
+    cursor: pointer;
+    text-align: center;
+    transition: 1s;
+    padding: 60px 0px 60px;
+    display: block;
+    /* transition: 5s; */
 }
 
-.Option-Nav-flex-column:hover {
-    transition: 0.5s;
-    transform: scale(1);
-    transform: scale(1.1);
-    color: #000;
-    background: #fff;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    position: fixed;
-    display: inline-block;
-    /*El div será ubicado con relación a la pantalla*/
-    left: 200px;
-    /*A la derecha deje un espacio de 0px*/
-    right: 0px;
-    /*A la izquierda deje un espacio de 0px*/
-    bottom: 0px;
-    /*Abajo deje un espacio de 0px*/
-    height: 30%;
-    width: 180px;
-    /*alto del div*/
-    /* z-index: 0; */
-    top: 100px;
+.menu-opcion1 {
+    left: 220px;
+    /* transition: 1s; */
+    transform: scale(0.9);
 }
 
-.Option-Nav-flex-column1:hover {
-    transition: 0.7s;
-    transform: scale(1);
-    transform: scale(1.1);
-    color: #000;
-    background: #fff;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    position: absolute;
-    /* display: inline-block; */
-    /*El div será ubicado con relación a la pantalla*/
-    left: 400px;
-    /*A la derecha deje un espacio de 0px*/
-    right: 0px;
-    /*A la izquierda deje un espacio de 0px*/
-    bottom: 0px;
-    /*Abajo deje un espacio de 0px*/
-    height: 30%;
-    width: 180px;
-    /*alto del div*/
-    /* z-index: 0; */
-    top: 100px;
+.menu-opcion2 {
+    left: 440px;
+    transform: scale(0.9);
 }
+
+.menu-opcion3 {
+    left: 660px;
+    transform: scale(0.9);
+}
+
+.menu-opcion4 {
+    left: 880px;
+    transform: scale(0.9);
+}
+
+div.container-custom-menu:hover {
+    transition: 0.3s;
+    /* transform: scale(1); */
+    transform: scale(1);
+}
+
+.div-custom-all {}

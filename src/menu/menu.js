@@ -21,33 +21,33 @@ class Menu extends Component{
         return (
             <div>
                 
-                    <nav className = "navbar navbar-toggleable-md navbar-inverse bg-faded"> 
-                        <a className = "navbar-brand" href = "#" > 
-                            <h2 clasName="navbar-brand mb-0"><i className = "fa fa-desktop"></i>  Web Billing System</h2>
-                        </a>
-                        <button class="navbar-toggler custom-toggler navbar-toggler-right" type="button" 
-                            data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <form className="form-inline navbar-right my-2 my-lg-0">
-                            <div className="form-inline icon-search-custom input">
-                                <i className="fas icon-search fa-search" onClick={()=>this._handleSalir()}></i>
-                                <input className="form-control mr-sm-2" type="text" placeholder="Buscar"/>                                
-                            </div>
-                        </form>
+                <nav className = "navbar navbar-toggleable-md navbar-inverse bg-faded"> 
+                    <a className = "navbar-brand" href = "#" > 
+                        <h2 clasName="navbar-brand mb-0"><i className = "fa fa-desktop"></i>  Web Billing System</h2>
+                    </a>
+                    <button class="navbar-toggler custom-toggler navbar-toggler-right" type="button" 
+                        data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <form className="form-inline navbar-right my-2 my-lg-0">
+                        <div className="form-inline icon-search-custom input">
+                            <i className="fas icon-search fa-search" onClick={()=>this._handleSalir()}></i>
+                            <input className="form-control mr-sm-2" type="text" placeholder="Buscar"/>                                
+                        </div>
+                    </form>
 
-                    </nav>
+                </nav>
                 
                 <nav className = "nav flex-column"> 
                     
                     <div  id="navbarSupportedContent">
                         <ul id="menu-content" className="navbar-nav collapse">
-                            <li className="collapsed">
-                                <a href="#" data-toggle="collapse" data-target="#newFacturacion"><i className="far fas fa-laptop fa-2x"></i>Facturación</a>
+                            <li data-toggle="collapse" data-target="#newFacturacion" className="collapsed">
+                                <a href="#"><i className="far fas fa-laptop fa-2x"></i>Facturación</a>
                             </li>
                             
-                            <li data-target="#newCxc" className="collapsed">
+                            <li data-toggle="collapse" data-target="#newCxc" className="collapsed">
                                 <a href="#"><i className="far fa-closed-captioning fa-2x"></i>Cuentas Por Cobrar</a>
                             </li>
                             
@@ -70,12 +70,47 @@ class Menu extends Component{
                 </nav>
 
                 <div id="newFacturacion" className="collapse">
-                    <div className="Option-Nav-flex-column">
-                        ¡Hola mundo!
+                    
+                    <div className="container-custom-menu menu-opcion1">
+                        <h4>Facturacion</h4>
+                        <hr/>
+                        <i className="fa fa-money-bill-alt fa-5x"></i>
                     </div>
-                    <div className="Option-Nav-flex-column1">
-                        Mariano Uribe
+                
+                    <div className="container-custom-menu menu-opcion2">
+                        <h4>Cotizacion</h4>
+                        <hr/>
+                        <i className="fa fa-money-bill-alt fa-5x"></i>
                     </div>
+                
+                    <div className="container-custom-menu menu-opcion3">
+                        <h4>Conduce</h4>
+                        <hr/>
+                        <i className="fa fa-money-bill-alt fa-5x"></i>
+                    </div>
+                
+                    <div className="container-custom-menu menu-opcion4">
+                        <h4>Compras</h4>
+                        <hr/>
+                        <i className="fa fa-money-bill-alt fa-5x"></i>
+                    </div>
+                </div>
+
+                <div id="newCxc" className="collapse">
+                    
+                    <div className="container-custom-menu menu-opcion1">
+                        <h4>Cobros</h4>
+                        <hr/>
+                        <i className="fa fa-money-bill-alt fa-5x"></i>
+                    </div>
+                
+                    <div className="container-custom-menu menu-opcion2">
+                        <h4>Nota de Credito</h4>
+                        <hr/>
+                        <i className="fa fa-money-bill-alt fa-5x"></i>
+                    </div>
+                
+                    
                 </div>
 
             </div>
