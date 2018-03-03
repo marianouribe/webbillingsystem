@@ -71,7 +71,7 @@ class Menu extends Component{
                         <input className="form-control mr-sm-2" type="text" placeholder="Buscar"/>                                
                     </div>
                 </form>
-                <div className="l-site">
+                
                     <div className="l-nav">
                         <nav className = {this.state.navbarClassMenu}> 
                             
@@ -109,52 +109,40 @@ class Menu extends Component{
                             </div>
                         </nav>
                     </div>
-                    <div class="l-page"> 
+                <div className="l-site">
                         <section class="band band-a">
                             <div class="band-container">
                                 <div class="band-inner">
                                     <div className="container-custom-menu menu-opcion1">
-                                        <h4>Facturacion</h4>
+                                        <h5>Facturacion</h5>
                                         <hr/>
                                         <i className="fa fa-money-bill-alt fa-5x"></i>
                                     </div>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="band band-a">
-                            <div class="band-container">
-                                <div class="band-inner">
+                                
+                        
                                     <div className="container-custom-menu menu-opcion2">
-                                        <h4>Cotizacion</h4>
+                                        <h5>Cotizacion</h5>
                                         <hr/>
                                         <i className="fa fa-money-bill-alt fa-5x"></i>
                                     </div>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="band band-a">
-                            <div class="band-container">
-                                <div class="band-inner">
+                               
+                        
                                     <div className="container-custom-menu menu-opcion3">
-                                        <h4>Conduce</h4>
+                                        <h5>Conduce</h5>
                                         <hr/>
                                         <i className="fa fa-money-bill-alt fa-5x"></i>
                                     </div>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="band band-a">
-                            <div class="band-container">
-                                <div class="band-inner">
+                                
+                        
                                     <div className="container-custom-menu menu-opcion4">
-                                        <h4>Compras</h4>
+                                        <h5>Compras</h5>
                                         <hr/>
                                         <i className="fa fa-money-bill-alt fa-5x"></i>
                                     </div>
                                 </div>
-                            </div>
+                             </div>   
                         </section>
-                    </div>
+                    
                     <div id="newCxc" className="collapse">
                         
                         <div className="container-custom-menu menu-opcion1">
