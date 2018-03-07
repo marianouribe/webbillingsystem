@@ -72,91 +72,94 @@ class Menu extends Component{
                     </div>
                 </form>
                 
-                    <div className="l-nav">
-                        <nav className = {this.state.navbarClassMenu}> 
-                            
-                            <div  id="navbarContentMenu">
-                                <ul id="menu-content" className="navbar-nav">
-                                    <li data-toggle="collapse" data-target="#newFacturacion" >
-                                        <a href="#"><i className="far fas fa-laptop fa-2x"></i>
-                                        <label>Facturación</label></a>
-                                    </li>
-                                    
-                                    <li data-toggle="collapse" data-target="#newCxc">
-                                        <a href="#"><i className="far fa-closed-captioning fa-2x"></i>
-                                        <label>Cuentas Por Cobrar</label></a>
-                                    </li>
-                                    
-                                    <li data-toggle="#" data-target="#newCxcConsulta" >
-                                        <a href="#"><i className="far fa-newspaper fa-2x"></i>
-                                        <label>Consultas</label></a>
-                                    </li>
-                                    
-                                    <li data-target="#newMantenimiento" >
-                                        <a href="#"><i className="fas fa-cogs fa-2x"></i>
-                                        <label>Mantenimiento</label></a>
-                                    </li>
-                                    
-                                    <li data-target="#newSeguridad" >
-                                        <a href="#"><i class="far fa-user fa-2x"></i>
-                                        <label>Seguridad</label></a>
-                                    </li>
-                                    
-                                    <li data-target="#newSalir"  onClick={() => this._handleSalir()}>
-                                        <a href="#"><i className="fas fa-sign-out-alt fa-2x"></i>
-                                        <label>Salir</label></a></li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
+                <div className="l-nav">
+                    <nav className = {this.state.navbarClassMenu}> 
+                        
+                        <div  id="navbarContentMenu">
+                            <ul id="menu-content" className="navbar-nav">
+                                <li data-toggle="collapse" data-target="#newFacturacion" >
+                                    <a href="#"><i className="far fas fa-laptop fa-2x"></i>
+                                    <label>Facturación</label></a>
+                                </li>
+                                
+                                <li data-toggle="collapse" data-target="#newCxc">
+                                    <a href="#"><i className="far fa-closed-captioning fa-2x"></i>
+                                    <label>Cuentas Por Cobrar</label></a>
+                                </li>
+                                
+                                <li data-toggle="#" data-target="#newCxcConsulta" >
+                                    <a href="#"><i className="far fa-newspaper fa-2x"></i>
+                                    <label>Consultas</label></a>
+                                </li>
+                                
+                                <li data-target="#newMantenimiento" >
+                                    <a href="#"><i className="fas fa-cogs fa-2x"></i>
+                                    <label>Mantenimiento</label></a>
+                                </li>
+                                
+                                <li data-target="#newSeguridad" >
+                                    <a href="#"><i class="far fa-user fa-2x"></i>
+                                    <label>Seguridad</label></a>
+                                </li>
+                                
+                                <li data-target="#newSalir"  onClick={() => this._handleSalir()}>
+                                    <a href="#"><i className="fas fa-sign-out-alt fa-2x"></i>
+                                    <label>Salir</label></a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
                 <div className="l-site">
-                        <section class="band band-a">
-                            <div class="band-container">
-                                <div class="band-inner">
+                    <section className="band band-a">
+                        <div className="band-container">
+                            <div className="band-inner">
+                                <div id="newFacturacion" className="collapse">
                                     <div className="container-custom-menu menu-opcion1">
-                                        <h5>Facturacion</h5>
+                                        <h4>Facturacion</h4>
                                         <hr/>
                                         <i className="fa fa-money-bill-alt fa-5x"></i>
                                     </div>
                                 
                         
                                     <div className="container-custom-menu menu-opcion2">
-                                        <h5>Cotizacion</h5>
+                                        <h4>Cotizacion</h4>
                                         <hr/>
                                         <i className="fa fa-money-bill-alt fa-5x"></i>
                                     </div>
-                               
+                            
                         
                                     <div className="container-custom-menu menu-opcion3">
-                                        <h5>Conduce</h5>
+                                        <h4>Conduce</h4>
                                         <hr/>
                                         <i className="fa fa-money-bill-alt fa-5x"></i>
                                     </div>
                                 
                         
                                     <div className="container-custom-menu menu-opcion4">
-                                        <h5>Compras</h5>
+                                        <h4>Compras</h4>
                                         <hr/>
                                         <i className="fa fa-money-bill-alt fa-5x"></i>
                                     </div>
                                 </div>
-                             </div>   
-                        </section>
-                    
-                    <div id="newCxc" className="collapse">
-                        
-                        <div className="container-custom-menu menu-opcion1">
-                            <h4>Cobros</h4>
-                            <hr/>
-                            <i className="fa fa-money-bill-alt fa-5x"></i>
-                        </div>
-                    
-                        <div className="container-custom-menu menu-opcion2">
-                            <h4>Nota de Credito</h4>
-                            <hr/>
-                            <i className="fa fa-money-bill-alt fa-5x"></i>
-                        </div>
-                    </div>
+                            
+                
+                                <div id="newCxc" className="collapse">
+                                    
+                                    <div className="container-custom-menu menu-opcion1">
+                                        <h4>Cobros</h4>
+                                        <hr/>
+                                        <i className="fa fa-money-bill-alt fa-5x"></i>
+                                    </div>
+                                
+                                    <div className="container-custom-menu menu-opcion2">
+                                        <h4>Nota de Credito</h4>
+                                        <hr/>
+                                        <i className="fa fa-money-bill-alt fa-5x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>   
+                    </section>
                 </div>
             </div>
         );
