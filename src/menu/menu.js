@@ -74,7 +74,7 @@ class Menu extends Component{
                 
                 <div className="l-nav">
                     <nav className = {this.state.navbarClassMenu}> 
-                        
+                        <h1>WBSystem</h1>
                         <div  id="navbarContentMenu">
                             <ul id="menu-content" className="navbar-nav">
                                 <li data-toggle="collapse" data-target="#newFacturacion" >
