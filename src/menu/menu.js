@@ -110,33 +110,37 @@ class Menu extends Component{
                         </div>
                     </nav>
                 </div>
-                <div className="l-site">
-                    <section className="band band-a">
-                        <div className="band-container">
-                            <div className="band-inner">
+                <div className="container-fluid l-container-menu">
+                    <div className="row">
+                        <div className="col-sm-12">
                                 <div id="newFacturacion" className="collapse">
-                                    <div className="container-custom-menu menu-opcion1" onClick={()=>this._handleFacturar()}>
+                                    <div className="container-custom-menu" onClick={()=>this._handleFacturar()}>
                                         <h4>Facturacion</h4>
                                         <hr/>
                                         <i className="fa fa-money-bill-alt fa-5x"></i>
                                     </div>
                                 
                         
-                                    <div className="container-custom-menu menu-opcion2" onClick={()=>this._handleFacturar()}>
+                                    <div className="container-custom-menu" onClick={()=>this._handleFacturar()}>
                                         <h4>Cotizacion</h4>
                                         <hr/>
                                         <i className="fa fa-money-bill-alt fa-5x"></i>
                                     </div>
                             
                         
-                                    <div className="container-custom-menu menu-opcion3">
+                                    <div className="container-custom-menu">
                                         <h4>Conduce</h4>
                                         <hr/>
                                         <i className="fa fa-money-bill-alt fa-5x"></i>
                                     </div>
                                 
                         
-                                    <div className="container-custom-menu menu-opcion4">
+                                    <div className="container-custom-menu">
+                                        <h4>Compras</h4>
+                                        <hr/>
+                                        <i className="fa fa-money-bill-alt fa-5x"></i>
+                                    </div>
+                                     <div className="container-custom-menu">
                                         <h4>Compras</h4>
                                         <hr/>
                                         <i className="fa fa-money-bill-alt fa-5x"></i>
@@ -158,9 +162,9 @@ class Menu extends Component{
                                         <i className="fa fa-money-bill-alt fa-5x"></i>
                                     </div>
                                 </div>
-                            </div>
+                            
                         </div>   
-                    </section>
+                    </div>
                 </div>
             </div>
         );

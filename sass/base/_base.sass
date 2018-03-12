@@ -1,17 +1,19 @@
 $brand-body-color: rgba(218, 218, 218, 0.342)
+$background-color-nav-bar: rgba(0, 78, 195, 0.788)
 $brand-theme-color: #0275d8
 $brand-white-color: #fff
 
 body 
     background-color: $brand-body-color
 
-.l-site 
-    margin: 0 auto
-    max-width: 810px
+.l-container-menu 
+    margin-left: 260px
+    // max-width: 800px
     position: relative
-    border: 1px solid rebeccapurple
+    padding: 50px 5px
+    // border: 1px solid rebeccapurple
 
-.l-site:before 
+.l-container-menu:before 
     content: ""
     position: fixed
     top: 0
@@ -19,13 +21,12 @@ body
     bottom: 0
     width: 17%
     display: block
-    background-color: rgba(0, 78, 195, 0.788)
+    background-color: $background-color-nav-bar
     z-index: 1
 
-
-.l-nav 
+.l-nav
     position: absolute
-    width: 220px
+    width: 17%
     display: block
     top: 0
     bottom: 0
@@ -33,15 +34,27 @@ body
     z-index: 3
     font-family: Verdana, Helvetica, sans-serif
     font-size: 13px
+    background-color: $background-color-nav-bar
 
-.nav 
-    width: 250px
-    position: fixed
-    top: 0
-    bottom: 0
-    margin: 0
-    padding: 30px
-    overflow: auto
+// .l-nav:before 
+//      content: ""
+//      position: fixed
+//      top: 0
+//      left: 0
+//      bottom: 0
+//      width: 17%
+//      display: block
+//      background-color: rgba(0, 78, 195, 0.788)
+//      z-index: 1
+
+// .nav 
+//     width: 260px
+//     position: fixed
+//     top: 0
+//     bottom: 0
+//     margin: 0
+//     padding: 30px
+//     overflow: auto
 
 h4 
     text-align: center
