@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './menu.css';
 
 import Login from '../login/login';
+import App from '../App/App';
 import Factutrar from '../facturar/facturar';
 import { Script } from "vm";
 
@@ -25,7 +26,7 @@ class Menu extends Component{
     }
 
     _handleFacturar = () =>{
-        ReactDOM.render(<Factutrar />, document.getElementById('root'));
+        ReactDOM.render(<App />, document.getElementById('root'));
     }
 
     _handleSalir = () =>{
@@ -114,14 +115,14 @@ class Menu extends Component{
                         <div className="band-container">
                             <div className="band-inner">
                                 <div id="newFacturacion" className="collapse">
-                                    <div className="container-custom-menu menu-opcion1">
+                                    <div className="container-custom-menu menu-opcion1" onClick={()=>this._handleFacturar()}>
                                         <h4>Facturacion</h4>
                                         <hr/>
                                         <i className="fa fa-money-bill-alt fa-5x"></i>
                                     </div>
                                 
                         
-                                    <div className="container-custom-menu menu-opcion2">
+                                    <div className="container-custom-menu menu-opcion2" onClick={()=>this._handleFacturar()}>
                                         <h4>Cotizacion</h4>
                                         <hr/>
                                         <i className="fa fa-money-bill-alt fa-5x"></i>
