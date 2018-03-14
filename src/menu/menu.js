@@ -66,22 +66,24 @@ class Menu extends Component{
     render() {
         return (
             <div>
-                <div className="title-menu" id="header">
-                    <form className="form-inline navbar-right">
-                        <div className="form-inline icon-search-custom input">
-                            <i className="fas icon-search fa-search" onClick={()=>this._buttonDropDownClick()}></i>
-                            <input className="form-control mr-sm-2" type="text" placeholder="Buscar"/>                                
+                
+                    <div className="l-nav">
+                        <div className="title-menu" id="header">
+                            
+                            <form className="form-inline navbar-right">
+                                <div className="form-inline icon-search-custom input">
+                                    <i className="fas icon-search fa-search" onClick={()=>this._buttonDropDownClick()}></i>
+                                    <input className="form-control mr-sm-2" type="text" placeholder="Buscar"/>                                
+                                </div>
+                            </form>
                         </div>
-                    </form>
-                    
+                    </div>
                 
                     <div className="container-fluid">
                         
                         <div className="l-nav">
                             <h2>WBSystem</h2>
                             <nav className = "nav flex-column"> 
-                            
-                                
                             
                                 <div  id="navbarContentMenu">
                                     <ul id="menu-content" className="navbar-nav">
@@ -118,7 +120,7 @@ class Menu extends Component{
                             </nav>
                         </div>
                     </div>
-                </div>
+                
                 <div className="l-container-menu">
                     <div className="row">
                         <div className="col-sm-12">
