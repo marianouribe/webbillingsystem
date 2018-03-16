@@ -30,17 +30,23 @@ class App extends Component {
     loadData = () =>{
       var self = this;
       http.getProducts().then(data => {
-          // console.log(data);
-          self.setState({products: data})
+          console.log(data);
+          self.setState({products: data.Listadoarticulo})
       }, er=> {
 
       });
     }
     
+    // productList = () => {
+    //   const list = this.state.products.map((product) => 
+    //     <div className = "col-sm-4" key={product._id}>
+    //       <Product product={product}/>
+    //     </div>
+    //   );
     productList = () => {
-      const list = this.state.products.map((product) => 
-        <div className = "col-sm-4" key={product._id}>
-          <Product product={product}/>
+        const list = this.state.products.map((articulo) => 
+        <div className = "col-sm-4" key={articulo.IdArticulo}>
+          <Product articulo={articulo}/>
         </div>
       );
 //  title={product.title} price={product.price} imgUrl={product.imgUrl} <Product aqui dentro va/>

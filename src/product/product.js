@@ -26,16 +26,20 @@ class Product extends Component{
     }
 
     onWishListChanged(newWihsList){
-        this.setState({onWishList: ds.itemOnWishList(this.props.product)});
+        this.setState({onWishList: ds.itemOnWishList(this.props.articulo)});
     }
 
     onButtonClicked = () => {
         if (this.state.onWishList){
-            ds.removeWishListItem(this.props.product);
+            ds.removeWishListItem(this.props.articulo);
         }else {
-            ds.addWishListItem(this.props.product)
+            ds.addWishListItem(this.props.articulo)
         }
     }
+
+    // _img=()=>{
+    //     "data:image/png;base64,";
+    // }
     render(){
 
         var btnClass;
@@ -48,10 +52,12 @@ class Product extends Component{
 
         return(
             <div className="card product">
-                <img className="card-img-top" src={this.props.product.imgUrl} alt="Product" ></img>
+                
+                <img className="card-img-top" src={this.props.articulo.Data} alt="Product" ></img>
+
                 <div className="card-block">
-                    <h4 className="card-title">{this.props.product.title}</h4>
-                    <p className="card-text">Precio: ${this.props.product.price}</p>
+                    <h4 className="card-title">{this.props.articulo.DescripcionArticulo}</h4>
+                    <p className="card-text">Precio: ${this.props.articulo.PrecioUnitarioArticulo}</p>
                     <a href="#" onClick={() => this.onButtonClicked()} className={btnClass}>
                     {this.state.onWishList ? "Remove From Wishlist" : "Add To Cart"}</a>
                 </div>
@@ -61,3 +67,5 @@ class Product extends Component{
 }
 
 export default Product;
+
+// <img className="card-img-top" src={this.props.articulo.Data} alt="Product" ></img>

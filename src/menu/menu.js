@@ -66,7 +66,7 @@ class Menu extends Component{
     render() {
         return (
             <div>
-                
+                    
                     <div className="l-nav">
                         <div className="title-menu" id="header">
                             
@@ -123,7 +123,7 @@ class Menu extends Component{
                 
                 <div className="l-container-menu">
                     <div className="row">
-                        <div className="col-sm-12">
+                        <div className="col-sm-10">
                                 <div id="newFacturacion" className="collapse">
                                     <div className="container-custom-menu" onClick={()=>this._handleFacturar()}>
                                         <h4>Facturacion</h4>

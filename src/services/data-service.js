@@ -15,7 +15,7 @@ class DataService {
 
     itemOnWishList = item => {
         for (var x = 0; x < wishList.length; x++) {
-            if (wishList[x]._id === item._id) {
+            if (wishList[x].IdArticulo === item.IdArticulo) {
                 return true;
             }            
         }
@@ -29,7 +29,7 @@ class DataService {
     }
     removeWishListItem = item => {
         for (var x = 0; x < wishList.length; x++){
-            if (wishList[x]._id === item._id){
+            if (wishList[x].IdArticulo === item.IdArticulo){
                 wishList.splice(x,1);
                 ns.postNotification(NOTIF_WISHLIST_CHANGED, wishList);
                 break;

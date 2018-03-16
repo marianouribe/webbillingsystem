@@ -1,4 +1,10 @@
       
+h2{
+    color: #fff;
+    text-align: center;
+    margin: auto;
+    
+}
 form.navbar-right {
     float: right;
     margin: auto;
@@ -61,7 +67,7 @@ div.container-custom-menu {
     cursor: pointer;
     text-align: center;
     transition: 1s;
-    padding: 80px 0px 80px;
+    padding: 60px 0px 60px;
     display: inline-block;
     transform: scale(0.9);
     /* position: absolute; */
@@ -119,7 +125,9 @@ div.container-custom-menu {
 
 @media screen and (max-width:680px){
     .nav.flex-column{
-        position: fixed;
+        /* position: fixed; */
+        margin-top: 30px;
+        text-align: center;
     }
 
     .nav.flex-column ul li label {

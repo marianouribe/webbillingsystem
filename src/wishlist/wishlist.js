@@ -52,7 +52,7 @@ class WishList extends Component {
 
     createWishList = () => {
         const list = this.state.wishList.map((product) => 
-            <ProductCondensed product = {product} key={product._id}/>
+            <ProductCondensed product = {product} key={product.IdArticulo}/>
         );
 
         return (list);
