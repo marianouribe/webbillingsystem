@@ -37,9 +37,6 @@ class Product extends Component{
         }
     }
 
-    // _img=()=>{
-    //     "data:image/png;base64,";
-    // }
     render(){
 
         var btnClass;
@@ -50,10 +47,13 @@ class Product extends Component{
             btnClass = "btn btn-primary";
         }
 
+         var _img;
+         _img = "data:;base64," + this.props.articulo.Data
+
         return(
             <div className="card product">
                 
-                <img className="card-img-top" src={this.props.articulo.Data} alt="Product" ></img>
+                <img className="card-img-top" src={_img} alt="Product" ></img>
 
                 <div className="card-block">
                     <h4 className="card-title">{this.props.articulo.DescripcionArticulo}</h4>
