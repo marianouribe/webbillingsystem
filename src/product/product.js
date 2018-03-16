@@ -53,10 +53,10 @@ class Product extends Component{
         return(
             <div className="card product">
                 
-                <img className="card-img-top" src={_img} alt="Product" ></img>
+                <img className="card-img-top"  src={_img} alt="Product" ></img>
 
                 <div className="card-block">
-                    <h4 className="card-title">{this.props.articulo.DescripcionArticulo}</h4>
+                    <p className="card-title">{this.props.articulo.DescripcionArticulo}</p>
                     <p className="card-text">Precio: ${this.props.articulo.PrecioUnitarioArticulo}</p>
                     <a href="#" onClick={() => this.onButtonClicked()} className={btnClass}>
                     {this.state.onWishList ? "Remove From Wishlist" : "Add To Cart"}</a>

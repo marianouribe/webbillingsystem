@@ -16,6 +16,7 @@ class DataService {
     itemOnWishList = item => {
         for (var x = 0; x < wishList.length; x++) {
             if (wishList[x].IdArticulo === item.IdArticulo) {
+                //console.log(wishList[x].IdArticulo);
                 return true;
             }            
         }

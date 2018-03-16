@@ -177,6 +177,13 @@ class Menu extends Component{
                         </div>   
                     </div>
                 </div>
+                <div className="l-container-menu">
+                    <footer id="footer">
+                        <div className="container">
+
+                        </div>
+                    </footer>
+                </div>
             </div>
         );
     }
