@@ -12,14 +12,16 @@ class ProductCondensed extends Component {
         this.removeProduct = this.removeProduct.bind(this);
     }
 
-    removeProduct = () => {
+    removeProduct = (event) => {
         ds.removeWishListItem(this.props.articulo);
+
+        event.preventDefault();
     }
     
     render() {
         return (
             <li className="list-group-item pc-condensed">
-                <a href="#" className="btn btn-outline-danger" onClick={() => this.removeProduct()}>X</a>
+                <a href="#" className="btn btn-outline-danger" onClick={(e) => this.removeProduct(e)}>X</a>
                 <p>{this.props.articulo.DescripcionArticulo} | <b>${this.props.articulo.PrecioUnitarioArticulo}</b></p>
             </li>
         );

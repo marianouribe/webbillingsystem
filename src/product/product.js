@@ -29,12 +29,14 @@ class Product extends Component{
         this.setState({onWishList: ds.itemOnWishList(this.props.articulo)});
     }
 
-    onButtonClicked = () => {
+    onButtonClicked = (event) => {
         if (this.state.onWishList){
             ds.removeWishListItem(this.props.articulo);
         }else {
             ds.addWishListItem(this.props.articulo)
         }
+
+        event.preventDefault();
     }
 
     render(){
@@ -58,7 +60,7 @@ class Product extends Component{
                 <div className="card-block">
                     <p className="card-title">{this.props.articulo.DescripcionArticulo}</p>
                     <p className="card-text">Precio: ${this.props.articulo.PrecioUnitarioArticulo}</p>
-                    <a href="#" onClick={() => this.onButtonClicked()} className={btnClass}>
+                    <a href="#" onClick={(e) => this.onButtonClicked(e)} className={btnClass}>
                     {this.state.onWishList ? "Remove From Wishlist" : "Add To Cart"}</a>
                 </div>
             </div>

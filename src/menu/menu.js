@@ -123,38 +123,35 @@ class Menu extends Component{
                 
                 <div className="l-container-menu">
                     <div className="row">
-                        <div className="col-sm-10">
+                        <div className="col-sm-12">
                                 <div id="newFacturacion" className="collapse">
                                     <div className="container-custom-menu" onClick={()=>this._handleFacturar()}>
-                                        <h4>Facturacion</h4>
+                                        <i className="fa fa-money-bill-alt fa-3x"></i>
                                         <hr/>
-                                        <i className="fa fa-money-bill-alt fa-5x"></i>
+                                        <h4>Facturación</h4>
                                     </div>
-                                
-                        
+                                    <div className="container-custom-menu">
+                                        <i className="fa fa-shopping-cart fa-3x"></i>
+                                        <hr/>
+                                        <h4>Compras</h4>
+                                    </div>
+
                                     <div className="container-custom-menu" onClick={()=>this._handleFacturar()}>
-                                        <h4>Cotizacion</h4>
+                                        <i className="fas fa-file-alt fa-3x"></i>
                                         <hr/>
-                                        <i className="fa fa-money-bill-alt fa-5x"></i>
+                                        <h4>Cotización</h4>
                                     </div>
-                            
                         
                                     <div className="container-custom-menu">
+                                        <i className="far fa-file-alt fa-3x"></i>
+                                        <hr/>
                                         <h4>Conduce</h4>
-                                        <hr/>
-                                        <i className="fa fa-money-bill-alt fa-5x"></i>
                                     </div>
-                                
-                        
-                                    <div className="container-custom-menu">
-                                        <h4>Compras</h4>
-                                        <hr/>
-                                        <i className="fa fa-money-bill-alt fa-5x"></i>
-                                    </div>
+                                    
                                      <div className="container-custom-menu">
-                                        <h4>Compras</h4>
+                                        <i className="far fa-newspaper fa-3x"></i>
                                         <hr/>
-                                        <i className="fa fa-money-bill-alt fa-5x"></i>
+                                        <h4>Ventas</h4>
                                     </div>
                                 </div>
                             
