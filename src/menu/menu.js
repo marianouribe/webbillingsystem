@@ -126,7 +126,7 @@ class Menu extends Component{
                         <div className="col-sm-12">
                                 <div id="newFacturacion" className="collapse">
                                     <div className="container-custom-menu" onClick={()=>this._handleFacturar()}>
-                                        <i className="fa fa-money-bill-alt fa-3x"></i>
+                                        <i className="fas fa-dollar-sign fa-3x"></i>
                                         <hr/>
                                         <h4>Facturación</h4>
                                     </div>

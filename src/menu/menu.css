@@ -1,17 +1,15 @@
-
-h2{
+h2 {
     padding-top: 5px;
     color: #fff;
     text-align: center;
     margin: auto;
-    
 }
+
 form.navbar-right {
     float: right;
     margin: auto;
     /* padding-top: 0px; */
 }
-
 
 .form-inline[class*="icon-search-custom"].input>input {
     padding-left: 2em !important;
@@ -59,27 +57,33 @@ i.fas.icon-search {
     display: block;
 }
 
-
 div.container-custom-menu {
     /* margin: auto; */
     background: #fff;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    width: 200px;
+    border-radius: 8px;
+    width: 220px;
     cursor: pointer;
     text-align: center;
     transition: 1s;
-    padding: 40px 0px 40px;
+    padding: 80px 0px 80px;
     display: inline-block;
     transform: scale(0.9);
-    /* position: absolute; */
+    margin-left: 20px;
     
+    /* position: absolute; */
 }
-   
+
+div.container-custom-menu i {
+    color: #0275d8;
+}
+
 .container-custom-menu:hover {
     transition: 0.3s;
     transform: scale(1);
 }
-   
+
+
 /*
 @media screen and (max-width: 980px) {
     
@@ -124,19 +128,16 @@ div.container-custom-menu {
     }
 }*/
 
-@media screen and (max-width:680px){
-    .nav.flex-column{
+@media screen and (max-width:680px) {
+    .nav.flex-column {
         /* position: fixed; */
         margin-top: 30px;
         text-align: center;
     }
-
     .nav.flex-column ul li label {
         display: none;
     }
-    .l-nav h2{
+    .l-nav h2 {
         display: none;
     }
-    
-    
 }
