@@ -14,13 +14,19 @@ class DataService {
     }
 
     itemOnWishList = item => {
-        for (var x = 0; x < wishList.length; x++) {
-            if (wishList[x].IdArticulo === item.IdArticulo) {
-                //console.log(wishList[x].IdArticulo);
-                return true;
-            }            
-        }
-
+        // for (var x = 0; x < wishList.length; x++) {
+        //     if (wishList[x].IdArticulo === item.IdArticulo) {
+        //         //console.log(wishList[x].IdArticulo);
+        //         return true;
+        //     }            
+        // }
+            for (let x of wishList) {
+                if (x.IdArticulo === item.IdArticulo) {
+                    //console.log(wishList[x].IdArticulo);
+                    return true;
+                }
+                
+            }
         return false;
     }
 

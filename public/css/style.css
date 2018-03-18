@@ -47,6 +47,7 @@ body {
   font-family: Verdana, Helvetica, sans-serif;
   font-size: 13px;
   background-color: #0275d8;
-  background: linear-gradient(to bottom, #0275d8, #033866); }
+  background: linear-gradient(to bottom, #0275d8, #033866);
+  border: none; }
 
 /*# sourceMappingURL=style.css.map */
