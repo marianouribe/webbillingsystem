@@ -10,7 +10,7 @@ body {
   background-color: #333;
   text-align: left;
   color: #fff;
-  padding-left: 15%; }
+  padding-left: 16%; }
 
 #header {
   position: fixed;
@@ -24,6 +24,7 @@ body {
 .l-container-menu {
   margin: 50px 0px 0px 210px;
   margin-left: 14%;
+  max-width: 1150px;
   position: relative;
   padding-top: 10px; }
 
@@ -31,6 +32,9 @@ button.btn.btn-primary {
   box-shadow: 2px 2px 5px rgba(1, 38, 248, 0.336);
   -webkit-box-shadow: 2px 2px 5px rgba(1, 38, 248, 0.336);
   -moz-box-shadow: 2px 2px 5px rgba(1, 38, 248, 0.336); }
+
+body {
+  background-color: rgba(168, 163, 163, 0.15); }
 
 .l-nav {
   position: fixed;
@@ -42,6 +46,7 @@ button.btn.btn-primary {
   z-index: 3;
   font-family: Verdana, Helvetica, sans-serif;
   font-size: 13px;
-  background-color: #0275d8; }
+  background-color: #0275d8;
+  background: linear-gradient(to bottom, #0275d8, #033866); }
 
 /*# sourceMappingURL=style.css.map */
