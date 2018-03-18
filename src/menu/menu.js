@@ -177,9 +177,17 @@ class Menu extends Component{
                 </div>
                 
                 <footer id="footer" >
-                    
-                        <span class="text-muted">Place sticky footer content here.</span>
-                    
+                    <div className="row">
+                        <div className="col-sm-3">
+                            <i className="text-muted far fa-copyright"> CopyRigth 2018.</i>
+                        </div>
+                        <div className="col-sm-3">
+                            <i className="text-muted fab fa-whatsapp"> 849-849-0385.</i>
+                        </div>
+                        <div className="col-sm-3">
+                            <i className="text-muted far fa-envelope"> umariano@hotmail.com.</i>
+                        </div>
+                    </div>
                 </footer> 
             </div>
         );
