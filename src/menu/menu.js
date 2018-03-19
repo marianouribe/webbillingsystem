@@ -179,13 +179,13 @@ class Menu extends Component{
                 <footer id="footer" >
                     <div className="row">
                         <div className="col-sm-3">
-                            <i className="text-muted far fa-copyright"> CopyRigth 2018.</i>
+                            <i className="far fa-copyright"/><span className="text-muted"> CopyRigth 2018.</span>
                         </div>
                         <div className="col-sm-3">
-                            <i className="text-muted fab fa-whatsapp"> 849-849-0385.</i>
+                            <i className="fab fa-whatsapp"/><span className="text-muted"> 849-849-0385.</span>
                         </div>
                         <div className="col-sm-3">
-                            <i className="text-muted far fa-envelope"> umariano@hotmail.com.</i>
+                            <i className="far fa-envelope"/><span className="text-muted"> umariano@hotmail.com.</span>
                         </div>
                     </div>
                 </footer> 

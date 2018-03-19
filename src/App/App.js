@@ -30,7 +30,7 @@ class App extends Component {
     loadData = () =>{
       var self = this;
       http.getProducts().then(data => {
-          console.log(data);
+          // console.log(data);
           self.setState({products: data.Listadoarticulo})
       }, er=> {
 

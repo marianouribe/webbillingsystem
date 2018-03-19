@@ -12,6 +12,12 @@ body {
   color: #fff;
   padding-left: 16%; }
 
+.fab.fa-whatsapp {
+  color: green; }
+
+.far.fa-envelope {
+  color: yellow; }
+
 #header {
   position: fixed;
   padding: 8px;
