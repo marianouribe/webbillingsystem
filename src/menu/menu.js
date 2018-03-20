@@ -4,7 +4,7 @@ import './menu.css';
 
 import Login from '../login/login';
 import App from '../App/App';
-import Factutrar from '../facturar/facturar';
+import Billing from '../billing/billing';
 import { Script } from "vm";
 
 
@@ -16,7 +16,7 @@ class Menu extends Component{
         this.state = {navbarClassMenu: "nav flex-column"};
         // this._buttonDropDownClick = this._buttonDropDownClick.bind(this);
     }
-
+    
     componentDidMount(){
         this.setState({navbarClassMenu:"nav flex-column"});
     }
@@ -25,8 +25,11 @@ class Menu extends Component{
         this.setState({navbarClassMenu:"nav flex-column"});
     }
 
-    _handleFacturar = () =>{
-        ReactDOM.render(<App />, document.getElementById('root'));
+    _handleBilling = () =>{
+       ReactDOM.render(<App />, document.getElementById('root'));
+       //ReactDOM.render(<Billing />, document.getElementById('exampleModalLong').classList.toggle("modal"));
+       
+
     }
 
     _handleSalir = () =>{
@@ -81,7 +84,8 @@ class Menu extends Component{
                 <div className="container-fluid">
                     
                     <div className="l-nav">
-                        <h2>WBSystem</h2>
+                        <h2>WB</h2>
+                        <h2>System</h2>
                         <nav className = "nav flex-column"> 
                         
                             <div  id="navbarContentMenu">
@@ -125,32 +129,35 @@ class Menu extends Component{
                     <div className="row">
                         <div className="col-sm-12">
                                 <div id="newFacturacion" className="collapse">
-                                    <div className="container-custom-menu" onClick={()=>this._handleFacturar()}>
+                                    <div className="container-custom-menu" >
                                         <i className="fas fa-dollar-sign fa-3x"></i>
-                                        <hr/>
+                                        
                                         <h4>Facturación</h4>
+                                        <button onClick={()=>this._handleBilling()}>
+                                        Launch demo modal
+                                        </button>
                                     </div>
-                                    <div className="container-custom-menu">
+                                    <div className="container-custom-menu" >
                                         <i className="fa fa-shopping-cart fa-3x"></i>
-                                        <hr/>
+                                        
                                         <h4>Compras</h4>
                                     </div>
 
-                                    <div className="container-custom-menu" onClick={()=>this._handleFacturar()}>
+                                    <div className="container-custom-menu" onClick={()=>this._handleBilling()}>
                                         <i className="fas fa-file-alt fa-3x"></i>
-                                        <hr/>
+                                        
                                         <h4>Cotización</h4>
                                     </div>
                         
                                     <div className="container-custom-menu">
                                         <i className="far fa-file-alt fa-3x"></i>
-                                        <hr/>
+                                        
                                         <h4>Conduce</h4>
                                     </div>
                                     
                                     <div className="container-custom-menu">
                                         <i className="far fa-newspaper fa-3x"></i>
-                                        <hr/>
+                                        
                                         <h4>Ventas</h4>
                                     </div>
                                 </div>
