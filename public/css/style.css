@@ -19,12 +19,17 @@ body {
   color: yellow; }
 
 #header {
+  top: 0;
   position: fixed;
-  padding: 8px;
   width: 100%;
-  text-align: center;
+  text-align: left;
   background-color: #333;
   border: 1px solid rgba(114, 108, 108, 0.315); }
+
+h2 {
+  color: #fff;
+  text-align: center;
+  margin: auto; }
 
 .l-container-menu {
   margin-top: 50px;
@@ -48,10 +53,9 @@ body {
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: 3;
   font-family: Verdana, Helvetica, sans-serif;
   font-size: 13px;
   background: linear-gradient(to bottom, #0275d8, #033866);
-  border: none; }
+  z-index: 1; }
 
 /*# sourceMappingURL=style.css.map */

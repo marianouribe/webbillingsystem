@@ -1,12 +1,4 @@
-h2 {
-    padding-top: 5px;
-    color: #fff;
-    text-align: center;
-    margin: auto;
-    font-size: 28px;
-}
-
-form.navbar-right {
+.navbar-right {
     float: right;
     margin: auto;
     /* padding-top: 0px; */
@@ -71,7 +63,6 @@ div.container-custom-menu {
     display: inline-block;
     transform: scale(0.9);
     margin-left: 20px;
-    
     /* position: absolute; */
 }
 
@@ -83,6 +74,8 @@ div.container-custom-menu i {
     transition: 0.3s;
     transform: scale(1);
 }
+
+
 
 
 /*
