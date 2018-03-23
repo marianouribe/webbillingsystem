@@ -6,6 +6,8 @@ h4.loginhead {
     text-align: center;
     padding-bottom: 20px;
     color: #0275d8;
+    /* color: rgb(255, 255, 200); */
+    /* color: rgba(124, 121, 121, 0.466); */
 }
 
 .container.login-container .login-form {

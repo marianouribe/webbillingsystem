@@ -1,6 +1,9 @@
 import React, { Component } from "react";
-import ReacDon from 'react-dom';
+import ReactDOM from 'react-dom';
+import Home from '../menu/menu';
 import './billing.css';
+
+import {Route, Link} from 'react-router-dom';
 
 class billing extends Component{
     constructor(props) {
@@ -10,7 +13,11 @@ class billing extends Component{
       // this._buttonClose = this._buttonClose.bind(this);
   }
   
-  // _buttonClose = () => {
+   //const _buttonClose = () => {
+      //ReactDOM.render(<Home /> , document.getElementById('root'));
+      
+
+   //}
   //     if (this.state.billing_page === "billing-page")
   //       this.setState({billing_page: "close-billing-page"});
   //     else
@@ -30,12 +37,15 @@ class billing extends Component{
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
+
           <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
         </div>
+        <Link to = "/">
+        <button className="btn btn-primary" >Close</button>  </Link>
+
         
-        <button className="btn btn-primary" data-toggle="collapse" data-target="#pagePanelModalBilling">Close</button>  
       </form>
-      
+      <Route exact path="/" component={Home} />
     </div>);
   }
 }
