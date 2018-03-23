@@ -11,8 +11,6 @@ import Billing from "../billing/billing";
 import { Script } from "vm";
 import {BrowserRouter} from 'react-router-dom';
 
-
-
 class Menu extends Component{
     
     render() {

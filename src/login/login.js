@@ -9,8 +9,7 @@ import Menu from '../menu/menu';
 //import {BrowserRouter} from 'react-router-dom';
 
 class Login extends Component{
-        
-        
+                
         constructor(props) {
             super(props);
             
@@ -28,8 +27,7 @@ class Login extends Component{
         this.setState({passwordInput: event.target.value});
     }
 
-    _buttonClick= (event)=> {
-        
+    _buttonClick= (event)=> {        
 
        const bordercolor  = "form-control ";
         

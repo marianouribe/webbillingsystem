@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import Login from '../login/login';
 
 class NavBar extends Component {
+
+    _handleSalir=()=>{
+        ReactDOM.render(<Login />, document.getElementById('root'));
+    }
+
   render() {
     return (
       <div className="container-fluid">
