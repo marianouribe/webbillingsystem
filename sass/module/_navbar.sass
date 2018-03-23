@@ -15,20 +15,54 @@
     // border: none
     z-index: 1
     
-// .l-container-menu 
-//     margin: 50px 10px 0px 210px
-//     position: relative
-//     padding: 10px 10px 0px 0px
-//     border: 1px solid rebeccapurple
-    // padding-right: 30px
 
-// .l-container-menu:before 
-//     content: ""
-//     position: fixed
-//     top: 0
-//     left: 0
-//     bottom: 0
-//     width: 15%
-//     display: block
-//     background-color: $nav-bar-bg-color
-//     z-index: 1
+.nav.flex-column ul,
+.nav.flex-column li 
+    list-style: none
+    padding: 20px 0px 15px
+    margin: 0px
+    line-height: 16px
+    border: none
+    opacity: 1
+    text-align: center
+    cursor: pointer
+
+
+.nav.flex-column ul li:hover,
+.nav.flex-column li li:hover 
+    color: #fff
+    opacity: 0.5
+
+
+.nav.flex-column li a 
+    text-decoration: none
+    color: #e1ffff
+
+
+.nav.flex-column ul i 
+    display: block
+
+
+div.container-custom-menu 
+    /* margin: auto */
+    background: #fff
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+    border-radius: 8px
+    width: 220px
+    cursor: pointer
+    text-align: center
+    transition: 1s
+    padding: 80px 0px 80px
+    display: inline-block
+    transform: scale(0.9)
+    margin-left: 20px
+    /* position: absolute */
+
+
+div.container-custom-menu i 
+    color: #0275d8
+
+
+.container-custom-menu:hover 
+    transition: 0.3s
+    transform: scale(1)
