@@ -5,6 +5,16 @@
     z-index: 1;
     position: absolute;
     margin-left: 16%;
-    height: 85%;
+    padding-left: 15px;
+    /* height: 85%; */
     display: block;
+    border: 1px solid rebeccapurple;
+}
+
+.bg-color-form {
+    background-color: rgb(225, 225, 226);
+}
+
+.bg-color-form input {
+    background-color: #fff;
 }

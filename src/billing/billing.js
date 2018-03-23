@@ -28,23 +28,61 @@ class billing extends Component{
 
   render(){return(
     
-    <div className="collapse ppagepanel" id = "pagePanelModalBilling">
-      <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
-        </div>
-        <Link to = "/">
-        <button className="btn btn-primary" >Close</button>  </Link>
-
+    <div className="ppagepanel bg-color-form" id = "pagePanelModalBilling" >
+        <div >
+            <form>
+              <div className="form-group">
+                <input type="email" className="form-control w-50" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+              </div>
+              <div className="form-group">
+                <input type="password" className="form-control w-50" id="exampleInputPassword1" placeholder="Password"/>
+              </div>
+            
+            </form>
+          </div>
+          <Link to = "/">
         
-      </form>
+        <button className="btn btn-primary">Close</button>  </Link>
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+< br />
+< br />
+< br />
+< br />
+< br />
+< br />
+< br />
+< br />
+< br />
+< br />
+< br />
+< br />
+<br/>
+< br />
+< br />
+< br />
+< br />
+< br />
+< br />
+< br />
+< br />
+< br />
+< br />
+< br />
+< br />
+<br/>
+< br />
+< br />
+< br />
+< br />
+< br />
+< br />
+< br />
+
+      
       <Route exact path="/" component={Home} />
     </div>);
   }
