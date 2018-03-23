@@ -120,4 +120,15 @@ div.container-custom-menu i {
   transition: 0.3s;
   transform: scale(1); }
 
+@media screen and (max-width: 820px) {
+  .nav.flex-column {
+    margin-top: 30px;
+    text-align: center; }
+
+  .nav.flex-column ul li label {
+    display: none; }
+
+  .l-nav h2 {
+    display: none; } }
+
 /*# sourceMappingURL=style.css.map */
