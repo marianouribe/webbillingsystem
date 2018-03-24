@@ -84,7 +84,7 @@ class Login extends Component{
                                 data-target="#loginRecuperarClaveModal">Olvidó su clave</a>
                             </div>
                             <div className="col-4">
-                                <button className="btn btn-primary" 
+                                <button className="btn btn-primary btn-login" 
                                 onClick = {this._buttonClick.bind(this)}>Aceptar <i class="fas fa-arrow-right"></i></button>
                             </div>
                         </div>
@@ -95,7 +95,7 @@ class Login extends Component{
                                 <label className="font-size-text">Necesitas Una Cuenta?</label>
                             </div>
                             <div className="col-4">
-                                <button type="button" className="btn btn-outline-primary"  data-toggle="modal" 
+                                <button type="button" className="btn btn-outline-primary btn-login-outline"  data-toggle="modal" 
                                 data-target="#loginSolicitarAccesoModal">Crear Cuenta</button>
                             </div>
                         </div>

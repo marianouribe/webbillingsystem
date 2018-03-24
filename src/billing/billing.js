@@ -28,59 +28,32 @@ class billing extends Component{
 
   render(){return(
     
-    <div className="ppagepanel bg-color-form" id = "pagePanelModalBilling" >
-        <div >
-            <form>
-              <div className="form-group">
-                <input type="email" className="form-control w-50" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+    <div className="ppagepanel" id = "pagePanelModalBilling" >
+      
+        <h1 id="detFacturacion">Detalle de Facturación</h1>
+        <form className="billing-form pt-4">
+            <h4 id="infCliente">Información del Cliente</h4>
+            <div className="">
+              <div className="form-group fg-group w-25 mr-3">
+                <label>Identifación</label>
+                <input type="text" className="form-control" id="IdentificacionCliente" placeholder="Cedula/Pasaport/Rnc"/>
               </div>
-              <div className="form-group">
-                <input type="password" className="form-control w-50" id="exampleInputPassword1" placeholder="Password"/>
+              <div className="form-group fg-group w-50">
+                <label>Nombre</label>
+                <input type="password" className="form-control" id="NombreCliente" placeholder="Nombre del cliente"/>
               </div>
-            
-            </form>
-          </div>
-          <Link to = "/">
-            <button className="btn btn-primary">Close</button>  
-          </Link>
-
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-<br/>
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-<br/>
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
+            </div>
+        </form>
+    <div>
+      <button id="Save" className="btn btn-outline-primary mr-1">Grabar</button>
+      <Link to = "/">
+        <button id="Close" className="btn btn-outline-primary">Cerrar</button>
+      </Link>
+    </div>
+    
+      <br/>
+      <br/>
+        
 
       
       <Route exact path="/" component={Home} />

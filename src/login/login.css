@@ -54,8 +54,8 @@ i.fas.icon-login {
     transition: opacity 0.3s ease;
 }
 
-button.btn.btn-primary,
-button.btn.btn-outline-primary {
+button.btn-login,
+button.btn-login-outline {
     width: 120px;
     padding: 8px 8px 8px 8px;
     text-align: center;
