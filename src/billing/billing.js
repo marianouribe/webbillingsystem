@@ -99,7 +99,9 @@ class billing extends Component{
         
         <div className="col-sm-4">
             <Link to = "/" className="btn-Close float-right">
-              <button id="Close" className="btn btn-outline-primary">Cerrar</button>
+              <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </Link>
             <div className="billing-form buylist">
               <h3>wish list</h3>
