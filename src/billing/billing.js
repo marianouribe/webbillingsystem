@@ -82,7 +82,7 @@ class billing extends Component{
                   <tbody>
                     <tr>
                       <th scope="row">
-                        <input type="checkbox" />
+                        <input type="checkbox" id="inputCheck"/>
                       </th>
                       <td>Mark</td>
                       <td>Otto</td>
