@@ -29,12 +29,11 @@ class billing extends Component{
   render(){return(
     
     <div className="ppagepanel" id = "pagePanelModalBilling" >
-      
-      <h1 id="detFacturacion">Detalle de Facturación</h1>
-      <div className="w-75">
-        <form className="billing-form pt-4">
+      <div className="row">
+        <div className="col-sm-8">
+          <h1 id="detFacturacion">Detalle de Facturación</h1>
+          <form className="billing-form pt-4">
             <h3 id="infCliente">Información del Cliente</h3>
-            <div className="">
               <div className="form-group fg-group w-25 mr-3">
                 <label>Identifación</label>
                 <input type="text" className="form-control" id="IdentificacionCliente" placeholder="Cedula/Pasaport/Rnc"/>
@@ -51,60 +50,66 @@ class billing extends Component{
                 <label>Nombre</label>
                 <input type="password" className="form-control" id="NombreCliente" placeholder="Nombre del cliente"/>
               </div>
+          </form>
+          <br/>
+          <form className="billing-form pt-4">
+              <h3 id="detFactura">Detalle de factura</h3>
+              <div className="">
+                <div className="form-group fg-group w-25 mr-3">
+                  <label>Identifación</label>
+                  <input type="text" className="form-control" id="IdentificacionCliente" placeholder="Cedula/Pasaport/Rnc"/>
+                </div>
+                <div className="form-group fg-group w-50">
+                  <label>Nombre</label>
+                  <input type="password" className="form-control" id="NombreCliente" placeholder="Nombre del cliente"/>
+                </div>
+                <div className="form-group fg-group w-25 mr-3">
+                  <label>Identifación</label>
+                  <input type="text" className="form-control" id="IdentificacionCliente" placeholder="Cedula/Pasaport/Rnc"/>
+                </div>
+                <div className="form-group fg-group w-50">
+                  <label>Nombre</label>
+                  <input type="password" className="form-control" id="NombreCliente" placeholder="Nombre del cliente"/>
+                </div>
+              </div>
+          </form>
+          <br/>
+          <form className="billing-form pt-4">
+              <h3 id="detFactura">Forma de Pago</h3>
+              <div className="">
+                <div className="form-group fg-group w-25 mr-3">
+                  <label>Identifación</label>
+                  <input type="text" className="form-control" id="IdentificacionCliente" placeholder="Cedula/Pasaport/Rnc"/>
+                </div>
+                <div className="form-group fg-group w-50">
+                  <label>Nombre</label>
+                  <input type="password" className="form-control" id="NombreCliente" placeholder="Nombre del cliente"/>
+                </div>
+                <div className="form-group fg-group w-25 mr-3">
+                  <label>Identifación</label>
+                  <input type="text" className="form-control" id="IdentificacionCliente" placeholder="Cedula/Pasaport/Rnc"/>
+                </div>
+                <div className="form-group fg-group w-50">
+                  <label>Nombre</label>
+                  <input type="password" className="form-control" id="NombreCliente" placeholder="Nombre del cliente"/>
+                </div>
+              </div>
+          </form>
+        </div>
+        
+        <div className="col-sm-4">
+            <Link to = "/" className="btn-Close float-right">
+              <button id="Close" className="btn btn-outline-primary">Cerrar</button>
+            </Link>
+            <div className="billing-form buylist">
+              <h3>wish list</h3>
             </div>
-        </form>
-        <br/>
-        <form className="billing-form pt-4">
-            <h3 id="detFactura">Detalle de factura</h3>
-            <div className="">
-              <div className="form-group fg-group w-25 mr-3">
-                <label>Identifación</label>
-                <input type="text" className="form-control" id="IdentificacionCliente" placeholder="Cedula/Pasaport/Rnc"/>
-              </div>
-              <div className="form-group fg-group w-50">
-                <label>Nombre</label>
-                <input type="password" className="form-control" id="NombreCliente" placeholder="Nombre del cliente"/>
-              </div>
-              <div className="form-group fg-group w-25 mr-3">
-                <label>Identifación</label>
-                <input type="text" className="form-control" id="IdentificacionCliente" placeholder="Cedula/Pasaport/Rnc"/>
-              </div>
-              <div className="form-group fg-group w-50">
-                <label>Nombre</label>
-                <input type="password" className="form-control" id="NombreCliente" placeholder="Nombre del cliente"/>
-              </div>
-            </div>
-        </form>
-        <br/>
-        <form className="billing-form pt-4">
-            <h3 id="detFactura">Forma de Pago</h3>
-            <div className="">
-              <div className="form-group fg-group w-25 mr-3">
-                <label>Identifación</label>
-                <input type="text" className="form-control" id="IdentificacionCliente" placeholder="Cedula/Pasaport/Rnc"/>
-              </div>
-              <div className="form-group fg-group w-50">
-                <label>Nombre</label>
-                <input type="password" className="form-control" id="NombreCliente" placeholder="Nombre del cliente"/>
-              </div>
-              <div className="form-group fg-group w-25 mr-3">
-                <label>Identifación</label>
-                <input type="text" className="form-control" id="IdentificacionCliente" placeholder="Cedula/Pasaport/Rnc"/>
-              </div>
-              <div className="form-group fg-group w-50">
-                <label>Nombre</label>
-                <input type="password" className="form-control" id="NombreCliente" placeholder="Nombre del cliente"/>
-              </div>
-            </div>
-        </form>
+        </div>
       </div>
-      <div className="mt-4 mb-5">
-        <button id="Save" className="btn btn-outline-primary mr-1">Grabar</button>
-        <Link to = "/">
-          <button id="Close" className="btn btn-outline-primary">Cerrar</button>
-        </Link>
+      <div className="mt-4 mb-5 float-right">
+        <button id="Save" className="btn btn-primary mr-1">Grabar</button>
       </div>
-    
+
       <Route exact path="/" component={Home} />
     </div>);
   }
