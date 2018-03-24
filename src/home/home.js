@@ -1,6 +1,6 @@
 import React,{ Component } from "react";
 //import ReactDOM from 'react-dom';
-import PageMenu from '../menu/menu';
+// import PageMenu from '../menu/menu';
 import NavBar from '../navbar/navbar';
 import Header from '../header/header';
 import BillingMenu from "../billingMenu/billingMenu";
@@ -11,7 +11,7 @@ import Billing from "../billing/billing";
 import { Script } from "vm";
 import {BrowserRouter} from 'react-router-dom';
 
-class Menu extends Component{
+class Home extends Component{
     
     render() {
         
@@ -30,4 +30,4 @@ class Menu extends Component{
     }
 }
 
-export default Menu;
+export default Home;

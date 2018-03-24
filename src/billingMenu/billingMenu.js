@@ -13,7 +13,6 @@ class BillingMenu extends Component {
                 <div className="l-container-menu" >        
                     <div className="row">
                         <div className="col-sm-12">
-                            
                             <Link to = "/billing" >
                                 <div className="container-custom-menu" >
                                     <i className="fas fa-dollar-sign fa-3x"></i>

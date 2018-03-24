@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
-import Home from '../menu/menu';
+import Home from '../home/home';
 import './billing.css';
 
 import {Route, Link} from 'react-router-dom';
@@ -41,8 +41,8 @@ class billing extends Component{
             </form>
           </div>
           <Link to = "/">
-        
-        <button className="btn btn-primary">Close</button>  </Link>
+            <button className="btn btn-primary">Close</button>  
+          </Link>
 
         <br/>
         <br/>

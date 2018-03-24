@@ -75,6 +75,9 @@ div.container-custom-menu {
   margin-left: 20px;
   /* position: absolute */ }
 
+a:Link {
+  text-decoration: none; }
+
 div.container-custom-menu i {
   color: #0275d8; }
 

@@ -9,6 +9,7 @@
     /* height: 85%; */
     display: block;
     border: 1px solid rebeccapurple;
+    text-decoration: none;
 }
 
 .bg-color-form {
@@ -17,4 +18,8 @@
 
 .bg-color-form input {
     background-color: #fff;
+}
+
+a:Link {
+    text-decoration: none;
 }

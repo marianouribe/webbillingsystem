@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import logo from '../assets/logo.jpg'
 import './login.css';
 
-import Menu from '../menu/menu';
+import Home from '../home/home';
 
 //import {BrowserRouter} from 'react-router-dom';
 
@@ -43,11 +43,10 @@ class Login extends Component{
             this.setState({passwordPasswordInput: bordercolor + "valida-border-succes"});
         }
 
-
-        ReactDOM.render(<Menu /> , document.getElementById('root'));
+        ReactDOM.render(<Home /> , document.getElementById('root'));
  
         if (this.state.userIdInput !== '' && this.state.passwordInput  !== ''){
-                ReactDOM.render(<Menu />, document.getElementById('root'));
+                ReactDOM.render(<Home />, document.getElementById('root'));
         }
         event.preventDefault();
     }
