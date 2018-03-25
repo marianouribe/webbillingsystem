@@ -21,7 +21,10 @@ class ProductCondensed extends Component {
     render() {
         return (
             <li className="list-group-item pc-condensed">
-                
+                {/* <button type="button" class="close" aria-label="Close"
+                onClick={(e) => this.removeProduct(e)}>
+                 <span aria-hidden="true">&times;</span>
+                </button> */}
                 <a href="#" className="btn btn-outline-danger" onClick={(e) => this.removeProduct(e)}>X</a>
                 <p>{this.props.articulo.DescripcionArticulo} | <b>${this.props.articulo.PrecioUnitarioArticulo}</b></p>
             </li>
