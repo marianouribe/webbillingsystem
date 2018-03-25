@@ -1,4 +1,3 @@
-
 .ppagepanel {
     top: 50px;
     width: 83%;
@@ -15,7 +14,6 @@
     text-decoration: none;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
     /* border: 1px solid rebeccapurple; */
-
     /* , 0 3px 6px rgba(0, 0, 0, 0.23) */
 }
 
@@ -26,15 +24,25 @@
     border-radius: 4px;
 }
 
+
 /* .fg-group { */
-    /* border: 1px solid rebeccapurple; */
-    /* position: relative; */
-    /* display: inline-block; */
+
+
+/* border: 1px solid rebeccapurple; */
+
+
+/* position: relative; */
+
+
+/* display: inline-block; */
+
+
 /* } */
 
-form h3{
+form h3 {
     padding-bottom: 15px;
 }
+
 
 /* .billing-form input {
     background-color: #fff;
@@ -44,21 +52,13 @@ h1#detFacturacion {
     /* font-size: 35px; */
     text-align: center;
     /* font-family: 'Times New Roman', Times, serif; */
-    
     /* display: inline; */
     /* font-weight: bold; */
 }
 
-/* .btn-Close {
-    float: right;
-} */
-
-
-/* h1#detFacturacion{
-    position: fixed;
-    z-index: 3;
-    
-} */
+.product-header {
+    border-bottom: 1px solid rgba(114, 108, 108, 0.315);
+}
 
 div.buylist {
     text-align: center;
@@ -70,3 +70,8 @@ div.buylist {
 a:Link {
     text-decoration: none;
 }
+
+/* .pagination li {
+    display: inline-block;
+    padding: 5px;
+} */

@@ -19,17 +19,30 @@ class ProductCondensed extends Component {
     }
     
     render() {
-        return (
-            <li className="list-group-item pc-condensed">
-                {/* <button type="button" class="close" aria-label="Close"
+        return <div className="pc-condensed">
+            {/* <button type="button" class="close" aria-label="Close"
                 onClick={(e) => this.removeProduct(e)}>
                  <span aria-hidden="true">&times;</span>
                 </button> */}
-                <a href="#" className="btn btn-outline-danger" onClick={(e) => this.removeProduct(e)}>X</a>
-                <p>{this.props.articulo.DescripcionArticulo} | <b>${this.props.articulo.PrecioUnitarioArticulo}</b></p>
-            </li>
-        );
+            <div className="row">
+              <div className="col-md-2">
+                <a href="#" className="btn btn-outline-danger" onClick={e => this.removeProduct(e)}>
+                  X
+                </a>
+              </div>
+              <div className="col-md-8">
+                <p>{this.props.articulo.DescripcionArticulo}</p>
+              </div>
+              <div className="col-md-1">
+                <p>
+                  <b>${this.props.articulo.PrecioUnitarioArticulo}</b>
+                </p>
+              </div>
+            </div>
+          </div>;
     }
 }
 
 export default ProductCondensed;
+
+//list-group-item

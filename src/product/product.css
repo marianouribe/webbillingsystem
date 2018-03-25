@@ -1,10 +1,22 @@
-.product {
-    /* max-width: 8rem; */
-    margin-top: 5px;
+
+.img-detalle {
+    max-height: 40px;
+    /* margin-bottom: 0px; */
+    /* border-radius: 50px; */
+    /* margin: auto; */
 }
 
-img {
-    max-height: 4rem;
-    /* margin: auto; */
-    
+/* table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
 }
+th, td {
+    padding: 50px;
+} */
+
+.product-detalle{
+    border-bottom: 1px solid rgba(114, 108, 108, 0.315);
+    /* padding-bottom: 3px; */
+    /* margin: auto; */
+}
+
