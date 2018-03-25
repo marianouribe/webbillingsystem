@@ -1,9 +1,9 @@
-import NotificationService, {NOTIF_WISHLIST_CHANGED} from './notification-service';
+import NotificationService, {NOTIF_BUYLIST_CHANGED} from './notification-service';
 
 let ns = new NotificationService();
 
 let instance = null;
-var wishList = [];
+var buyList = [];
 
 class DataService {
     constructor(){
@@ -13,16 +13,16 @@ class DataService {
         return instance;
     }
 
-    itemOnWishList = item => {
-        // for (var x = 0; x < wishList.length; x++) {
-        //     if (wishList[x].IdArticulo === item.IdArticulo) {
-        //         //console.log(wishList[x].IdArticulo);
+    itemOnBuyList = item => {
+        // for (var x = 0; x < buyList.length; x++) {
+        //     if (buyList[x].IdArticulo === item.IdArticulo) {
+        //         //console.log(buyList[x].IdArticulo);
         //         return true;
         //     }            
         // }
-            for (let x of wishList) {
+            for (let x of buyList) {
                 if (x.IdArticulo === item.IdArticulo) {
-                    //console.log(wishList[x].IdArticulo);
+                    //console.log(buyList[x].IdArticulo);
                     return true;
                 }
                 
@@ -30,15 +30,15 @@ class DataService {
         return false;
     }
 
-    addWishListItem = item => {
-        wishList.push(item);
-        ns.postNotification(NOTIF_WISHLIST_CHANGED, wishList);
+    addBuyListItem = item => {
+        buyList.push(item);
+        ns.postNotification(NOTIF_BUYLIST_CHANGED, buyList);
     }
-    removeWishListItem = item => {
-        for (var x = 0; x < wishList.length; x++){
-            if (wishList[x].IdArticulo === item.IdArticulo){
-                wishList.splice(x,1);
-                ns.postNotification(NOTIF_WISHLIST_CHANGED, wishList);
+    removeBuyListItem = item => {
+        for (var x = 0; x < buyList.length; x++){
+            if (buyList[x].IdArticulo === item.IdArticulo){
+                buyList.splice(x,1);
+                ns.postNotification(NOTIF_BUYLIST_CHANGED, buyList);
                 break;
             }
         }

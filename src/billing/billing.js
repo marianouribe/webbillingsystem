@@ -1,32 +1,57 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
-import Home from '../home/home';
+import {Route, Link} from 'react-router-dom';
 import './billing.css';
 
-import {Route, Link} from 'react-router-dom';
+//Components
+import Home from '../home/home';
+import Product from '../product/product';
+import BuyList from '../buylist/buylist'
+
+//Services
+import HttpService from '../services/http-service';
+
+const http = new HttpService();
+// var reg;
 
 class billing extends Component{
-    constructor(props) {
+  
+
+  constructor(props){
       super(props);
 
-      // this.state={billing_page:'billing-page'};
-      // this._buttonClose = this._buttonClose.bind(this);
-  }
-  
-   //const _buttonClose = () => {
-      //ReactDOM.render(<Home /> , document.getElementById('root'));
-      
+      this.state= {products:[]};
 
-   //}
-  //     if (this.state.billing_page === "billing-page")
-  //       this.setState({billing_page: "close-billing-page"});
-  //     else
-  //       this.setState({billing_page: "billing-page"});
-      
-        
-  // }
+      //Bind functions
+      this.loadData = this.loadData.bind(this);
+      this.productList = this.productList.bind(this);
 
-  render(){return(
+      this.loadData();
+
+    }
+
+    loadData = () =>{
+      var self = this;
+      http.getProducts().then(data => {
+          // console.log(data);
+          self.setState({products: data.Listadoarticulo})
+      }, er=> {
+
+      });
+    }
+    
+    productList = () => {
+        const list = this.state.products.map((articulo) => 
+        // <div key={articulo.IdArticulo}>
+          <Product articulo={articulo}/>
+        // </div>
+      );
+      return (list);
+    }
+
+  render(){
+    
+    return(
     
     <div className="ppagepanel" id = "pagePanelModalBilling" >
       <div className="row">
@@ -73,36 +98,19 @@ class billing extends Component{
                   <caption>Listado de articulos</caption>
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">First</th>
-                      <th scope="col">Last</th>
-                      <th scope="col">Handle</th>
+                      {/* <th scope="col">#</th> */}
+                      <th scope="col">Articulo</th>
+                      <th scope="col">Descripcon</th>
+                      <th scope="col">Precio</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">
-                        <input type="checkbox" id="inputCheck"/>
-                      </th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                    </tr>
+                    {this.productList()}
                   </tbody>
                 </table>
-              </div>
+                
+            </div>
+              
           </form>
           <br/>
           <form className="billing-form pt-4">
@@ -135,7 +143,8 @@ class billing extends Component{
               </button>
             </Link>
             <div className="billing-form buylist">
-              <h3>wish list</h3>
+              <h3>buy list</h3>
+              <BuyList />
             </div>
         </div>
       </div>

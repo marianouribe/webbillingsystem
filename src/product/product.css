@@ -1,7 +1,10 @@
 .product {
-    max-width: 8rem;
+    /* max-width: 8rem; */
+    margin-top: 5px;
 }
 
-.product img {
-    max-height: 6rem;
+img {
+    max-height: 4rem;
+    /* margin: auto; */
+    
 }

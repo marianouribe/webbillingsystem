@@ -13,7 +13,7 @@ class ProductCondensed extends Component {
     }
 
     removeProduct = (event) => {
-        ds.removeWishListItem(this.props.articulo);
+        ds.removeBuyListItem(this.props.articulo);
 
         event.preventDefault();
     }
@@ -21,6 +21,7 @@ class ProductCondensed extends Component {
     render() {
         return (
             <li className="list-group-item pc-condensed">
+                
                 <a href="#" className="btn btn-outline-danger" onClick={(e) => this.removeProduct(e)}>X</a>
                 <p>{this.props.articulo.DescripcionArticulo} | <b>${this.props.articulo.PrecioUnitarioArticulo}</b></p>
             </li>

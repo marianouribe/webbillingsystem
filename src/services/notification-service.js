@@ -1,4 +1,4 @@
-export const NOTIF_WISHLIST_CHANGED = "notif_wishlist_changed";
+export const NOTIF_BUYLIST_CHANGED = "notif_buylist_changed";
 
 var observers = {};
     // "wishListChanged": [{observer: someComponent, callBack: someFunction}, {observer:Someo}],

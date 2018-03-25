@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './product.css';
 import DataService from "../services/data-service";
-import NotificationService, {NOTIF_WISHLIST_CHANGED} from '../services/notification-service';
+import NotificationService, {NOTIF_BUYLIST_CHANGED} from '../services/notification-service';
 
 let ds = new DataService();
 let ns = new NotificationService();
@@ -11,29 +11,29 @@ class Product extends Component{
     constructor(props){
         super(props);
 
-        this.state = {onWishList: ds.itemOnWishList()};
+        this.state = {onBuyList: ds.itemOnBuyList()};
         //Bind functions
         this.onButtonClicked = this.onButtonClicked.bind(this);
-        this.onWishListChanged = this.onWishListChanged.bind(this);
+        this.onBuyListChanged = this.onBuyListChanged.bind(this);
     }
 
     componentDidMount(){
-        ns.addObserver(NOTIF_WISHLIST_CHANGED, this, this.onWishListChanged);
+        ns.addObserver(NOTIF_BUYLIST_CHANGED, this, this.onBuyListChanged);
     }
 
     componentWillUnmount(){
-        ns.removeObserver(this, NOTIF_WISHLIST_CHANGED);
+        ns.removeObserver(this, NOTIF_BUYLIST_CHANGED);
     }
 
-    onWishListChanged(newWihsList){
-        this.setState({onWishList: ds.itemOnWishList(this.props.articulo)});
+    onBuyListChanged(newBuyList){
+        this.setState({onBuyList: ds.itemOnBuyList(this.props.articulo)});
     }
 
     onButtonClicked = (event) => {
-        if (this.state.onWishList){
-            ds.removeWishListItem(this.props.articulo);
+        if (this.state.onBuyList){
+            ds.removeBuyListItem(this.props.articulo);
         }else {
-            ds.addWishListItem(this.props.articulo)
+            ds.addBuyListItem(this.props.articulo)
         }
 
         event.preventDefault();
@@ -43,7 +43,7 @@ class Product extends Component{
 
         var btnClass;
 
-        if (this.state.onWishList){
+        if (this.state.onBuyList){
             btnClass = "btn btn-danger";
         }else {
             btnClass = "btn btn-primary";
@@ -53,17 +53,22 @@ class Product extends Component{
          _img = "data:;base64," + this.props.articulo.Data
 
         return(
-            <div className="card product">
-                
-                <img className="card-img-top"  src={_img} alt="Product" ></img>
+            
 
-                <div className="card-block">
-                    <p className="card-title">{this.props.articulo.DescripcionArticulo}</p>
-                    <p className="card-text">Precio: ${this.props.articulo.PrecioUnitarioArticulo}</p>
-                    <a href="#" onClick={(e) => this.onButtonClicked(e)} className={btnClass}>
-                    {this.state.onWishList ? "Remove From Wishlist" : "Add To Cart"}</a>
-                </div>
-            </div>
+            // <div >                
+                  
+                    <tr>
+                      {/* <th scope="row">1</th> */}
+                      <td><img src={_img} alt="Product" ></img></td>
+                      <td>{this.props.articulo.DescripcionArticulo}</td>
+                      <td>{this.props.articulo.PrecioUnitarioArticulo}</td>
+                      <a href="#" onClick={(e) => this.onButtonClicked(e)} className={btnClass}>
+                        {this.state.onBuyList ? "Eliminar Compra" : "Agregar Compra"}</a>
+                    </tr>
+                  
+                
+                
+            // </div>
         );
     }
 }
@@ -71,3 +76,16 @@ class Product extends Component{
 export default Product;
 
 // <img className="card-img-top" src={this.props.articulo.Data} alt="Product" ></img>
+
+/*<div className="card product">
+                
+                <img className="card-img-top"  src={_img} alt="Product" ></img>
+
+                <div className="card-block">
+                    <p className="card-title">{this.props.articulo.DescripcionArticulo}</p>
+                    <p className="card-text">Precio: ${this.props.articulo.PrecioUnitarioArticulo}</p>
+                    
+                </div>
+              </div>
+*/
+
