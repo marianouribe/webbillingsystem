@@ -50,8 +50,7 @@ class Product extends Component{
         }
 
         // console.log(this.props.articulo.DescripcionArticulo);
-         var _img;
-         _img = "data:;base64," + this.props.articulo.Data.data;
+         var _img = "data:;base64," + this.props.articulo.Data;
          
 
         return(
