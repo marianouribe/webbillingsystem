@@ -5,9 +5,9 @@ class HttpService{
         //Asincrono
         //1 orden de ejecucion, promise para manejar peticiones asinctronas
         let promise = new Promise((resolve, reject) => {
-            //2
+            //2 'http://10.0.0.5:8080/apiwb/api/articulo/1/1'
             // fetch('http://localhost:3004/product')
-            fetch('http://10.0.0.7:8080/apiwb/api/articulo/1/1')
+            fetch('http://10.0.0.5:3004/api/articulo')
             .then(response => {
                 //4
                 resolve(response.json()); 

@@ -49,8 +49,10 @@ class Product extends Component{
             btnClass = "btn btn-outline-primary";
         }
 
+        // console.log(this.props.articulo.DescripcionArticulo);
          var _img;
-         _img = "data:;base64," + this.props.articulo.Data
+         _img = "data:;base64," + this.props.articulo.Data.data;
+         
 
         return(
             <a href="#" onClick={(e) => this.onButtonClicked(e)}>

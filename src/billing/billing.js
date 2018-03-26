@@ -33,19 +33,24 @@ class billing extends Component{
     loadData = () =>{
       var self = this;
       http.getProducts().then(data => {
-          // console.log(data);
-          self.setState({products: data.Listadoarticulo})
+          console.log(data.recordset);
+
+          self.setState({ products: data.recordset });
       }, er=> {
 
       });
     }
     
     productList = () => {
-        const list = this.state.products.map((articulo) => 
+        const list = this.state.products.map(articulo => (
+          
           <div key={articulo.IdArticulo}>
-            <Product articulo={articulo}/>
+            
+            <Product articulo={articulo} />
           </div>
-      );
+        ));
+
+        
       return (list);
     }
 
@@ -97,7 +102,7 @@ class billing extends Component{
                   <div className="col-md-2">Precio</div>
                   <div className="col-md-1">(+/-)</div>
                 </div>
-
+                
                 {this.productList()}
                 
             </form>
