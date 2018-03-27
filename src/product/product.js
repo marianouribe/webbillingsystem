@@ -44,7 +44,7 @@ class Product extends Component{
         var btnClass;
 
         if (this.state.onBuyList){
-            btnClass = "btn btn-danger";
+            btnClass = "btn btn-danger pl-4 pr-4";
         }else {
             btnClass = "btn btn-outline-primary";
         }

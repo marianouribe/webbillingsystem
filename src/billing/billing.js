@@ -8,6 +8,9 @@ import Home from '../home/home';
 import Product from '../product/product';
 import BuyList from '../buylist/buylist'
 
+// import DataService from "../services/data-service";
+// let ds = new DataService()
+
 //Services
 import HttpService from '../services/http-service';
 
@@ -20,12 +23,13 @@ class billing extends Component{
   constructor(props){
       super(props);
 
-      this.state= {products:[], inputFiltroArticulo:''};
+      this.state= {products:[], inputFiltroArticulo:'', pTotal:0};
 
       //Bind functions
       this.loadData = this.loadData.bind(this);
       this.productList = this.productList.bind(this);
       // this.onChangeInputFiltroArticulo = this.onChangeInputFiltroArticulo.bind(this);
+      this.onButtonBuscarOnClick = this.onButtonBuscarOnClick.bind(this);
       this.loadData();
 
     }
@@ -44,7 +48,7 @@ class billing extends Component{
         // console.log(event.target.value);
         // var self = this;
         this.setState({ inputFiltroArticulo: event.target.value });
-        this.onButtonBuscarOnClick = this.onButtonBuscarOnClick.bind(this);
+        
         // console.log(this.state.inputFiltroArticulo);
         // this.loadData(event.target.value);
     }
@@ -166,6 +170,9 @@ class billing extends Component{
               <h3>Articulos Seleccionados</h3>
               <br />
               <BuyList />
+            </div>
+            <div className="text-left">
+              <b>Total:$  </b>
             </div>
           </div>
         </div>
