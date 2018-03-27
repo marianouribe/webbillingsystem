@@ -71,7 +71,13 @@ a:Link {
     text-decoration: none;
 }
 
+
 /* .pagination li {
     display: inline-block;
     padding: 5px;
 } */
+
+.icon-search{
+    position:absolute;
+    padding-right:100px;
+}

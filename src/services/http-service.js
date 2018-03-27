@@ -1,18 +1,19 @@
 import 'whatwg-fetch';
 
 class HttpService{
-    getProducts = () => {
+    getProducts = (_api_filtro) => {
         //Asincrono
         //1 orden de ejecucion, promise para manejar peticiones asinctronas
         let promise = new Promise((resolve, reject) => {
             //2 'http://10.0.0.5:8080/apiwb/api/articulo/1/1'
             // fetch('http://localhost:3004/product')
-            fetch('http://10.0.0.5:3004/api/articulo')
-            .then(response => {
+            fetch("http://10.0.0.6:3004/" + _api_filtro).then(
+              response => {
                 //4
-                resolve(response.json()); 
+                resolve(response.json());
                 //console.log(response.json());
-            })
+              }
+            );
         });
 
         //3

@@ -20,40 +20,51 @@ class billing extends Component{
   constructor(props){
       super(props);
 
-      this.state= {products:[]};
+      this.state= {products:[], inputFiltroArticulo:''};
 
       //Bind functions
       this.loadData = this.loadData.bind(this);
       this.productList = this.productList.bind(this);
-
+      // this.onChangeInputFiltroArticulo = this.onChangeInputFiltroArticulo.bind(this);
       this.loadData();
 
     }
 
     loadData = () =>{
       var self = this;
-      http.getProducts().then(data => {
-          console.log(data.recordset);
+      // console.log(this.state.inputFiltroArticulo);
+      http.getProducts("api/articulo/" + this.state.inputFiltroArticulo).then(data => {
+          // console.log(data.recordset);
 
           self.setState({ products: data.recordset });
-      }, er=> {
+        }, er => {});
+    }
 
-      });
+    _handleChangeInputFiltroArticlo=(event)=>{
+        // console.log(event.target.value);
+        // var self = this;
+        this.setState({ inputFiltroArticulo: event.target.value });
+        // console.log(this.state.inputFiltroArticulo);
+        // this.loadData(event.target.value);
     }
     
     productList = () => {
         const list = this.state.products.map(articulo => (
-          
-          <div key={articulo.IdArticulo}>
-            
+          <div key={articulo.CodigoArticulo}>
             <Product articulo={articulo} />
           </div>
         ));
 
-        
       return (list);
     }
 
+    // componentDidMount(){
+    //   this.setState({inputFiltroArticulo:''})
+    // }
+
+    // componentWillMount(){
+    //   this.setState({inputFiltroArticulo:''})
+    // }
   render(){
     
     return <div className="ppagepanel" id="pagePanelModalBilling">
@@ -69,7 +80,7 @@ class billing extends Component{
                 </div>
                 <div className="form-group col-md-8 fg-group">
                   <label for="inputNombreCliente">Nombre</label>
-                  <input type="text" className="form-control" id="inputNombreCliente" placeholder="Nombre del cliente" />
+                  <input type="text" className="form-control" id="inputNombreCliente" />
                 </div>
               </div>
               <div className="row">
@@ -96,15 +107,19 @@ class billing extends Component{
             <br />
             <form className="billing-form pt-4">
               <h3 id="infCliente">Detalle de Factura</h3>
-                <div className="row font-weight-bold mb-3 product-header">
-                  <div className="col-md-2">Articulo</div>
-                  <div className="col-md-7">Descripción</div>
-                  <div className="col-md-2">Precio</div>
-                  <div className="col-md-1">(+/-)</div>
-                </div>
-                
-                {this.productList()}
-                
+              <div >
+                <label for="inputFiltroArticulo">Filtrar</label>
+                <input type="text" className="form-control d-inline w-25 ml-1 mb-3" id="inputFiltroArticulo" onChange={this._handleChangeInputFiltroArticlo} />
+                <i className="fas fa-search icon-search mt-2" />
+              </div>
+              <div className="row font-weight-bold mb-3 product-header">
+                <div className="col-md-2">Articulo</div>
+                <div className="col-md-6">Descripción</div>
+                <div className="col-md-2">Precio</div>
+                <div className="col-md-2" />
+              </div>
+
+              {this.productList()}
             </form>
             <br />
             <form className="billing-form pt-4">
@@ -138,7 +153,7 @@ class billing extends Component{
             </Link>
             <div className="billing-form buylist pt-4">
               <h3>Articulos Seleccionados</h3>
-              <br/>
+              <br />
               <BuyList />
             </div>
           </div>

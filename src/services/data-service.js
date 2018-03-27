@@ -21,9 +21,9 @@ class DataService {
         //     }            
         // }
             for (let x of buyList) {
-                if (x.IdArticulo === item.IdArticulo) {
-                    //console.log(buyList[x].IdArticulo);
-                    return true;
+                if (x.CodigoArticulo === item.CodigoArticulo) {
+                  //console.log(buyList[x].IdArticulo);
+                  return true;
                 }
                 
             }
@@ -36,7 +36,7 @@ class DataService {
     }
     removeBuyListItem = item => {
         for (var x = 0; x < buyList.length; x++){
-            if (buyList[x].IdArticulo === item.IdArticulo){
+            if (buyList[x].CodigoArticulo === item.CodigoArticulo){
                 buyList.splice(x,1);
                 ns.postNotification(NOTIF_BUYLIST_CHANGED, buyList);
                 break;

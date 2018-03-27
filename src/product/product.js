@@ -50,21 +50,24 @@ class Product extends Component{
         }
 
         // console.log(this.props.articulo.DescripcionArticulo);
-         var _img = "data:;base64," + this.props.articulo.Data;
+        //  var _img = "data:;base64," + this.props.articulo.Data;
          
 
         return(
-            <a href="#" onClick={(e) => this.onButtonClicked(e)}>
+            
                 <div className="row mb-2 product-detalle">
                     
-                    <div className="col-md-2"><img className="img-detalle" src={_img} alt="Product" ></img></div>
-                    <div className="col-md-7 pt-2">{this.props.articulo.DescripcionArticulo}</div>
-                    <div className="col-md-2 pt-2">{this.props.articulo.PrecioUnitarioArticulo}</div>
-                    <div className="col-md-1">
-                    <button className={btnClass}>
-                        {this.state.onBuyList ? "-" : "+"}</button></div>
+                    {/* <div className="col-md-2"><img className="img-detalle" src={_img} alt="Product" ></img></div> */}
+                    <div className="col-md-2">{this.props.articulo.CodigoArticulo}</div>
+                    <div className="col-md-6">{this.props.articulo.DescripcionArticulo}</div>
+                    <div className="col-md-2">{this.props.articulo.PrecioUnitarioArticulo}</div>
+                    <div className="col-md-2">
+                        <a href="#" onClick={(e) => this.onButtonClicked(e)}>
+                        <button className={btnClass}>
+                            {this.state.onBuyList ? "Quitar" : "Agregar"}</button></a>
+                    </div>
                 </div>
-            </a>
+            
 
         );
     }
