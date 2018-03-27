@@ -57,7 +57,9 @@ h1#detFacturacion {
 }
 
 .product-header {
+    border-top: 1px solid rgba(114, 108, 108, 0.315);
     border-bottom: 1px solid rgba(114, 108, 108, 0.315);
+    background-color: rgb(243, 238, 166)
 }
 
 div.buylist {
@@ -71,13 +73,11 @@ a:Link {
     text-decoration: none;
 }
 
+button {
+    cursor: pointer;
+}
 
-/* .pagination li {
-    display: inline-block;
-    padding: 5px;
-} */
-
-.icon-search{
-    position:absolute;
-    padding-right:100px;
+#inputFiltroArticulo:focus,
+#inputFiltroArticulo:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
 }

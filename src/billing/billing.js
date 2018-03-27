@@ -44,8 +44,14 @@ class billing extends Component{
         // console.log(event.target.value);
         // var self = this;
         this.setState({ inputFiltroArticulo: event.target.value });
+        this.onButtonBuscarOnClick = this.onButtonBuscarOnClick.bind(this);
         // console.log(this.state.inputFiltroArticulo);
         // this.loadData(event.target.value);
+    }
+
+    onButtonBuscarOnClick=(event) =>{
+      this.loadData();
+      event.preventDefault();
     }
     
     productList = () => {
@@ -71,6 +77,27 @@ class billing extends Component{
         <div className="row">
           <div className="col-md-8">
             <h1 id="detFacturacion">Detalle de Facturación</h1>
+            <form className="billing-form pt-4">
+              <h3 id="infCliente">Productos</h3>
+              <div className="mt-2">
+                <label for="inputFiltroArticulo" className="font-weight-bold">
+                  Filtro
+                </label>
+                <input type="text" className="form-control d-inline w-50 ml-1 mb-3" id="inputFiltroArticulo" onChange={this._handleChangeInputFiltroArticlo} />
+                <button className="btn btn-outline-primary ml-1" onClick={this.onButtonBuscarOnClick.bind(this)}>
+                  Buscar
+                </button>
+              </div>
+              <div className="row font-weight-bold mb-3 product-header pt-1 pt-1">
+                <div className="col-md-2">Articulo</div>
+                <div className="col-md-6">Descripción</div>
+                <div className="col-md-2">Precio</div>
+                <div className="col-md-2" />
+              </div>
+
+              {this.productList()}
+            </form>
+            <br />
             <form className="billing-form pt-4">
               <h3 id="infCliente">Información del Cliente</h3>
               <div className="row">
@@ -104,23 +131,7 @@ class billing extends Component{
                 </div>
               </div>
             </form>
-            <br />
-            <form className="billing-form pt-4">
-              <h3 id="infCliente">Detalle de Factura</h3>
-              <div >
-                <label for="inputFiltroArticulo">Filtrar</label>
-                <input type="text" className="form-control d-inline w-25 ml-1 mb-3" id="inputFiltroArticulo" onChange={this._handleChangeInputFiltroArticlo} />
-                <i className="fas fa-search icon-search mt-2" />
-              </div>
-              <div className="row font-weight-bold mb-3 product-header">
-                <div className="col-md-2">Articulo</div>
-                <div className="col-md-6">Descripción</div>
-                <div className="col-md-2">Precio</div>
-                <div className="col-md-2" />
-              </div>
 
-              {this.productList()}
-            </form>
             <br />
             <form className="billing-form pt-4">
               <h3 id="detFactura">Forma de Pago</h3>
