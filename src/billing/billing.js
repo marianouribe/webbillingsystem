@@ -23,7 +23,7 @@ class billing extends Component{
   constructor(props){
       super(props);
 
-      this.state= {products:[], inputSearch:'', pTotal:0};
+      this.state = { products: [], inputSearch: "", labelTotal: 0 };
 
       //Bind functions
       this.loadData = this.loadData.bind(this);
@@ -35,7 +35,7 @@ class billing extends Component{
     }
 
     loadData = () =>{
-      var self = this;
+      let self = this;
       // console.log(this.state.inputSearch);
       http.getProducts("api/articulo/" + this.state.inputSearch).then(data => {
           // console.log(data.recordset);
@@ -45,7 +45,8 @@ class billing extends Component{
     }
 
     updateSearch=(event)=>{
-        this.setState({ inputSearch: event.target.value.substr(0, 20)});
+        this.setState({ inputSearch: event.target.value.substr(0, 30)});
+        // this.loadData();
         
         // console.log(this.state.inputSearch);
 
@@ -74,12 +75,12 @@ class billing extends Component{
 
   render(){
     // let productSearch = this.props.articulo;
-      let list = this.state.products.filter(
-             (articulo) => {
-               console.log(articulo.DescripcionArticulo);
-               return articulo.DescripcionArticulo.toLowerCase().indexOf(this.state.inputSearch.toLowerCase()) !== -1;
-             }
-         );
+      // let list = this.state.products.filter(
+      //        (articulo) => {
+      //          console.log(articulo.DescripcionArticulo);
+      //          return articulo.DescripcionArticulo.toLowerCase().indexOf(this.state.inputSearch.toLowerCase()) !== -1;
+      //        }
+      //    );
     return <div className="ppagepanel" id="pagePanelModalBilling">
         <div className="row">
           <div className="col-md-8">
@@ -90,8 +91,7 @@ class billing extends Component{
                 <label for="inputSearch" className="font-weight-bold">
                   Filtro
                 </label>
-                <input type="text" className="form-control d-inline w-50 ml-1 mb-3" id="inputSearch" 
-                  value={this.state.inputSearch} onChange={this.updateSearch.bind(this)} />
+                <input type="text" className="form-control d-inline w-50 ml-1 mb-3" id="inputSearch" value={this.state.inputSearch} onChange={this.updateSearch.bind(this)} />
                 <button className="btn btn-outline-primary ml-1" onClick={this.onButtonBuscarOnClick.bind(this)}>
                   Buscar
                 </button>
@@ -103,14 +103,13 @@ class billing extends Component{
                 <div className="col-md-2" />
               </div>
 
-              {list.map((articulo) => {
+              {/* {list.map((articulo) => {
                 <div key={articulo.CodigoArticulo}>
                   <Product articulo={articulo} />
                 </div>
-              })}
+              })} */}
 
               {this.productList()}
-              
             </form>
             <br />
             <form className="billing-form pt-4">
@@ -134,15 +133,15 @@ class billing extends Component{
               <div className="row">
                 <div className="form-group col-md-4 fg-group">
                   <label>Telefono</label>
-                  <input type="text" className="form-control" id="NombreCliente" placeholder="Telefono de residencia" />
+                  <input type="text" className="form-control" id="inputTelefonoResidencia" placeholder="Telefono de residencia" />
                 </div>
                 <div className="form-group col-md-4 fg-group">
                   <label>Trabajo</label>
-                  <input type="text" className="form-control" id="NombreCliente" placeholder="Telefono de trabajo" />
+                  <input type="text" className="form-control" id="inputTelefonoTrabajo" placeholder="Telefono de trabajo" />
                 </div>
                 <div className="form-group col-md-4 fg-group">
                   <label>Celular</label>
-                  <input type="text" className="form-control" id="NombreCliente" placeholder="Número de celular" />
+                  <input type="text" className="form-control" id="inputCelular" placeholder="Número de celular" />
                 </div>
               </div>
             </form>
@@ -183,7 +182,7 @@ class billing extends Component{
               <BuyList />
             </div>
             <div className="text-left">
-              <b>Total:$ </b>
+              <label id="labelTotal">Total:$ </label>
             </div>
           </div>
         </div>
