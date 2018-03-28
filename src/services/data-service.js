@@ -35,7 +35,7 @@ class DataService {
     addBuyListItem = item => {
         buyList.push(item);
         ns.postNotification(NOTIF_BUYLIST_CHANGED, buyList);
-        pTotal -= item.PrecioUnitarioArticulo;
+        pTotal = item.PrecioUnitarioArticulo;
         //console.log(item.PrecioUnitarioArticulo);
 
     }
@@ -45,6 +45,7 @@ class DataService {
                 buyList.splice(x,1);
                 ns.postNotification(NOTIF_BUYLIST_CHANGED, buyList);
                 pTotal -= item.PrecioUnitarioArticulo;
+                console
                 break;
             }
         }
