@@ -23,7 +23,7 @@ class billing extends Component{
   constructor(props){
       super(props);
 
-      this.state= {products:[], inputFiltroArticulo:'', pTotal:0};
+      this.state= {products:[], inputSearch:'', pTotal:0};
 
       //Bind functions
       this.loadData = this.loadData.bind(this);
@@ -36,21 +36,19 @@ class billing extends Component{
 
     loadData = () =>{
       var self = this;
-      // console.log(this.state.inputFiltroArticulo);
-      http.getProducts("api/articulo/" + this.state.inputFiltroArticulo).then(data => {
+      // console.log(this.state.inputSearch);
+      http.getProducts("api/articulo/" + this.state.inputSearch).then(data => {
           // console.log(data.recordset);
 
           self.setState({ products: data.recordset });
         }, er => {});
     }
 
-    _handleChangeInputFiltroArticlo=(event)=>{
-        // console.log(event.target.value);
-        // var self = this;
-        this.setState({ inputFiltroArticulo: event.target.value });
+    updateSearch=(event)=>{
+        this.setState({ inputSearch: event.target.value.substr(0, 20)});
         
-        // console.log(this.state.inputFiltroArticulo);
-        // this.loadData(event.target.value);
+        // console.log(this.state.inputSearch);
+
     }
 
     onButtonBuscarOnClick=(event) =>{
@@ -58,25 +56,30 @@ class billing extends Component{
       event.preventDefault();
     }
     
-    productList = () => {
-        const list = this.state.products.map(articulo => (
-          <div key={articulo.CodigoArticulo}>
-            <Product articulo={articulo} />
-          </div>
-        ));
+     productList = () => {
+    //     // let listf = this.state.products.filter(
+    //     //     (articulo) => {
+    //     //       console.log(articulo.DescripcionArticulo);
+    //     //       return articulo.DescripcionArticulo.toLowerCase().indexOf(this.state.inputSearch.toLowerCase()) !== -1;
+    //     //     }
+    //     // );
+         const list = this.state.products.map(articulo => (
+           <div key={articulo.CodigoArticulo}>
+             <Product articulo={articulo} />
+           </div>
+         ));
+          
+       return (list);
+     }
 
-      return (list);
-    }
-
-    // componentDidMount(){
-    //   this.setState({inputFiltroArticulo:''})
-    // }
-
-    // componentWillMount(){
-    //   this.setState({inputFiltroArticulo:''})
-    // }
   render(){
-    
+    // let productSearch = this.props.articulo;
+      let list = this.state.products.filter(
+             (articulo) => {
+               console.log(articulo.DescripcionArticulo);
+               return articulo.DescripcionArticulo.toLowerCase().indexOf(this.state.inputSearch.toLowerCase()) !== -1;
+             }
+         );
     return <div className="ppagepanel" id="pagePanelModalBilling">
         <div className="row">
           <div className="col-md-8">
@@ -84,10 +87,11 @@ class billing extends Component{
             <form className="billing-form pt-4">
               <h3 id="infCliente">Productos</h3>
               <div className="mt-2">
-                <label for="inputFiltroArticulo" className="font-weight-bold">
+                <label for="inputSearch" className="font-weight-bold">
                   Filtro
                 </label>
-                <input type="text" className="form-control d-inline w-50 ml-1 mb-3" id="inputFiltroArticulo" onChange={this._handleChangeInputFiltroArticlo} />
+                <input type="text" className="form-control d-inline w-50 ml-1 mb-3" id="inputSearch" 
+                  value={this.state.inputSearch} onChange={this.updateSearch.bind(this)} />
                 <button className="btn btn-outline-primary ml-1" onClick={this.onButtonBuscarOnClick.bind(this)}>
                   Buscar
                 </button>
@@ -99,7 +103,14 @@ class billing extends Component{
                 <div className="col-md-2" />
               </div>
 
+              {list.map((articulo) => {
+                <div key={articulo.CodigoArticulo}>
+                  <Product articulo={articulo} />
+                </div>
+              })}
+
               {this.productList()}
+              
             </form>
             <br />
             <form className="billing-form pt-4">
@@ -172,7 +183,7 @@ class billing extends Component{
               <BuyList />
             </div>
             <div className="text-left">
-              <b>Total:$  </b>
+              <b>Total:$ </b>
             </div>
           </div>
         </div>
