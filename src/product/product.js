@@ -5,7 +5,8 @@ import NotificationService, {NOTIF_BUYLIST_CHANGED} from '../services/notificati
 
 let ds = new DataService();
 let ns = new NotificationService();
-
+let labelMontoTotal=0;
+// let l10nDO = new Intl.NumberFormat("es-DO", {style:"currency", currency:"DOP"});
 class Product extends Component{
 
     constructor(props){
@@ -32,10 +33,16 @@ class Product extends Component{
     onButtonClicked = (event) => {
         if (this.state.onBuyList){
             ds.removeBuyListItem(this.props.articulo);
+            labelMontoTotal -= this.props.articulo.PrecioUnitarioArticulo;
         }else {
-            ds.addBuyListItem(this.props.articulo)
+            ds.addBuyListItem(this.props.articulo);
+            labelMontoTotal += this.props.articulo.PrecioUnitarioArticulo ;
         }
+        // console.log(labelMontoTotal);
 
+        // labelMontoTotal = l10nDO.format(labelMontoTotal);
+
+        document.getElementById("labelMontoTotal").innerHTML=labelMontoTotal;
         event.preventDefault();
     }
 

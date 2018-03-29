@@ -82,6 +82,10 @@ button {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
 }
 
-.custom-select-amount{
+.custom-select-amount {
     width: 80px;
+}
+
+label.custom-label {
+    color: green;
 }

@@ -5,8 +5,6 @@ let ns = new NotificationService();
 let instance = null;
 var buyList = [];
 
-var pTotal = 0;
-
 class DataService {
     constructor(){
         if(!instance){
@@ -35,7 +33,6 @@ class DataService {
     addBuyListItem = item => {
         buyList.push(item);
         ns.postNotification(NOTIF_BUYLIST_CHANGED, buyList);
-        pTotal = item.PrecioUnitarioArticulo;
         //console.log(item.PrecioUnitarioArticulo);
 
     }
@@ -44,8 +41,6 @@ class DataService {
             if (buyList[x].CodigoArticulo === item.CodigoArticulo){
                 buyList.splice(x,1);
                 ns.postNotification(NOTIF_BUYLIST_CHANGED, buyList);
-                pTotal -= item.PrecioUnitarioArticulo;
-                console
                 break;
             }
         }

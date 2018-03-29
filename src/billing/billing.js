@@ -23,7 +23,7 @@ class billing extends Component{
   constructor(props){
       super(props);
 
-      this.state = { products: [], inputSearch: "", inlineFormCustomSelectAmount: '5', labelTotal: 0 };
+      this.state = { products: [], inputSearch: "", inlineFormCustomSelectAmount: "5", labelMontoTotal: 0 };
 
       //Bind functions
       this.loadData = this.loadData.bind(this);
@@ -98,9 +98,10 @@ class billing extends Component{
             <form className="billing-form pt-4">
               <h3 id="infCliente">Productos</h3>
               <div className="mt-2">
-                <label for="inputSearch" className="font-weight-bold">Filtro:</label>
-                <input type="search" className="form-control d-inline w-50 ml-1 mb-3" id="inputSearch" 
-                  value={this.state.inputSearch} onChange={this.updateSearch} autoFocus/>
+                <label for="inputSearch" className="font-weight-bold">
+                  Filtro:
+                </label>
+                <input type="search" className="form-control d-inline w-50 ml-1 mb-3" id="inputSearch" value={this.state.inputSearch} onChange={this.updateSearch} autoFocus />
 
                 <button className="btn btn-outline-primary ml-1" onClick={this.onButtonBuscarOnClick.bind(this)}>
                   Buscar
@@ -108,8 +109,7 @@ class billing extends Component{
 
                 {/* <label className="font-weight-bold">Mostrar:</label> */}
                 <label className="ml-2">Mostrar</label>
-                <select value={this.state.inlineFormCustomSelectAmount} onChange={this.updateinlineFormCustomSelectAmount} 
-                  class="form-control custom-select-amount d-inline ml-2">
+                <select value={this.state.inlineFormCustomSelectAmount} onChange={this.updateinlineFormCustomSelectAmount} class="form-control custom-select-amount d-inline ml-2">
                   <option value="5">5</option>
                   <option value="10">10</option>
                   <option value="15">15</option>
@@ -201,11 +201,24 @@ class billing extends Component{
             </Link>
             <div className="billing-form buylist pt-4">
               <h3>Articulos Seleccionados</h3>
-              <br />
-              <BuyList />
-            </div>
-            <div className="text-left">
-              <label id="labelTotal">Total:$ </label>
+
+              <BuyList className="mt-2" />
+
+              <b>
+                <hr />
+                <div className="mt-3">
+                  <div className="row">
+                    <div className="col-md-6 text-left">
+                      <p>Total:$ </p>
+                    </div>
+                    <div className="col-md-6 text-right">
+                      <label className="custom-label" id="labelMontoTotal">
+                        0.00
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </b>
             </div>
           </div>
         </div>

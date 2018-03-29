@@ -8,8 +8,7 @@ class ProductCondensed extends Component {
     constructor(props) {
         super(props);
         
-        //Bind
-        this.removeProduct = this.removeProduct.bind(this);
+        // this.habldeOnChangeMonto = this.habldeOnChangeMonto.bind(this);
     }
 
     removeProduct = (event) => {
@@ -33,12 +32,13 @@ class ProductCondensed extends Component {
               <div className="col-md-8">
                 <p>{this.props.articulo.DescripcionArticulo}</p>
               </div>
-              <div className="col-md-1">
+              <div className="col-md-2">
                 <p>
                   <b>${this.props.articulo.PrecioUnitarioArticulo}</b>
                 </p>
               </div>
             </div>
+            
           </div>;
     }
 }
