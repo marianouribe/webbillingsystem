@@ -23,7 +23,7 @@ class billing extends Component{
   constructor(props){
       super(props);
 
-      this.state = { products: [], inputSearch: "", labelTotal: 0 };
+      this.state = { products: [], inputSearch: "", inlineFormCustomSelectAmount: 10, labelTotal: 0 };
 
       //Bind functions
       this.loadData = this.loadData.bind(this);
@@ -37,7 +37,7 @@ class billing extends Component{
     loadData = () =>{
       let self = this;
       // console.log(this.state.inputSearch);
-      http.getProducts("api/articulo/" + this.state.inputSearch).then(data => {
+      http.getProducts("articulo/" + this.state.inlineFormCustomSelectAmount + "/" + this.state.inputSearch).then(data => {
           // console.log(data.recordset);
 
           self.setState({ products: data.recordset });
@@ -50,6 +50,11 @@ class billing extends Component{
         
         // console.log(this.state.inputSearch);
 
+    }
+
+    updateinlineFormCustomSelectAmount=(event)=>{
+      this.setState({inlineFormCustomSelectAmount: event.target.value});
+      this.loadData();
     }
 
     onButtonBuscarOnClick=(event) =>{
@@ -89,12 +94,18 @@ class billing extends Component{
               <h3 id="infCliente">Productos</h3>
               <div className="mt-2">
                 <label for="inputSearch" className="font-weight-bold">
-                  Filtro
+                  Filtro:
                 </label>
-                <input type="text" className="form-control d-inline w-50 ml-1 mb-3" id="inputSearch" value={this.state.inputSearch} onChange={this.updateSearch.bind(this)} />
+                <input type="search" className="form-control d-inline w-50 ml-1 mb-3" id="inputSearch" value={this.state.inputSearch} onChange={this.updateSearch.bind(this)} />
                 <button className="btn btn-outline-primary ml-1" onClick={this.onButtonBuscarOnClick.bind(this)}>
                   Buscar
                 </button>
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelectAmount" 
+                  value={this.state.inlineFormCustomSelectAmount} onChange={this.updateinlineFormCustomSelectAmount.bind(this)}>
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                  <option value="30">30</option>
+                </select>
               </div>
               <div className="row font-weight-bold mb-3 product-header pt-1 pt-1">
                 <div className="col-md-2">Articulo</div>
