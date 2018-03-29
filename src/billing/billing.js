@@ -23,13 +23,14 @@ class billing extends Component{
   constructor(props){
       super(props);
 
-      this.state = { products: [], inputSearch: "", inlineFormCustomSelectAmount: 10, labelTotal: 0 };
+      this.state = { products: [], inputSearch: "", inlineFormCustomSelectAmount: '5', labelTotal: 0 };
 
       //Bind functions
       this.loadData = this.loadData.bind(this);
       this.productList = this.productList.bind(this);
       // this.onChangeInputFiltroArticulo = this.onChangeInputFiltroArticulo.bind(this);
-      this.onButtonBuscarOnClick = this.onButtonBuscarOnClick.bind(this);
+      // this.onButtonBuscarOnClick = this.onButtonBuscarOnClick.bind(this);
+      this.updateinlineFormCustomSelectAmount = this.updateinlineFormCustomSelectAmount.bind(this);
       this.loadData();
 
     }
@@ -42,6 +43,8 @@ class billing extends Component{
 
           self.setState({ products: data.recordset });
         }, er => {});
+
+        // console.log(this.state.inlineFormCustomSelectAmount);
     }
 
     updateSearch=(event)=>{
@@ -53,8 +56,10 @@ class billing extends Component{
     }
 
     updateinlineFormCustomSelectAmount=(event)=>{
-      this.setState({inlineFormCustomSelectAmount: event.target.value});
-      this.loadData();
+      this.setState({ inlineFormCustomSelectAmount: event.target.value}, () => {
+        this.loadData();
+      });
+      // console.log(event.target.value); 
     }
 
     onButtonBuscarOnClick=(event) =>{
@@ -93,19 +98,26 @@ class billing extends Component{
             <form className="billing-form pt-4">
               <h3 id="infCliente">Productos</h3>
               <div className="mt-2">
-                <label for="inputSearch" className="font-weight-bold">
-                  Filtro:
-                </label>
-                <input type="search" className="form-control d-inline w-50 ml-1 mb-3" id="inputSearch" value={this.state.inputSearch} onChange={this.updateSearch.bind(this)} />
+                <label for="inputSearch" className="font-weight-bold">Filtro:</label>
+                <input type="search" className="form-control d-inline w-50 ml-1 mb-3" id="inputSearch" 
+                  value={this.state.inputSearch} onChange={this.updateSearch} autoFocus/>
+
                 <button className="btn btn-outline-primary ml-1" onClick={this.onButtonBuscarOnClick.bind(this)}>
                   Buscar
                 </button>
-                <select class="custom-select mr-sm-2" id="inlineFormCustomSelectAmount" 
-                  value={this.state.inlineFormCustomSelectAmount} onChange={this.updateinlineFormCustomSelectAmount.bind(this)}>
+
+                {/* <label className="font-weight-bold">Mostrar:</label> */}
+                <label className="ml-2">Mostrar</label>
+                <select value={this.state.inlineFormCustomSelectAmount} onChange={this.updateinlineFormCustomSelectAmount} 
+                  class="form-control custom-select-amount d-inline ml-2">
+                  <option value="5">5</option>
                   <option value="10">10</option>
+                  <option value="15">15</option>
                   <option value="20">20</option>
+                  <option value="25">25</option>
                   <option value="30">30</option>
                 </select>
+                <label className="ml-2">registros</label>
               </div>
               <div className="row font-weight-bold mb-3 product-header pt-1 pt-1">
                 <div className="col-md-2">Articulo</div>
