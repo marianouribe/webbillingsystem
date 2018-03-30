@@ -200,20 +200,20 @@ class billing extends Component{
               </button>
             </Link>
             <div className="billing-form buylist pt-4">
-              <h3>Articulos Seleccionados</h3>
+              <h3 className="mb-4">Articulos Seleccionados</h3>
 
-              <BuyList className="mt-2" />
+                <BuyList />
 
               <b>
                 <hr />
                 <div className="mt-3">
                   <div className="row">
-                    <div className="col-md-6 text-left">
-                      <p>Total:$ </p>
+                    <div className="col-md-6 text-right">
+                      <p>Total: </p>
                     </div>
                     <div className="col-md-6 text-right">
                       <label className="custom-label" id="labelMontoTotal">
-                        0.00
+                        DOP0.00
                       </label>
                     </div>
                   </div>

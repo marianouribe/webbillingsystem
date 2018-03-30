@@ -3,6 +3,7 @@ import './product-condensed.css';
 import DataService from '../services/data-service';
 
 let ds = new DataService();
+
 class ProductCondensed extends Component {
 
     constructor(props) {
@@ -18,6 +19,13 @@ class ProductCondensed extends Component {
     }
     
     render() {
+        let l10nDO = new Intl.NumberFormat("es-DO", {
+          style: "currency",
+          currency: "DOP"
+        });
+
+        let precioArticulo = l10nDO.format(this.props.articulo.PrecioUnitarioArticulo);
+
         return <div className="pc-condensed">
             {/* <button type="button" class="close" aria-label="Close"
                 onClick={(e) => this.removeProduct(e)}>
@@ -25,20 +33,17 @@ class ProductCondensed extends Component {
                 </button> */}
             <div className="row">
               <div className="col-md-2">
-                <a href="#" className="btn btn-outline-danger" onClick={e => this.removeProduct(e)}>
-                  X
-                </a>
+                <a href="#" className="btn btn-outline-danger" onClick={e => this.removeProduct(e)}>X</a>
               </div>
               <div className="col-md-8">
-                <p>{this.props.articulo.DescripcionArticulo}</p>
+                <p className="mt-2">{this.props.articulo.DescripcionArticulo}</p>
               </div>
               <div className="col-md-2">
-                <p>
-                  <b>${this.props.articulo.PrecioUnitarioArticulo}</b>
+                <p className="mt-2">
+                  <b>{precioArticulo}</b>
                 </p>
               </div>
             </div>
-            
           </div>;
     }
 }

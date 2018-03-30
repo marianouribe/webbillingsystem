@@ -36,13 +36,18 @@ class Product extends Component{
             labelMontoTotal -= this.props.articulo.PrecioUnitarioArticulo;
         }else {
             ds.addBuyListItem(this.props.articulo);
-            labelMontoTotal += this.props.articulo.PrecioUnitarioArticulo ;
+            labelMontoTotal += this.props.articulo.PrecioUnitarioArticulo;
         }
         // console.log(labelMontoTotal);
 
         // labelMontoTotal = l10nDO.format(labelMontoTotal);
+        
 
-        document.getElementById("labelMontoTotal").innerHTML=labelMontoTotal;
+        let l10nDO = new Intl.NumberFormat("es-DO", {style: "currency", currency: "DOP"});
+
+        document.getElementById("labelMontoTotal").innerHTML = l10nDO.format(labelMontoTotal);
+        // console.log(Math.abs((0.1 + 0.2) - 0.3) < Number.EPSILON);
+        console.log(l10nDO.format(labelMontoTotal));
         event.preventDefault();
     }
 
