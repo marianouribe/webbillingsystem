@@ -120,9 +120,9 @@ class billing extends Component{
                 <label className="ml-2">registros</label>
               </div>
               <div className="row font-weight-bold mb-3 product-header pt-1 pt-1">
-                <div className="col-md-2">Articulo</div>
+                <div className="col-md-2">Referencia</div>
                 <div className="col-md-6">Descripción</div>
-                <div className="col-md-2">Precio</div>
+                <div className="col-md-2 text-right">Precio</div>
                 <div className="col-md-2" />
               </div>
 
@@ -200,25 +200,24 @@ class billing extends Component{
               </button>
             </Link>
             <div className="billing-form buylist pt-4">
-              <h3 className="mb-4">Articulos Seleccionados</h3>
+              <h3 className="mb-4">Productos Seleccionados</h3>
 
                 <BuyList />
 
-              <b>
                 <hr />
-                <div className="mt-3">
-                  <div className="row">
+                <div className="mt-3 mr-3">
+                  <div className="row font-weight-bold">
                     <div className="col-md-6 text-right">
                       <p>Total: </p>
                     </div>
                     <div className="col-md-6 text-right">
-                      <label className="custom-label" id="labelMontoTotal">
+                      <p className="custom-p" id="labelMontoTotal">
                         DOP0.00
-                      </label>
+                      </p>
                     </div>
                   </div>
                 </div>
-              </b>
+              
             </div>
           </div>
         </div>

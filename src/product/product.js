@@ -6,6 +6,7 @@ import NotificationService, {NOTIF_BUYLIST_CHANGED} from '../services/notificati
 let ds = new DataService();
 let ns = new NotificationService();
 let labelMontoTotal=0;
+let l10nDO = new Intl.NumberFormat("es-DO", {style: "currency", currency: "DOP"});
 // let l10nDO = new Intl.NumberFormat("es-DO", {style:"currency", currency:"DOP"});
 class Product extends Component{
 
@@ -42,12 +43,9 @@ class Product extends Component{
 
         // labelMontoTotal = l10nDO.format(labelMontoTotal);
         
-
-        let l10nDO = new Intl.NumberFormat("es-DO", {style: "currency", currency: "DOP"});
-
         document.getElementById("labelMontoTotal").innerHTML = l10nDO.format(labelMontoTotal);
         // console.log(Math.abs((0.1 + 0.2) - 0.3) < Number.EPSILON);
-        console.log(l10nDO.format(labelMontoTotal));
+        // console.log(l10nDO.format(labelMontoTotal));
         event.preventDefault();
     }
 
@@ -66,13 +64,12 @@ class Product extends Component{
          
 
         return(
-            
                 <div className="row mb-2 product-detalle">
                     
                     {/* <div className="col-md-2"><img className="img-detalle" src={_img} alt="Product" ></img></div> */}
                     <div className="col-md-2">{this.props.articulo.CodigoArticulo}</div>
                     <div className="col-md-6">{this.props.articulo.DescripcionArticulo}</div>
-                    <div className="col-md-2">{this.props.articulo.PrecioUnitarioArticulo}</div>
+                    <div className="col-md-2 text-right">{l10nDO.format(this.props.articulo.PrecioUnitarioArticulo)}</div>
                     <div className="col-md-2">
                         <a href="#" onClick={(e) => this.onButtonClicked(e)}>
                         <button className={btnClass}>
