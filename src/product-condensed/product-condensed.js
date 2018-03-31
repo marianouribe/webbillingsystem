@@ -31,17 +31,28 @@ class ProductCondensed extends Component {
                 onClick={(e) => this.removeProduct(e)}>
                  <span aria-hidden="true">&times;</span>
                 </button> */}
-            <div className="row">
+            <div className="form-group row">
               <div className="col-md-2">
-                <a href="#" className="btn btn-outline-danger" onClick={e => this.removeProduct(e)}>X</a>
+                <a href="#" className="btn btn-outline-danger" onClick={e => this.removeProduct(e)}>
+                  X
+                </a>
               </div>
-              <div className="col-md-8">
-                <p className="mt-2">{this.props.articulo.DescripcionArticulo}</p>
+              <div className="col-md-5">
+                <p className="">
+                  {this.props.articulo.DescripcionArticulo}
+                </p>
               </div>
               <div className="col-md-2">
-                <p className="mt-2">
+                <p className="">
                   <b>{precioArticulo}</b>
                 </p>
+              </div>
+              <div className="col-md-3">
+                <div class="quantity d-inline">
+                  <input type="number" min="1" max="9" step="1" value="1" />
+                  <button className="d-inline">+</button>
+                  <button className="d-inline">-</button>
+                </div>
               </div>
             </div>
           </div>;

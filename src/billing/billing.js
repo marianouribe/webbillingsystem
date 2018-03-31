@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
 import {Route, Link} from 'react-router-dom';
+
 import './billing.css';
 
 //Components
@@ -13,8 +14,13 @@ import BuyList from '../buylist/buylist'
 
 //Services
 import HttpService from '../services/http-service';
+import DataService from "../services/data-service";
 
 const http = new HttpService();
+
+
+
+let ds = new DataService();
 // var reg;
 
 class billing extends Component{
@@ -83,6 +89,9 @@ class billing extends Component{
        return (list);
      }
 
+     removeProduct = (event) => {
+        ds.removeBuyListItem(this.props.articulo,1);
+    }
   render(){
     // let productSearch = this.props.articulo;
       // let list = this.state.products.filter(
@@ -109,7 +118,8 @@ class billing extends Component{
 
                 {/* <label className="font-weight-bold">Mostrar:</label> */}
                 <label className="ml-2">Mostrar</label>
-                <select value={this.state.inlineFormCustomSelectAmount} onChange={this.updateinlineFormCustomSelectAmount} class="form-control custom-select-amount d-inline ml-2">
+                <select value={this.state.inlineFormCustomSelectAmount} onChange={this.updateinlineFormCustomSelectAmount} 
+                className="form-control custom-select-amount d-inline ml-2">
                   <option value="5">5</option>
                   <option value="10">10</option>
                   <option value="15">15</option>
@@ -195,7 +205,7 @@ class billing extends Component{
 
           <div className="col-md-4">
             <Link to="/" className="btn-Close float-right">
-              <button type="button" class="close" aria-label="Close">
+              <button type="button" class="close" aria-label="Close" onClick={e => this.removeProduct(e)}>
                 <span aria-hidden="true">&times;</span>
               </button>
             </Link>

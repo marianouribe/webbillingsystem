@@ -20,6 +20,9 @@ class DataService {
         //         return true;
         //     }            
         // }
+
+        //vericar error cuando cambio de cantiadad de productos
+        try {
             for (let x of buyList) {
                 if (x.CodigoArticulo === item.CodigoArticulo) {
                   //console.log(buyList[x].IdArticulo);
@@ -27,6 +30,10 @@ class DataService {
                 }
                 
             }
+        } catch (err) {
+            
+        }
+            
         return false;
     }
 
@@ -36,15 +43,29 @@ class DataService {
         //console.log(item.PrecioUnitarioArticulo);
 
     }
-    removeBuyListItem = item => {
-        for (var x = 0; x < buyList.length; x++){
-            if (buyList[x].CodigoArticulo === item.CodigoArticulo){
-                buyList.splice(x,1);
-                ns.postNotification(NOTIF_BUYLIST_CHANGED, buyList);
-                break;
+    removeBuyListItem = (item, all) => {
+        if (all == 1){
+            // for (var x = 0; x < buyList.length; x++) {
+                buyList.splice(0, buyList.length);
+                ns.postNotification(NOTIF_BUYLIST_CHANGED,buyList);
+            // }
+            
+        }else {
+            for (var x = 0; x < buyList.length; x++){
+                if (buyList[x].CodigoArticulo === item.CodigoArticulo){
+                    buyList.splice(x,1);
+                    ns.postNotification(NOTIF_BUYLIST_CHANGED, buyList);
+                    break;
+                }
             }
         }
+
+        
     }
+
+    // removeAllListItem = item => {
+    //     form
+    // }
 }
 
 export default DataService;
