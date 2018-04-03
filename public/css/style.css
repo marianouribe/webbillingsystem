@@ -25,7 +25,8 @@ body {
   width: 100%;
   text-align: left;
   background-color: #333;
-  border: 1px solid rgba(114, 108, 108, 0.315); }
+  border: 1px solid rgba(114, 108, 108, 0.315);
+  z-index: 2; }
 
 h2 {
   color: #fff;
@@ -133,7 +134,7 @@ body {
   text-align: center;
   margin-bottom: 8px; }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 920px) {
   .l-nav {
     width: 100%;
     position: relative; }
@@ -149,6 +150,9 @@ body {
     margin-top: 5px; }
 
   h2 {
-    text-align: left; } }
+    text-align: left; }
+
+  #header {
+    display: none; } }
 
 /*# sourceMappingURL=style.css.map */

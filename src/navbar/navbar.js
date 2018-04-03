@@ -9,15 +9,16 @@ class NavBar extends Component {
     }
 
   render() {
-    return <div className="">
-        <nav class="navbar navbar-toggleable-md navbar-light bg-faded l-nav navbar-custon toggle-custom">
-          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon" />
+    return (
+      <div className="">
+        <nav className="navbar navbar-toggleable-md navbar-light bg-faded l-nav navbar-custon toggle-custom">
+          <button id="btn-toggle" className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon" />
           </button>
           <h2>WB System</h2>
 
-          <div class="collapse navbar-collapse flex-column" id="navbarTogglerDemo02">
-            <ul class="navbar-nav mr-auto mt-2 mt-md-0 flex-column">
+          <div className="collapse navbar-collapse flex-column" id="navbarTogglerDemo02">
+            <ul className="navbar-nav mr-auto mt-2 mt-md-0 flex-column">
               <li data-toggle="collapse" data-target="#newFacturacion">
                 <a href="#">
                   <i className="far fas fa-laptop fa-2x" />
@@ -120,7 +121,8 @@ class NavBar extends Component {
             </div>
           </nav>
         </div> */}
-      </div>;
+      </div>
+      )
   }
 };
 
