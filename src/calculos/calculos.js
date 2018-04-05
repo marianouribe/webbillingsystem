@@ -3,6 +3,9 @@ import React from 'react';
 class Calculo extends React.Component{
 
     render(){
+
+      console.log(this.props.articulo);
+
         return <div>
             <div className="text-left font-weight-bold mt-5 fa-border">
               <div className="row">
@@ -10,7 +13,9 @@ class Calculo extends React.Component{
                   <p>Total: </p>
                 </div>
                 <div className="col-sm-3">
-                  <p className="custom-p">0.00</p>
+                  <p className="custom-p">
+                    {this.props.articulo.PrecioUnitarioArticulo}
+                  </p>
                 </div>
               </div>
               <div className="row">
