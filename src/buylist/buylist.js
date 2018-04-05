@@ -44,6 +44,8 @@ class BuyList extends Component {
                 <ul className="list-group">
                     {this.createBuyList()}
                 </ul>
+
+                {this.props.children} 
             </div>
         );
     }

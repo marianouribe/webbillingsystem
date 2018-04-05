@@ -3,7 +3,6 @@ import './product-condensed.css';
 import DataService from '../services/data-service';
 
 let ds = new DataService();
-
 class ProductCondensed extends Component {
 
     constructor(props) {

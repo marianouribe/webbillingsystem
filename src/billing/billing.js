@@ -15,6 +15,7 @@ import BuyList from '../buylist/buylist'
 //Services
 import HttpService from '../services/http-service';
 import DataService from "../services/data-service";
+import Calculos from '../calculos/calculos';
 
 const http = new HttpService();
 
@@ -74,12 +75,6 @@ class billing extends Component{
     }
     
      productList = () => {
-    //     // let listf = this.state.products.filter(
-    //     //     (articulo) => {
-    //     //       console.log(articulo.DescripcionArticulo);
-    //     //       return articulo.DescripcionArticulo.toLowerCase().indexOf(this.state.inputSearch.toLowerCase()) !== -1;
-    //     //     }
-    //     // );
          const list = this.state.products.map(articulo => (
            <div key={articulo.CodigoArticulo}>
              <Product articulo={articulo} />
@@ -118,8 +113,7 @@ class billing extends Component{
 
                 {/* <label className="font-weight-bold">Mostrar:</label> */}
                 <label className="ml-2">Mostrar</label>
-                <select value={this.state.inlineFormCustomSelectAmount} onChange={this.updateinlineFormCustomSelectAmount} 
-                className="form-control custom-select-amount d-inline ml-2">
+                <select value={this.state.inlineFormCustomSelectAmount} onChange={this.updateinlineFormCustomSelectAmount} className="form-control custom-select-amount d-inline ml-2">
                   <option value="5">5</option>
                   <option value="10">10</option>
                   <option value="15">15</option>
@@ -211,23 +205,10 @@ class billing extends Component{
             </Link>
             <div className="billing-form buylist pt-4">
               <h3 className="mb-4">Productos Seleccionados</h3>
-
-                <BuyList />
-
-                <hr />
-                <div className="mt-3 mr-3">
-                  <div className="row font-weight-bold">
-                    <div className="col-md-6 text-right">
-                      <p>Total: </p>
-                    </div>
-                    <div className="col-md-6 text-right">
-                      <p className="custom-p" id="labelMontoTotal">
-                        DOP0.00
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              
+              <BuyList>
+                <hr/>
+                <Calculos />
+              </BuyList>
             </div>
           </div>
         </div>

@@ -43,7 +43,7 @@ class Product extends Component{
 
         // labelMontoTotal = l10nDO.format(labelMontoTotal);
         
-        document.getElementById("labelMontoTotal").innerHTML = l10nDO.format(labelMontoTotal);
+        // document.getElementById("labelMontoTotal").innerHTML = l10nDO.format(labelMontoTotal);
         // console.log(Math.abs((0.1 + 0.2) - 0.3) < Number.EPSILON);
         // console.log(l10nDO.format(labelMontoTotal));
         event.preventDefault();
