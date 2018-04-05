@@ -206,7 +206,6 @@ class billing extends Component{
             <div className="billing-form buylist pt-4">
               <h3 className="mb-4">Productos Seleccionados</h3>
               <BuyList>
-                <hr/>
                 <Calculos />
               </BuyList>
             </div>

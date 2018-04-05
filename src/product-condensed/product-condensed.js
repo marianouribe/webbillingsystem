@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import './product-condensed.css';
 import DataService from '../services/data-service';
 
@@ -53,6 +54,12 @@ class ProductCondensed extends Component {
             
           </div>;
     }
+}
+
+//para definir los tipos, requeridos, etc. de los props
+ProductCondensed.propTypes= {
+  //PrecioUnitarioArticulo : PropTypes.number
+  articulo : PropTypes.object.isRequired
 }
 
 export default ProductCondensed;

@@ -3,15 +3,39 @@ import React from 'react';
 class Calculo extends React.Component{
 
     render(){
-        return <div className="font-weight-bold mt-3 mr-3">
-            <div className="row">
-              <div className="col-md-6 text-right">
-                <p>Total: </p>
+        return <div>
+            <div className="text-left font-weight-bold mt-5 fa-border">
+              <div className="row">
+                <div className="col-sm-4">
+                  <p>Total: </p>
+                </div>
+                <div className="col-sm-3">
+                  <p className="custom-p">0.00</p>
+                </div>
               </div>
-              <div className="col-md-6 text-right">
-                <p className="custom-p">
-                  {this.props.articulo.CodigoArticulo}
-                </p>
+              <div className="row">
+                <div className="col-sm-4">
+                  <p>Descuento: </p>
+                </div>
+                <div className="col-sm-3">
+                  <p className="custom-p">0.00</p>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-sm-4">
+                  <p>Itbis: </p>
+                </div>
+                <div className="col-sm-3">
+                  <p className="custom-p">0.00</p>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-sm-4">
+                  <p>Total Neto: </p>
+                </div>
+                <div className="col-sm-3">
+                  <p className="custom-p">0.00</p>
+                </div>
               </div>
             </div>
           </div>;
