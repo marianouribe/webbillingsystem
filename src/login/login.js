@@ -10,8 +10,8 @@ import Home from '../home/home';
 
 class Login extends Component{
                 
-        constructor(props) {
-            super(props);
+        constructor() {
+            super();
             
         //this.setState({userIdInput:this.props.userIdInput});
         //    var userIdInput = document.getElementById('userIdInput');
@@ -19,11 +19,12 @@ class Login extends Component{
             this._buttonClick = this._buttonClick.bind(this);
        }
 
-    _handleUserIdChange=(event)=>{
+    _handleUserIdChange(event){
         this.setState({userIdInput: event.target.value});
+        // console.log(event.target.value);
     }
 
-    _handlePasswordChange=(event)=>{
+    _handlePasswordChange(event){
         this.setState({passwordInput: event.target.value});
     }
 
@@ -71,12 +72,12 @@ class Login extends Component{
                             <span className="input-group-lg"><i className="fas icon-login fa-user"></i></span>
                             
                             <input type="text" className={this.state.userIdBorderInput} id='userIdInput'
-                            placeholder="Usuario" onChange={this._handleUserIdChange}/>
+                            placeholder="Usuario" onChange={this._handleUserIdChange.bind(this)}/>
                         </div>
                         <div className="form-group left icon-login input">
                             <i className="fas icon-login fa-lock"></i>
                             <input type="password" className={this.state.passwordPasswordInput} id="passwordInput" 
-                            placeholder="Clave" onChange={this._handlePasswordChange}/>
+                            placeholder="Clave" onChange={this._handlePasswordChange.bind(this)}/>
                         </div>
                         <div className="row" >
                             <div className="col-6">
@@ -85,7 +86,7 @@ class Login extends Component{
                             </div>
                             <div className="col-4">
                                 <button className="btn btn-primary btn-login" 
-                                onClick = {this._buttonClick.bind(this)}>Aceptar <i class="fas fa-arrow-right"></i></button>
+                                onClick = {this._buttonClick}>Aceptar <i className="fas fa-arrow-right"></i></button>
                             </div>
                         </div>
                         <hr/>
@@ -122,27 +123,27 @@ class Login extends Component{
                                             <div className="modalFormWrapper">
                                                 <form>
                                                     <div className="form-group">
-                                                        <label for="formUserId">Usuario</label>
+                                                        <label>Usuario</label>
                                                         <input type="text" className="form-control" id="formUserId" 
                                                         placeholder="Id de usuario"/>
                                                     </div>
                                                     <div className="form-group">
-                                                        <label for="formUserName">Nombre</label>
+                                                        <label>Nombre</label>
                                                         <input type="text" className="form-control" id="formUserName" 
                                                         placeholder="Nombre de usuario"/>
                                                     </div>
                                                     <div className="form-group">
-                                                        <label for="formUserEmail">Email</label>
+                                                        <label>Email</label>
                                                         <input type="email" className="form-control" id="formUserEmail" 
                                                         placeholder="Email"/>
                                                     </div>
                                                     <div className="form-group">
-                                                        <label for="formUserPassword">Clave</label>
+                                                        <label>Clave</label>
                                                         <input type="password" className="form-control" id="formUserPassword"
                                                             placeholder="Clave"/>
                                                     </div>
                                                     <div className="form-group">
-                                                        <label for="formUserPassowrdConfirm">Confirmar Clave</label>
+                                                        <label>Confirmar Clave</label>
                                                         <input type="password" className="form-control" id="formUserPassowrdConfirm" 
                                                         placeholder="Confirmación de Clave"/>
                                                     </div>
@@ -181,13 +182,13 @@ class Login extends Component{
                                             <div className="modalFormWrapper">
                                                 <form>
                                                     <div className="form-group">
-                                                        <label for="formUserId">Usuario</label>
-                                                        <input type="text" className="form-control" id="formUserId" 
+                                                        <label>Usuario</label>
+                                                        <input type="text" className="form-control" id="UserRecuperaClave" 
                                                         placeholder="Id de usuario"/>
                                                     </div>
                                                     <div className="form-group">
-                                                        <label for="formUserEmail">Email</label>
-                                                        <input type="email" className="form-control" id="formUserEmail" 
+                                                        <label>Email</label>
+                                                        <input type="email" className="form-control" id="EmailRecuperaClave" 
                                                         placeholder="Email"/>
                                                     </div>
                                                 </form>

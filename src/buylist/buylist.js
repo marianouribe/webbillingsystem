@@ -4,6 +4,8 @@ import DataService from "../services/data-service";
 import NotificationService, {NOTIF_BUYLIST_CHANGED} from '../services/notification-service';
 
 import ProductCondensed from '../product-condensed/product-condensed';
+import Calculos from "../calculos/calculos";
+
 // import { NOTIF_WISHLIST_CHANGED } from '../services/notification-service';
 
 let ns = new NotificationService();
@@ -24,7 +26,7 @@ class BuyList extends Component {
     }
 
     componentWillUnmount(){
-        ns.removeObserver(this, NOTIF_BUYLIST_CHANGED);
+         ns.removeObserver(this, NOTIF_BUYLIST_CHANGED);
     }
 
     onBuyListChanged(newBuyList){
@@ -33,20 +35,20 @@ class BuyList extends Component {
 
     createBuyList = () => {
         const list = this.state.buyList.map((articulo) => 
-            <ProductCondensed articulo = {articulo} key={articulo.IdArticulo}/>
+            <ProductCondensed articulo = {articulo} key={articulo.CodigoArticulo}/>
+            
         );
 
         return (list);
     }
+   
     render() {
-        return (
-            <div>
-                <ul className="list-group">
-                    {this.createBuyList()}
-                </ul>
-                {this.props.children}
-            </div>
-        );
+        
+        return <div>
+            <ul className="list-group">{this.createBuyList()}</ul>
+            {/* {this.props.children} */}
+            <Calculos articulo={this.state.buyList}/>
+          </div>;
     }
 }
 

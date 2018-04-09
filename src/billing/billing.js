@@ -1,25 +1,16 @@
 import React, { Component } from "react";
-import ReactDOM from 'react-dom';
-import {Route, Link} from 'react-router-dom';
-
-import './billing.css';
-
+import { Link, Route } from 'react-router-dom';
+import BuyList from '../buylist/buylist';
 //Components
 import Home from '../home/home';
 import Product from '../product/product';
-import BuyList from '../buylist/buylist'
-
-// import DataService from "../services/data-service";
-// let ds = new DataService()
+import DataService from "../services/data-service";
 
 //Services
 import HttpService from '../services/http-service';
-import DataService from "../services/data-service";
-import Calculos from '../calculos/calculos';
+import './billing.css';
 
 const http = new HttpService();
-
-
 
 let ds = new DataService();
 // var reg;
@@ -31,35 +22,39 @@ class billing extends Component {
     this.state = {
       products: [],
       inputSearch: "",
-      inlineFormCustomSelectAmount: "5",
+      valueSelect: "5",
       labelMontoTotal: 0
     };
 
-    //Bind functions
-    this.loadData = this.loadData.bind(this);
+    //this.loadData = this.loadData.bind(this);
     this.productList = this.productList.bind(this);
-    // this.onChangeInputFiltroArticulo = this.onChangeInputFiltroArticulo.bind(this);
-    // this.onButtonBuscarOnClick = this.onButtonBuscarOnClick.bind(this);
-    this.updateinlineFormCustomSelectAmount = this.updateinlineFormCustomSelectAmount.bind(
-      this
-    );
-    this.loadData();
+    // this.updateinlineFormCustomSelectAmount = this.updateinlineFormCustomSelectAmount.bind(this);
+    // this.loadData();
   }
 
+  componentWillMount(){
+    this.loadData();
+    // console.log("componentWillMount");
+  }
+
+  // componentWillUpdate(){
+  //   // this.loadData();
+  //   console.log("componentWillUpdate");
+  // }
+
+  componentWillUnmount(){
+    ds.removeBuyListItem(this.props.articulo, 1);
+    // console.log("componentWillUnmount");
+  }
+
+
+  
   loadData = () => {
     let self = this;
     // console.log(this.state.inputSearch);
-    http
-      .getProducts(
-        "articulo/" +
-          this.state.inlineFormCustomSelectAmount +
-          "/" +
-          this.state.inputSearch
-      )
+    http.getProducts("articulo/" + this.state.valueSelect + "/" + this.state.inputSearch)
       .then(
         data => {
-          // console.log(data.recordset);
-
           self.setState({ products: data.recordset });
         },
         er => {}
@@ -68,38 +63,40 @@ class billing extends Component {
     // console.log(this.state.inlineFormCustomSelectAmount);
   };
 
-  updateSearch = event => {
+  setSearch(event){
     this.setState({ inputSearch: event.target.value.substr(0, 30) });
-    // this.loadData();
-
-    // console.log(this.state.inputSearch);
   };
 
-  updateinlineFormCustomSelectAmount = event => {
-    this.setState({ inlineFormCustomSelectAmount: event.target.value }, () => {
-      this.loadData();
-    });
-    // console.log(event.target.value);
-  };
+  setValueSelect(event) {
+     this.setState({ valueSelect: event.target.value }, () => {
+       this.loadData();
+      });
+  }
+  
 
-  onButtonBuscarOnClick = event => {
+  // updateinlineFormCustomSelectAmount(event){
+  //   this.setState({inlineFormCustomSelectAmount: event.target.value});
+  // };
+
+  onButtonBuscar(event) {
     this.loadData();
     event.preventDefault();
   };
 
   productList = () => {
     const list = this.state.products.map(articulo => (
-      <div key={articulo.CodigoArticulo}>
-        <Product articulo={articulo} />
-      </div>
+        <Product key={articulo.CodigoArticulo} articulo={articulo} />
     ));
 
     return list;
   };
 
-  removeProduct = event => {
-    ds.removeBuyListItem(this.props.articulo, 1);
-  };
+  // removeProduct = event => {
+  //   ds.removeBuyListItem(this.props.articulo, 1);
+  // };
+
+  
+
   render() {
     return (
       <div className="ppagepanel" id="pagePanelModalBilling">
@@ -109,32 +106,18 @@ class billing extends Component {
             <form className="billing-form pt-4">
               <h3 id="infCliente">Productos</h3>
               <div className="mt-2">
-                <label for="inputSearch" className="font-weight-bold">
-                  Filtro:
-                </label>
-                <input
-                  type="search"
-                  className="form-control d-inline w-50 ml-1 mb-3"
-                  id="inputSearch"
-                  value={this.state.inputSearch}
-                  onChange={this.updateSearch}
-                  autoFocus
-                />
+                <label className="font-weight-bold"> Filtro: </label>
+                <input type="search" className="form-control d-inline w-50 ml-1 mb-3" id="inputSearch" value={this.state.inputSearch} 
+                  onChange={this.setSearch.bind(this)} />
 
-                <button
-                  className="btn btn-outline-primary ml-1"
-                  onClick={this.onButtonBuscarOnClick.bind(this)}
-                >
-                  Buscar
-                </button>
+                <button className="btn btn-outline-primary ml-1" onClick={this.onButtonBuscar.bind(this)}>Buscar</button>
 
                 {/* <label className="font-weight-bold">Mostrar:</label> */}
                 <label className="ml-2">Mostrar</label>
                 <select
-                  value={this.state.inlineFormCustomSelectAmount}
-                  onChange={this.updateinlineFormCustomSelectAmount}
-                  className="form-control custom-select-amount d-inline ml-2"
-                >
+                  value={this.state.valueSelect}
+                  onChange={this.setValueSelect.bind(this)}
+                  className="form-control custom-select-amount d-inline ml-2">
                   <option value="5">5</option>
                   <option value="10">10</option>
                   <option value="15">15</option>
@@ -164,7 +147,7 @@ class billing extends Component {
               <h3 id="infCliente">Información del Cliente</h3>
               <div className="row">
                 <div className="form-group col-md-4 fg-group">
-                  <label for="inputIdentificionCliente">Identifación</label>
+                  <label >Identifación</label>
                   <input
                     type="text"
                     className="form-control"
@@ -173,7 +156,7 @@ class billing extends Component {
                   />
                 </div>
                 <div className="form-group col-md-8 fg-group">
-                  <label for="inputNombreCliente">Nombre</label>
+                  <label>Nombre</label>
                   <input
                     type="text"
                     className="form-control"
@@ -183,7 +166,7 @@ class billing extends Component {
               </div>
               <div className="row">
                 <div className="form-group col-md-12 fg-group">
-                  <label for="inputDireccionCliente">Dirección</label>
+                  <label>Dirección</label>
                   <input
                     type="text"
                     className="form-control"
@@ -232,7 +215,7 @@ class billing extends Component {
                   <input
                     type="text"
                     className="form-control"
-                    id="IdentificacionCliente"
+                    
                     placeholder="Cedula/Pasaport/Rnc"
                   />
                 </div>
@@ -241,7 +224,6 @@ class billing extends Component {
                   <input
                     type="password"
                     className="form-control"
-                    id="NombreCliente"
                     placeholder="Nombre del cliente"
                   />
                 </div>
@@ -250,7 +232,6 @@ class billing extends Component {
                   <input
                     type="text"
                     className="form-control"
-                    id="IdentificacionCliente"
                     placeholder="Cedula/Pasaport/Rnc"
                   />
                 </div>
@@ -259,7 +240,6 @@ class billing extends Component {
                   <input
                     type="password"
                     className="form-control"
-                    id="NombreCliente"
                     placeholder="Nombre del cliente"
                   />
                 </div>
@@ -269,20 +249,14 @@ class billing extends Component {
 
           <div className="col-md-4">
             <Link to="/" className="btn-Close float-right">
-              <button
-                type="button"
-                class="close"
-                aria-label="Close"
-                onClick={e => this.removeProduct(e)}
-              >
+              <button type="button" className="close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </Link>
             <div className="billing-form buylist pt-4">
               <h3 className="mb-4">Productos Seleccionados</h3>
-              <BuyList>
-                <Calculos articulo={this.productList()} />
-              </BuyList>
+              <BuyList />
+                
             </div>
           </div>
         </div>

@@ -4,16 +4,13 @@ import './index.css';
 // import App from './App/App';
 import Login from './login/login';
 
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
 
-ReactDOM.render(
-        
-            <Login />
-        , document.getElementById('root'));
+ReactDOM.render(<Login />, document.getElementById('root'));
         
 
-registerServiceWorker();
+// registerServiceWorker();
 
 // ReactDOM.render(<App />, document.getElementById('root'));
 // registerServiceWorker();

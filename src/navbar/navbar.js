@@ -49,7 +49,7 @@ class NavBar extends Component {
 
               <li data-target="#newSeguridad">
                 <a href="#">
-                  <i class="far fa-user fa-2x" />
+                  <i className="far fa-user fa-2x" />
                   <label>Seguridad</label>
                 </a>
               </li>
