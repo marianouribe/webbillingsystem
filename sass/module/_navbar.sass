@@ -4,15 +4,24 @@
 .l-nav
     position: fixed
     width: 15%
-    display: block
+    display: flex
     top: 0
     bottom: 0
     left: 0
     font-family: $font-family
     font-size: 13px
+    
     // background-color: $brand-theme-color
     // border: none
     z-index: 3
+
+h2
+    color: #fff
+    text-align: center
+    margin: auto
+
+#btn-toggle
+    display: none
     // border: 1px solid red
 
 .navbar-custon
@@ -22,7 +31,7 @@
 //     background: white
 
 // .toggle-custom
-    // display: none
+//     display: none
 
 .flex-column ul,
 .flex-column li 
@@ -49,7 +58,6 @@
     text-decoration: none
     color: #e1ffff
 
-
 .flex-column ul i 
     display: block
     text-align: center
@@ -61,7 +69,10 @@
     .l-nav
         width: 100%
         position: relative
-        // top: 40px
+        display: block
+        
+    #btn-toggle
+        display: block
 
     .flex-column ul,
     .flex-column li 
@@ -72,8 +83,6 @@
         text-align: left
         margin-right: 10px
         margin-top: 5px
-    // .toggle-custom
-    //     display: block
 
     h2
         text-align: left

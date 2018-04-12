@@ -28,11 +28,6 @@ body {
   border: 1px solid rgba(114, 108, 108, 0.315);
   z-index: 2; }
 
-h2 {
-  color: #fff;
-  text-align: center;
-  margin: auto; }
-
 .navbar-right {
   float: right;
   margin: auto; }
@@ -98,13 +93,21 @@ body {
 .l-nav {
   position: fixed;
   width: 15%;
-  display: block;
+  display: flex;
   top: 0;
   bottom: 0;
   left: 0;
   font-family: Verdana, Helvetica, sans-serif;
   font-size: 13px;
   z-index: 3; }
+
+h2 {
+  color: #fff;
+  text-align: center;
+  margin: auto; }
+
+#btn-toggle {
+  display: none; }
 
 .navbar-custon {
   background: linear-gradient(to bottom, #0275d8, #033866); }
@@ -137,7 +140,11 @@ body {
 @media screen and (max-width: 920px) {
   .l-nav {
     width: 100%;
-    position: relative; }
+    position: relative;
+    display: block; }
+
+  #btn-toggle {
+    display: block; }
 
   .flex-column ul,
   .flex-column li {

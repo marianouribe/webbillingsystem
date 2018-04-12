@@ -127,6 +127,10 @@ class billing extends Component {
                 </select>
                 <label className="ml-2">registros</label>
               </div>
+
+              <table className="table">
+              </table>
+
               <div className="row font-weight-bold mb-3 product-header pt-1 pt-1">
                 <div className="col-md-2">Referencia</div>
                 <div className="col-md-6">Descripción</div>

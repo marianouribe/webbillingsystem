@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-//import logo from '../App/logo.svg';
-import logo from '../assets/logo.jpg'
+import { BrowserRouter } from 'react-router-dom';
+import Home from '../home/home';
 import './login.css';
 
-import Home from '../home/home';
-
-//import {BrowserRouter} from 'react-router-dom';
+// import '../node_modules'
 
 class Login extends Component{
                 
@@ -28,7 +26,7 @@ class Login extends Component{
         this.setState({passwordInput: event.target.value});
     }
 
-    _buttonClick= (event)=> {        
+    _buttonClick = (event)=> {        
 
        const bordercolor  = "form-control ";
         
@@ -44,10 +42,10 @@ class Login extends Component{
             this.setState({passwordPasswordInput: bordercolor + "valida-border-succes"});
         }
 
-        ReactDOM.render(<Home /> , document.getElementById('root'));
+        ReactDOM.render(<BrowserRouter><Home /></BrowserRouter> , document.getElementById('root'));
  
         if (this.state.userIdInput !== '' && this.state.passwordInput  !== ''){
-                ReactDOM.render(<Home />, document.getElementById('root'));
+                ReactDOM.render(<BrowserRouter><Home /></BrowserRouter>, document.getElementById('root'));
         }
         event.preventDefault();
     }
