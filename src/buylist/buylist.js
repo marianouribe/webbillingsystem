@@ -9,6 +9,9 @@ import Calculos from "../calculos/calculos";
 // import { NOTIF_WISHLIST_CHANGED } from '../services/notification-service';
 
 let ns = new NotificationService();
+
+let cl = new Calculos();
+
 class BuyList extends Component {
 
     constructor(props){
@@ -31,6 +34,7 @@ class BuyList extends Component {
 
     onBuyListChanged(newBuyList){
         this.setState({buyList: newBuyList});
+
     }
 
     createBuyList = () => {
@@ -47,7 +51,9 @@ class BuyList extends Component {
         return <div>
             <ul className="list-group">{this.createBuyList()}</ul>
             {/* {this.props.children} */}
-            <Calculos articulo={this.state.buyList}/>
+            <div>
+                <span className="float-left"><b>Total:</b> {cl.sumaMonto(this.state.buyList)}</span>
+            </div>
           </div>;
     }
 }

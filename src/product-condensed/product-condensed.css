@@ -25,3 +25,15 @@
     border: 1px solid #eee;
     border-radius: 5px;
 }
+
+.stepper {
+    display: inline-block;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+:after,
+:before {
+    box-sizing: border-box;
+}
