@@ -10,7 +10,7 @@ import Calculos from "../calculos/calculos";
 
 let ns = new NotificationService();
 
-let cl = new Calculos();
+let calcMonto = new Calculos();
 
 class BuyList extends Component {
 
@@ -36,7 +36,6 @@ class BuyList extends Component {
         this.setState({buyList: newBuyList});
 
     }
-
     createBuyList = () => {
         const list = this.state.buyList.map((articulo) => 
             <ProductCondensed articulo = {articulo} key={articulo.CodigoArticulo}/>
@@ -51,8 +50,27 @@ class BuyList extends Component {
         return <div>
             <ul className="list-group">{this.createBuyList()}</ul>
             {/* {this.props.children} */}
-            <div>
-                <span className="float-left"><b>Total:</b> {cl.sumaMonto(this.state.buyList)}</span>
+            <hr/>
+            <div className="row">
+                <div className="col-md-4 text-left"><span><b>Total</b></span></div>
+                <div className="col-md-1 text-center"><span><b>:</b></span></div>
+                <div className="col-md-4 text-right"><b>{calcMonto.sumaMonto(this.state.buyList)}</b></div>
+            </div>
+            <div className="row">
+                <div className="col-md-4 text-left"><span><b>Itbis</b></span></div>
+                <div className="col-md-1 text-center"><span><b>:</b></span></div>
+                <div className="col-md-4 text-right"><b>{calcMonto.sumaItbis(this.state.buyList)}</b></div>
+            </div>
+            <div className="row">
+                <div className="col-md-4 text-left"><span><b>Descuento</b></span></div>
+                <div className="col-md-1 text-center"><span><b>:</b></span></div>
+                <div className="col-md-4 text-right"><b>0.00</b></div>
+            </div>
+            <hr/>
+            <div className="row">
+                <div className="col-md-4 text-left"><span><b>Total Neto</b></span></div>
+                <div className="col-md-1 text-center"><span><b>:</b></span></div>
+                <div className="col-md-4 text-right text-success font-weight-bold mb-3">{calcMonto.sumaTotalFactneto(this.state.buyList)}</div>
             </div>
           </div>;
     }
