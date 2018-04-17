@@ -56,23 +56,23 @@ class BuyList extends Component {
                 <div className="row">
                     <div className="col-md-4 text-left"><span><b>Facturado</b></span></div>
                     <div className="col-md-1 text-center"><span><b>:</b></span></div>
-                    <div className="col-md-4 text-right"><b>{calcMonto.sumaMonto()}</b></div>
+                    <div className="col-md-5 text-right"><b>{calcMonto.sumaMonto()}</b></div>
                 </div>
                 <div className="row">
                     <div className="col-md-4 text-left"><span><b>Itbis</b></span></div>
                     <div className="col-md-1 text-center"><span><b>:</b></span></div>
-                    <div className="col-md-4 text-right"><b>{calcMonto.sumaItbis()}</b></div>
+                    <div className="col-md-5 text-right"><b>{calcMonto.sumaItbis()}</b></div>
                 </div>
                 <div className="row">
                     <div className="col-md-4 text-left"><span><b>Descuento</b></span></div>
                     <div className="col-md-1 text-center"><span><b>:</b></span></div>
-                    <div className="col-md-4 text-right"><b>0.00</b></div>
+                    <div className="col-md-5 text-right"><b>0.00</b></div>
                 </div>
                 <div className="total-custom border-left-0 border-right-0 border-bottom-0 mt-3 text-primary">
                     <div className="row">
                         <div className="col-md-4 text-left"><span><b>Total Neto</b></span></div>
                         <div className="col-md-1 text-center"><span><b>:</b></span></div>
-                        <div className="col-md-4 text-right font-weight-bold mb-3">{calcMonto.sumaTotalFactneto()}</div>
+                        <div className="col-md-5 text-right font-weight-bold mb-3">{calcMonto.sumaTotalFactneto()}</div>
                     </div>
                 </div>
             </div>
