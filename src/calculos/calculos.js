@@ -6,30 +6,33 @@ const l10nDO = new Intl.NumberFormat("es-DO", {
 });
 
 const itbis = 0.18;
+let acumMonto;
+let acumItbis;
+let totalNeto;
 
 class Calculo {
   
-  sumaMonto= (item)=>{
-    let acumMonto = 0.0;
+  calculoFactura=(item)=>{
+    acumMonto=0.00;
+    acumItbis=0.00;
+    totalNeto = 0.00;
     for (let x of item) {
       acumMonto += x.PrecioUnitarioArticulo / (itbis + 1);
+      acumItbis += acumMonto * itbis;
     }
-      return l10nDO.format(acumMonto);
+    totalNeto = acumMonto + acumItbis;
   }
 
-  sumaItbis=(item)=>{
-    let acumItbis = 0.0;
-    for (let x of item) {
-      acumItbis += (x.PrecioUnitarioArticulo / (itbis + 1)) * (itbis);
-    }
-        
+  sumaMonto=()=>{
+    return l10nDO.format(acumMonto);
+  }
+
+  sumaItbis=()=>{
     return l10nDO.format(acumItbis);
   }
   
-  sumaTotalFactneto=(item)=>{
-    let totalFactNeto = 0.0;
-    totalFactNeto += this.sumaMonto(item) + this.sumaItbis(item);
-    return totalFactNeto;
+  sumaTotalFactneto=()=>{
+    return l10nDO.format(totalNeto);
   }
 }
 
