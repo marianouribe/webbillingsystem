@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Billing from "../billing/billing";
+import {Link} from 'react-router-dom';
 
-import {Route, Link} from 'react-router-dom';
+import Routes from '../routes';
+import Billing from "../billing/billing";
 
 class BillingMenu extends Component {
 
@@ -48,7 +49,7 @@ class BillingMenu extends Component {
                 </div>            
             </div>
 
-            <Route path="/billing" component={Billing} />
+            {/* <Routes path="/billing" component={Billing} /> */}
 
         </div>
     )

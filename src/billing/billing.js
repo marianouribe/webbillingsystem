@@ -94,12 +94,11 @@ class billing extends Component {
   // removeProduct = event => {
   //   ds.removeBuyListItem(this.props.articulo, 1);
   // };
-
-  
-
   render() {
     return (
+      <Home >
       <div className="ppagepanel" id="pagePanelModalBilling">
+      
         <div className="row">
           <div className="col-md-8">
             <h1 id="detFacturacion">Detalle de Facturación</h1>
@@ -252,7 +251,7 @@ class billing extends Component {
           </div>
 
           <div className="col-md-4">
-            <Link to="/" className="btn-Close float-right">
+            <Link to="/home" className="btn-Close float-right">
               <button type="button" className="close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -270,8 +269,10 @@ class billing extends Component {
           </button>
         </div>
 
-        <Route exact path="/" component={Home} />
+        {/* <Route exact path="/" component={Home} /> */}
+        
       </div>
+      </Home>
     );
   }
 }

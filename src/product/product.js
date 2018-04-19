@@ -34,10 +34,10 @@ class Product extends Component{
     onButtonClicked = (event) => {
         if (this.state.onBuyList){
             ds.removeBuyListItem(this.props.articulo);
-            labelMontoTotal -= this.props.articulo.PrecioUnitarioArticulo;
+            // labelMontoTotal -= this.props.articulo.PrecioUnitarioArticulo;
         }else {
             ds.addBuyListItem(this.props.articulo);
-            labelMontoTotal += this.props.articulo.PrecioUnitarioArticulo;
+            // labelMontoTotal += this.props.articulo.PrecioUnitarioArticulo;
         }
         // console.log(labelMontoTotal);
 

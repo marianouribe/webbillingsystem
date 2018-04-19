@@ -21,6 +21,7 @@ class Home extends Component{
                 <NavBar />
                 <BillingMenu />
                 <Footer />
+                {this.props.children}
             </div>
         );
     }

@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 import Home from '../home/home';
 import './login.css';
 
 // import '../node_modules'
+
+let validLogin=true;
 
 class Login extends Component{
                 
@@ -42,11 +45,15 @@ class Login extends Component{
             this.setState({passwordPasswordInput: bordercolor + "valida-border-succes"});
         }
 
-        ReactDOM.render(<BrowserRouter><Home /></BrowserRouter> , document.getElementById('root'));
- 
+        ReactDOM.render(<Home /> , document.getElementById('root'));
+        // <Home />
+        validLogin = true;
+
         if (this.state.userIdInput !== '' && this.state.passwordInput  !== ''){
-                ReactDOM.render(<BrowserRouter><Home /></BrowserRouter>, document.getElementById('root'));
+                //ReactDOM.render(<Home />, document.getElementById('root'));
+                // <Home />
         }
+
         event.preventDefault();
     }
 
@@ -82,9 +89,12 @@ class Login extends Component{
                                 <a href="#" className="font-size-text" data-toggle="modal" 
                                 data-target="#loginRecuperarClaveModal">Olvidó su clave</a>
                             </div>
+                            
                             <div className="col-4">
+                                <Link to = "/home">
                                 <button className="btn btn-primary btn-login" 
-                                onClick = {this._buttonClick}>Aceptar <i className="fas fa-arrow-right"></i></button>
+                                 >Aceptar <i className="fas fa-arrow-right"></i></button>
+                                </Link>
                             </div>
                         </div>
                         <hr/>
