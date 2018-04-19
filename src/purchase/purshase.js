@@ -214,7 +214,6 @@ class purchase extends Component {
                 </button>
               </Link>
               <div className="billing-form buylist pt-4">
-                <h3 className="mb-4">Productos Seleccionados</h3>
                 <BuyList />
               </div>
             </div>

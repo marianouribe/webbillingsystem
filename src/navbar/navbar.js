@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Login from '../login/login';
+import {Link} from 'react-router-dom';
+//import Login from '../login/login';
 
 class NavBar extends Component {
 
-    _handleSalir=()=>{
-        ReactDOM.render(<Login />, document.getElementById('root'));
-    }
+    // _handleSalir=()=>{
+    //     ReactDOM.render(<Login />, document.getElementById('root'));
+    // }
 
   render() {
     return <div className="">
@@ -53,11 +54,12 @@ class NavBar extends Component {
                 </a>
               </li>
 
-              <li data-target="#newSalir" onClick={() => this._handleSalir()}>
-                <a href="#">
+              <li data-target="#newSalir" >
+                <Link to ="/">
+                
                   <i className="fas fa-sign-out-alt fa-2x" />
-                  <label>Salir</label>
-                </a>
+                  <label>Salir </label>
+                </Link>
               </li>
             </ul>
             {/* <form class="form-inline my-2 my-lg-0">
