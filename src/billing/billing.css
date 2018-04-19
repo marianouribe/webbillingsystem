@@ -1,20 +1,14 @@
-.ppagepanel {
-    top: 50px;
+/* .ppagepanel {
+    top: 60px;
     width: 83%;
     background: #fff;
     z-index: 1;
     position: absolute;
     margin-left: 16%;
-    /* padding-left: 10px;
-    padding-right: 5px;
-    padding-top: 10px; */
     padding: 10px 10px 0px 5px;
-    /* height: 85%; */
     display: block;
     text-decoration: none;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-    /* border: 1px solid rebeccapurple; */
-    /* , 0 3px 6px rgba(0, 0, 0, 0.23) */
+
 }
 
 .billing-form {
@@ -24,30 +18,16 @@
     border-radius: 4px;
 }
 
-/* .fg-group { */
-
-/* border: 1px solid rebeccapurple; */
-
-/* position: relative; */
-
-/* display: inline-block; */
-
-/* } */
 
 form h3 {
     padding-bottom: 15px;
 }
 
-/* .billing-form input {
-    background-color: #fff;
-} */
 
 h1#detFacturacion {
-    /* font-size: 35px; */
+
     text-align: center;
-    /* font-family: 'Times New Roman', Times, serif; */
-    /* display: inline; */
-    /* font-weight: bold; */
+
 }
 
 .product-header {
@@ -58,8 +38,6 @@ h1#detFacturacion {
 
 div.buylist {
     text-align: center;
-    /* position: fixed; */
-    /* width: 350px; */
     margin-top: 52px;
 }
 
@@ -89,8 +67,6 @@ p.custom-p {
         width: 98%;
         position: relative;
         margin: 0;
-        /* padding: 0px 5px 0px 2px; */
-        /* top: 100px; */
-        /* display: none; */
+
     }
-}
+} */

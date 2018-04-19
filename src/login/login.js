@@ -45,9 +45,9 @@ class Login extends Component{
             this.setState({passwordPasswordInput: bordercolor + "valida-border-succes"});
         }
 
-        ReactDOM.render(<Home /> , document.getElementById('root'));
+        // ReactDOM.render(<Home /> , document.getElementById('root'));
         // <Home />
-        validLogin = true;
+        // validLogin = true;
 
         if (this.state.userIdInput !== '' && this.state.passwordInput  !== ''){
                 //ReactDOM.render(<Home />, document.getElementById('root'));

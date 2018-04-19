@@ -20,12 +20,12 @@ class BillingMenu extends Component {
                                     <h4>Facturación</h4>
                                 </div>
                             </Link>
-                            <div className="container-custom-menu" >
-                                <i className="fa fa-shopping-cart fa-3x"></i>
-                                
-                                <h4>Compras</h4>
-                            </div>
-
+                            <Link to ="/purchase">
+                                <div className="container-custom-menu" >
+                                    <i className="fa fa-shopping-cart fa-3x"></i>
+                                    <h4>Compras</h4>
+                                </div>
+                            </Link>
                             <div className="container-custom-menu" >
                                 <i className="fas fa-file-alt fa-3x"></i>
                                 

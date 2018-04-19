@@ -1,14 +1,15 @@
 import React from 'react';
 
-const l10nDO = new Intl.NumberFormat("es-DO", {
-  style: "currency",
-  currency: "DOP"
-});
-
 const itbis = 0.18;
 let acumMonto;
 let acumItbis;
 let totalNeto;
+let buycount;
+
+const l10nDO = new Intl.NumberFormat("es-DO", {
+  style: "currency",
+  currency: "DOP"
+});
 
 class Calculo {
   
@@ -16,9 +17,11 @@ class Calculo {
     acumMonto=0.00;
     acumItbis=0.00;
     totalNeto = 0.00;
+    buycount = 0.00;
     for (let x of item) {
       acumMonto += x.PrecioUnitarioArticulo / (itbis + 1);
       acumItbis += acumMonto * itbis;
+      buycount += 1;
     }
     totalNeto = acumMonto + acumItbis;
   }
@@ -33,6 +36,10 @@ class Calculo {
   
   sumaTotalFactneto=()=>{
     return l10nDO.format(totalNeto);
+  }
+
+  buyCount=()=>{
+    return buycount;
   }
 }
 

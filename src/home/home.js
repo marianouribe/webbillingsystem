@@ -7,7 +7,7 @@ import BillingMenu from "../billingMenu/billingMenu";
 import Footer from '../footer/footer';
 // import Login from '../login/login';
 import Billing from "../billing/billing";
-
+import Calculo from '../calculos/calculos';
 // import { Script } from "vm";
 
 
@@ -17,7 +17,7 @@ class Home extends Component{
         
         return (
             <div>
-                <Header />
+                <Header buycount={Calculo.buycount}/>
                 <NavBar />
                 <BillingMenu />
                 <Footer />

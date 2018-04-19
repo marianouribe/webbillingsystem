@@ -1,21 +1,20 @@
 import React, { Component } from "react";
-import { Link, Route } from 'react-router-dom';
-import BuyList from '../buylist/buylist';
+import { Link, Route } from "react-router-dom";
+import BuyList from "../buylist/buylist";
 //Components
-import Home from '../home/home';
-import Product from '../product/product';
+import Home from "../home/home";
+import Product from "../product/product";
 import DataService from "../services/data-service";
 
 //Services
-import HttpService from '../services/http-service';
-// import './billing.css';
+import HttpService from "../services/http-service";
+// import "./billing.css";
 
 const http = new HttpService();
 
 let ds = new DataService();
-// var reg;
 
-class billing extends Component {
+class purchase extends Component {
   constructor(props) {
     super(props);
 
@@ -32,7 +31,7 @@ class billing extends Component {
     // this.loadData();
   }
 
-  componentWillMount(){
+  componentWillMount() {
     this.loadData();
     // console.log("componentWillMount");
   }
@@ -42,17 +41,18 @@ class billing extends Component {
   //   console.log("componentWillUpdate");
   // }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     ds.removeBuyListItem(this.props.articulo, 1);
     // console.log("componentWillUnmount");
   }
 
-
-  
   loadData = () => {
     let self = this;
     // console.log(this.state.inputSearch);
-    http.getProducts("articulo/" + this.state.valueSelect + "/" + this.state.inputSearch)
+    http
+      .getProducts(
+        "articulo/" + this.state.valueSelect + "/" + this.state.inputSearch
+      )
       .then(
         data => {
           self.setState({ products: data.recordset });
@@ -63,16 +63,15 @@ class billing extends Component {
     // console.log(this.state.inlineFormCustomSelectAmount);
   };
 
-  setSearch(event){
+  setSearch(event) {
     this.setState({ inputSearch: event.target.value.substr(0, 30) });
-  };
+  }
 
   setValueSelect(event) {
-     this.setState({ valueSelect: event.target.value }, () => {
-       this.loadData();
-      });
+    this.setState({ valueSelect: event.target.value }, () => {
+      this.loadData();
+    });
   }
-  
 
   // updateinlineFormCustomSelectAmount(event){
   //   this.setState({inlineFormCustomSelectAmount: event.target.value});
@@ -81,35 +80,39 @@ class billing extends Component {
   onButtonBuscar(event) {
     this.loadData();
     event.preventDefault();
-  };
+  }
 
   productList = () => {
     const list = this.state.products.map(articulo => (
-        <Product key={articulo.CodigoArticulo} articulo={articulo} />
+      <Product key={articulo.CodigoArticulo} articulo={articulo} />
     ));
 
     return list;
   };
 
-  // removeProduct = event => {
-  //   ds.removeBuyListItem(this.props.articulo, 1);
-  // };
   render() {
     return (
-      <Home >
+      <Home>
         <div className="ppagepanel" id="pagePanelModalBilling">
-        
           <div className="row">
             <div className="col-md-8">
-              <h1 id="detFacturacion">Detalle de Facturación</h1>
+              <h1 id="detFacturacion">Detalle de Compra</h1>
               <form className="billing-form pt-4">
                 <h3 id="infCliente">Productos</h3>
                 <div className="mt-2">
                   <label className="font-weight-bold"> Filtro: </label>
-                  <input type="search" className="form-control d-inline w-50 ml-1 mb-3" id="inputSearch" value={this.state.inputSearch} 
-                    onChange={this.setSearch.bind(this)} />
+                  <input
+                    type="search"
+                    className="form-control d-inline w-50 ml-1 mb-3"
+                    id="inputSearch"
+                    value={this.state.inputSearch}
+                    onChange={this.setSearch.bind(this)}/>
 
-                  <button className="btn btn-outline-primary ml-1" onClick={this.onButtonBuscar.bind(this)}>Buscar</button>
+                  <button
+                    className="btn btn-outline-primary ml-1"
+                    onClick={this.onButtonBuscar.bind(this)}>
+                    Buscar
+                  </button>
 
                   {/* <label className="font-weight-bold">Mostrar:</label> */}
                   <label className="ml-2">Mostrar</label>
@@ -127,8 +130,7 @@ class billing extends Component {
                   <label className="ml-2">registros</label>
                 </div>
 
-                <table className="table">
-                </table>
+                <table className="table" />
 
                 <div className="row font-weight-bold mb-3 product-header pt-1 pt-1">
                   <div className="col-md-2">Referencia</div>
@@ -137,12 +139,6 @@ class billing extends Component {
                   <div className="col-md-2" />
                 </div>
 
-                {/* {list.map((articulo) => {
-                  <div key={articulo.CodigoArticulo}>
-                    <Product articulo={articulo} />
-                  </div>
-                })} */}
-
                 {this.productList()}
               </form>
               <br />
@@ -150,7 +146,7 @@ class billing extends Component {
                 <h3 id="infCliente">Información del Cliente</h3>
                 <div className="row">
                   <div className="form-group col-md-4 fg-group">
-                    <label >Identifación</label>
+                    <label>Identifación</label>
                     <input
                       type="text"
                       className="form-control"
@@ -209,45 +205,6 @@ class billing extends Component {
                 </div>
               </form>
 
-              <br />
-              <form className="billing-form pt-4">
-                <h3 id="detFactura">Forma de Pago</h3>
-                <div className="">
-                  <div className="form-group fg-group w-25 mr-3">
-                    <label>Identifación</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      
-                      placeholder="Cedula/Pasaport/Rnc"
-                    />
-                  </div>
-                  <div className="form-group fg-group w-50">
-                    <label>Nombre</label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      placeholder="Nombre del cliente"
-                    />
-                  </div>
-                  <div className="form-group fg-group w-25 mr-3">
-                    <label>Identifación</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Cedula/Pasaport/Rnc"
-                    />
-                  </div>
-                  <div className="form-group fg-group w-50">
-                    <label>Nombre</label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      placeholder="Nombre del cliente"
-                    />
-                  </div>
-                </div>
-              </form>
             </div>
 
             <div className="col-md-4">
@@ -257,9 +214,8 @@ class billing extends Component {
                 </button>
               </Link>
               <div className="billing-form buylist pt-4">
-                
+                <h3 className="mb-4">Productos Seleccionados</h3>
                 <BuyList />
-                  
               </div>
             </div>
           </div>
@@ -269,12 +225,10 @@ class billing extends Component {
             </button>
           </div>
 
-          {/* <Route exact path="/" component={Home} /> */}
-          
         </div>
       </Home>
     );
   }
 }
 
-export default billing;
+export default purchase;

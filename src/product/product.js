@@ -5,7 +5,7 @@ import NotificationService, {NOTIF_BUYLIST_CHANGED} from '../services/notificati
 
 let ds = new DataService();
 let ns = new NotificationService();
-let labelMontoTotal=0;
+// let labelMontoTotal=0;
 let l10nDO = new Intl.NumberFormat("es-DO", {style: "currency", currency: "DOP"});
 // let l10nDO = new Intl.NumberFormat("es-DO", {style:"currency", currency:"DOP"});
 class Product extends Component{

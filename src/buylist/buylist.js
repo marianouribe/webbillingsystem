@@ -5,12 +5,13 @@ import NotificationService, {NOTIF_BUYLIST_CHANGED} from '../services/notificati
 
 import ProductCondensed from '../product-condensed/product-condensed';
 import Calculos from "../calculos/calculos";
+import Header from '../header/header'
 
 // import { NOTIF_WISHLIST_CHANGED } from '../services/notification-service';
 
 let ns = new NotificationService();
 
-let calcMonto = new Calculos();
+let ca = new Calculos();
 
 class BuyList extends Component {
 
@@ -23,7 +24,7 @@ class BuyList extends Component {
         this.createBuyList = this.createBuyList.bind(this);
         this.onBuyListChanged = this.onBuyListChanged.bind(this);
     }
-
+    
     componentDidMount(){
         ns.addObserver(NOTIF_BUYLIST_CHANGED, this, this.onBuyListChanged);
     }
@@ -46,22 +47,29 @@ class BuyList extends Component {
     }
    
     render() {
-        
+        ca.calculoFactura(this.state.buyList)
         return <div>
-            <ul className="list-group">{this.createBuyList()}</ul>
+
+            <div className="row">
+                <div className="col-md-10"><h3 className="">Seleccionados </h3></div>
+                <div className="col-md-2"><i className="fas fa-shopping-cart fa-lg mt-2">{ca.buyCount()}</i></div>
+            </div>
+                        
+            <ul className="list-group total-custom border-left-0 border-right-0 border-bottom-0 pt-2">{this.createBuyList()}</ul>
             {/* {this.props.children} */}
             <br/>
-            {calcMonto.calculoFactura(this.state.buyList)}
+            
             <div className="total-custom border-left-0 border-right-0 border-bottom-0 pt-2">
                 <div className="row">
                     <div className="col-md-4 text-left"><span><b>Facturado</b></span></div>
                     <div className="col-md-1 text-center"><span><b>:</b></span></div>
-                    <div className="col-md-5 text-right"><b>{calcMonto.sumaMonto()}</b></div>
+                    <div className="col-md-5 text-right"><b>{ca.sumaMonto()}</b></div>
+                    
                 </div>
                 <div className="row">
                     <div className="col-md-4 text-left"><span><b>Itbis</b></span></div>
                     <div className="col-md-1 text-center"><span><b>:</b></span></div>
-                    <div className="col-md-5 text-right"><b>{calcMonto.sumaItbis()}</b></div>
+                    <div className="col-md-5 text-right"><b>{ca.sumaItbis()}</b></div>
                 </div>
                 <div className="row">
                     <div className="col-md-4 text-left"><span><b>Descuento</b></span></div>
@@ -72,10 +80,11 @@ class BuyList extends Component {
                     <div className="row">
                         <div className="col-md-4 text-left"><span><b>Total Neto</b></span></div>
                         <div className="col-md-1 text-center"><span><b>:</b></span></div>
-                        <div className="col-md-5 text-right font-weight-bold mb-3">{calcMonto.sumaTotalFactneto()}</div>
+                        <div className="col-md-5 text-right font-weight-bold mb-3">{ca.sumaTotalFactneto()}</div>
                     </div>
                 </div>
             </div>
+            {/* <Header buycount={this.state.buyList}/> */}
           </div>;
     }
 }
