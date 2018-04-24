@@ -91,9 +91,8 @@ class Login extends Component{
                             </div>
                             
                             <div className="col-4">
-                                <Link to = "/home">
-                                <button className="btn btn-primary btn-login" 
-                                 >Aceptar <i className="fas fa-arrow-right"></i></button>
+                                <Link to = "/home" className="btn btn-primary btn-login" >Aceptar 
+                                <i className="fas fa-arrow-right"></i>
                                 </Link>
                             </div>
                         </div>

@@ -7,6 +7,7 @@ import Home from './home/home';
 import Billing from './billing/billing';
 import Purchase from './purchase/purshase';
 import NoFound from './NoFound'
+
 const Routes =()=>{
     return <App>
         <Switch>
