@@ -21,9 +21,19 @@ class billing extends Component {
 
     this.state = {
       products: [],
+      infcliente : {
+        identificacion: "",
+        nombre: "",
+        direccion: "",
+        telefonocasa: "",
+        telefonotrabajo: "",
+        celular: ""
+      },
       inputSearch: "",
       valueSelect: "5",
-      labelMontoTotal: 0
+      labelMontoTotal: 0,
+      
+
     };
 
     //this.loadData = this.loadData.bind(this);
@@ -91,9 +101,20 @@ class billing extends Component {
     return list;
   };
 
-  // removeProduct = event => {
-  //   ds.removeBuyListItem(this.props.articulo, 1);
-  // };
+  handleInput(event){
+    let value = event.target.value;
+    let identificacion = event.target.identificacion;
+    let nombre = event.target.nombre;
+    let infcliente = this.state.infcliente;
+
+    console.log(nombre);
+    infcliente[identificacion] = value;
+    infcliente[nombre] = value;
+    this.setState({infcliente});
+
+    console.log(this.state.infcliente);
+    
+  }
   render() {
     return (
       <Home >
@@ -151,43 +172,48 @@ class billing extends Component {
                 <div className="form-group">
                   <div className="row">
                     <div className="col-md-4">
-                      <label htmlFor="inputIdentificionCliente" className="form-control-label">Identifación</label>
+                      <label htmlFor="identificacion" className="form-control-label">Identifación</label>
                       <div className="field">
-                        <input type="text" className="form-control" name="inputIdentificionCliente" placeholder="Cedula/Pasaport/Rnc"/>
+                        <input type="text" className="form-control" name="identificacion" value={this.state.identificacion} 
+                        placeholder="Cedula/Pasaport/Rnc" onChange={this.handleInput.bind(this)}/>
                       </div>
                     </div>
                     <div className="col-md-8">
-                      <label htmlFor="inputNombreCliente" className="form-control-label">Nombre</label>
+                      <label htmlFor="nombre" className="form-control-label">Nombre</label>
                       <div className="field">
-                        <input type="text" className="form-control" name="inputNombreCliente" />
+                        <input type="text" className="form-control" name="nombre" value={this.state.nombre} 
+                        onChange={this.handleInput.bind(this)}/>
                       </div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-12">
-                      <label htmlFor="inputNombreCliente" className="form-control-label">Dirección</label>
+                      <label htmlFor="direccion" className="form-control-label">Dirección</label>
                       <div className="field">
-                        <input type="text" className="form-control" name="inputDireccionCliente" placeholder="Dirección" />
+                        <input type="text" className="form-control" name="direccion" value={this.state.direccion} 
+                        onChange={this.handleInput.bind(this)} />
                       </div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-4">
-                      <label htmlFor="inputTelefonoResidencia" className="form-control-label">Telefono</label>
+                      <label htmlFor="telefonocasa" className="form-control-label">Telefono</label>
                       <div className="field">
-                        <input type="text" className="form-control" name="inputTelefonoResidencia" placeholder="Telefono de residencia" />
+                        <input type="text" className="form-control" name="telefonocasa" value={this.state.telefonocasa} 
+                        placeholder="Telefono de residencia" onChange={this.handleInput.bind(this)}/>
                       </div>
                     </div>
                     <div className="col-md-4">
-                      <label htmlFor="inputTelefonoTrabajo" className="form-control-label">Trabajo</label>
+                      <label htmlFor="telefonotrabajo" className="form-control-label">Trabajo</label>
                       <div className="field">
-                        <input type="text" className="form-control" name="inputTelefonoTrabajo" placeholder="Telefono de trabajo" />
+                        <input type="text" className="form-control" name="telefonotrabajo" value={this.state.telefonotrabajo} 
+                        placeholder="Telefono de trabajo" onChange={this.handleInput.bind(this)}/>
                       </div>
                     </div>
                     <div className="col-md-4">
-                      <label htmlFor="inputCelular" className="form-control-label">Celular</label>
+                      <label htmlFor="celular" className="form-control-label">Celular</label>
                       <div className="field">
-                        <input type="text" className="form-control" name="inputCelular" placeholder="Número de celular" />
+                        <input type="text" className="form-control" name="celular" value={this.state.celular} onChange={this.handleInput.bind(this)} />
                       </div>
                     </div>
                   </div>
