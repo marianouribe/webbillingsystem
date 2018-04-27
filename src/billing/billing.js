@@ -148,63 +148,48 @@ class billing extends Component {
               <br />
               <form className="billing-form pt-4">
                 <h3 id="infCliente">Información del Cliente</h3>
-                <div className="row">
-                  <div className="form-group col-md-4 fg-group">
-                    <label >Identifación</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="inputIdentificionCliente"
-                      placeholder="Cedula/Pasaport/Rnc"
-                    />
+                <div className="form-group">
+                  <div className="row">
+                    <div className="col-md-4">
+                      <label htmlFor="inputIdentificionCliente" className="form-control-label">Identifación</label>
+                      <div className="field">
+                        <input type="text" className="form-control" name="inputIdentificionCliente" placeholder="Cedula/Pasaport/Rnc"/>
+                      </div>
+                    </div>
+                    <div className="col-md-8">
+                      <label htmlFor="inputNombreCliente" className="form-control-label">Nombre</label>
+                      <div className="field">
+                        <input type="text" className="form-control" name="inputNombreCliente" />
+                      </div>
+                    </div>
                   </div>
-                  <div className="form-group col-md-8 fg-group">
-                    <label>Nombre</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="inputNombreCliente"
-                    />
+                  <div className="row">
+                    <div className="col-md-12">
+                      <label htmlFor="inputNombreCliente" className="form-control-label">Dirección</label>
+                      <div className="field">
+                        <input type="text" className="form-control" name="inputDireccionCliente" placeholder="Dirección" />
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="row">
-                  <div className="form-group col-md-12 fg-group">
-                    <label>Dirección</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="inputDireccionCliente"
-                      placeholder="Dirección"
-                    />
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="form-group col-md-4 fg-group">
-                    <label>Telefono</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="inputTelefonoResidencia"
-                      placeholder="Telefono de residencia"
-                    />
-                  </div>
-                  <div className="form-group col-md-4 fg-group">
-                    <label>Trabajo</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="inputTelefonoTrabajo"
-                      placeholder="Telefono de trabajo"
-                    />
-                  </div>
-                  <div className="form-group col-md-4 fg-group">
-                    <label>Celular</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="inputCelular"
-                      placeholder="Número de celular"
-                    />
+                  <div className="row">
+                    <div className="col-md-4">
+                      <label htmlFor="inputTelefonoResidencia" className="form-control-label">Telefono</label>
+                      <div className="field">
+                        <input type="text" className="form-control" name="inputTelefonoResidencia" placeholder="Telefono de residencia" />
+                      </div>
+                    </div>
+                    <div className="col-md-4">
+                      <label htmlFor="inputTelefonoTrabajo" className="form-control-label">Trabajo</label>
+                      <div className="field">
+                        <input type="text" className="form-control" name="inputTelefonoTrabajo" placeholder="Telefono de trabajo" />
+                      </div>
+                    </div>
+                    <div className="col-md-4">
+                      <label htmlFor="inputCelular" className="form-control-label">Celular</label>
+                      <div className="field">
+                        <input type="text" className="form-control" name="inputCelular" placeholder="Número de celular" />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </form>
@@ -212,17 +197,13 @@ class billing extends Component {
               <br />
               <form className="billing-form pt-4">
                 <h3 id="detFactura">Forma de Pago</h3>
-                <div className="">
-                  <div className="form-group fg-group w-25 mr-3">
-                    <label>Identifación</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      
-                      placeholder="Cedula/Pasaport/Rnc"
-                    />
+                <div className="form-group fg-group">
+                  <label htmlFor="name" className="form-control-label">Identifación</label>
+                  <div className="field">
+                    <input type="text" className="form-control"
+                      placeholder="Cedula/Pasaport/Rnc"/>
                   </div>
-                  <div className="form-group fg-group w-50">
+                  <div className="w-50">
                     <label>Nombre</label>
                     <input
                       type="password"
@@ -230,7 +211,7 @@ class billing extends Component {
                       placeholder="Nombre del cliente"
                     />
                   </div>
-                  <div className="form-group fg-group w-25 mr-3">
+                  <div className="w-25 mr-3">
                     <label>Identifación</label>
                     <input
                       type="text"
@@ -238,7 +219,7 @@ class billing extends Component {
                       placeholder="Cedula/Pasaport/Rnc"
                     />
                   </div>
-                  <div className="form-group fg-group w-50">
+                  <div className="w-50">
                     <label>Nombre</label>
                     <input
                       type="password"
