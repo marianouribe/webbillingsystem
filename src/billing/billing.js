@@ -5,15 +5,14 @@ import BuyList from '../buylist/buylist';
 import Home from '../home/home';
 import Product from '../product/product';
 import DataService from "../services/data-service";
-
+import Input from '../common/input';
 //Services
 import HttpService from '../services/http-service';
-// import './billing.css';
+
 
 const http = new HttpService();
 
 let ds = new DataService();
-// var reg;
 
 class billing extends Component {
   constructor(props) {
@@ -36,29 +35,17 @@ class billing extends Component {
 
     };
 
-    //this.loadData = this.loadData.bind(this);
     this.productList = this.productList.bind(this);
-    // this.updateinlineFormCustomSelectAmount = this.updateinlineFormCustomSelectAmount.bind(this);
-    // this.loadData();
   }
 
   componentWillMount(){
     this.loadData();
-    // console.log("componentWillMount");
   }
-
-  // componentWillUpdate(){
-  //   // this.loadData();
-  //   console.log("componentWillUpdate");
-  // }
 
   componentWillUnmount(){
     ds.removeBuyListItem(this.props.articulo, 1);
-    // console.log("componentWillUnmount");
   }
 
-
-  
   loadData = () => {
     let self = this;
     // console.log(this.state.inputSearch);
@@ -69,8 +56,6 @@ class billing extends Component {
         },
         er => {}
       );
-
-    // console.log(this.state.inlineFormCustomSelectAmount);
   };
 
   setSearch(event){
@@ -83,11 +68,6 @@ class billing extends Component {
       });
   }
   
-
-  // updateinlineFormCustomSelectAmount(event){
-  //   this.setState({inlineFormCustomSelectAmount: event.target.value});
-  // };
-
   onButtonBuscar(event) {
     this.loadData();
     event.preventDefault();
@@ -103,17 +83,14 @@ class billing extends Component {
 
   handleInput(event){
     let value = event.target.value;
-    let identificacion = event.target.identificacion;
-    let nombre = event.target.nombre;
+    let name = event.target.name;
     let infcliente = this.state.infcliente;
 
-    console.log(nombre);
-    infcliente[identificacion] = value;
-    infcliente[nombre] = value;
+    console.log(name);
+    infcliente[name] = value;
     this.setState({infcliente});
 
     console.log(this.state.infcliente);
-    
   }
   render() {
     return (
@@ -158,12 +135,6 @@ class billing extends Component {
                   <div className="col-md-2" />
                 </div>
 
-                {/* {list.map((articulo) => {
-                  <div key={articulo.CodigoArticulo}>
-                    <Product articulo={articulo} />
-                  </div>
-                })} */}
-
                 {this.productList()}
               </form>
               <br />
@@ -172,49 +143,62 @@ class billing extends Component {
                 <div className="form-group">
                   <div className="row">
                     <div className="col-md-4">
-                      <label htmlFor="identificacion" className="form-control-label">Identifación</label>
+                      <Input 
+                        name = "identificacion"
+                        label = "Identifación"
+                        value = {this.state.identificacion}
+                        placeholder = "Cedula/Rnc/Pasaport"
+                        onChange = {this.handleInput.bind(this)}
+                      />
+                      {/* <label htmlFor="identificacion" className="form-control-label">Identifación</label>
                       <div className="field">
                         <input type="text" className="form-control" name="identificacion" value={this.state.identificacion} 
                         placeholder="Cedula/Pasaport/Rnc" onChange={this.handleInput.bind(this)}/>
-                      </div>
+                      </div> */}
                     </div>
                     <div className="col-md-8">
-                      <label htmlFor="nombre" className="form-control-label">Nombre</label>
-                      <div className="field">
-                        <input type="text" className="form-control" name="nombre" value={this.state.nombre} 
-                        onChange={this.handleInput.bind(this)}/>
-                      </div>
+                      <Input 
+                        name = "nombre"
+                        label = "Nombre"
+                        value = {this.state.nombre}
+                        onChange = {this.handleInput.bind(this)}
+                      />
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-12">
-                      <label htmlFor="direccion" className="form-control-label">Dirección</label>
-                      <div className="field">
-                        <input type="text" className="form-control" name="direccion" value={this.state.direccion} 
-                        onChange={this.handleInput.bind(this)} />
-                      </div>
+                      <Input 
+                        name = "direccion"
+                        label = "Dirección"
+                        value = {this.state.direccion}
+                        onChange = {this.handleInput.bind(this)}
+                      />
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-4">
-                      <label htmlFor="telefonocasa" className="form-control-label">Telefono</label>
-                      <div className="field">
-                        <input type="text" className="form-control" name="telefonocasa" value={this.state.telefonocasa} 
-                        placeholder="Telefono de residencia" onChange={this.handleInput.bind(this)}/>
-                      </div>
+                      <Input 
+                        name = "telefonocasa"
+                        label = "Telefono casa"
+                        value = {this.state.telefonocasa}
+                        onChange = {this.handleInput.bind(this)}
+                      />
                     </div>
                     <div className="col-md-4">
-                      <label htmlFor="telefonotrabajo" className="form-control-label">Trabajo</label>
-                      <div className="field">
-                        <input type="text" className="form-control" name="telefonotrabajo" value={this.state.telefonotrabajo} 
-                        placeholder="Telefono de trabajo" onChange={this.handleInput.bind(this)}/>
-                      </div>
+                      <Input 
+                        name = "telefonotrabajo"
+                        label = "Telefono trabajo"
+                        value = {this.state.telefonotrabajo}
+                        onChange = {this.handleInput.bind(this)}
+                      />
                     </div>
                     <div className="col-md-4">
-                      <label htmlFor="celular" className="form-control-label">Celular</label>
-                      <div className="field">
-                        <input type="text" className="form-control" name="celular" value={this.state.celular} onChange={this.handleInput.bind(this)} />
-                      </div>
+                      <Input 
+                        name = "celular"
+                        label = "Celular"
+                        value = {this.state.celular}
+                        onChange = {this.handleInput.bind(this)}
+                      />
                     </div>
                   </div>
                 </div>
