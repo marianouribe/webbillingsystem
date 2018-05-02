@@ -1,3 +1,13 @@
-.total-custom{
+.total-custom {
     border: 2px solid white;
+}
+
+.custom-buylist {
+    /* background-color: rgb(225, 225, 226);
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 4px;
+    -webkit-box-shadow: 7px 7px 16px 2px rgba(133, 133, 133, 0.877);
+    -moz-box-shadow: 7px 7px 16px 2px rgba(133, 133, 133, 0.877);
+    box-shadow: 7px 7px 16px 2px rgba(133, 133, 133, 0.877, 1); */
 }

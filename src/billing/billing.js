@@ -6,9 +6,13 @@ import Home from '../home/home';
 import Product from '../product/product';
 import DataService from "../services/data-service";
 import Input from '../common/input';
+import Searc from '../common/search';
+
 //Services
 import HttpService from '../services/http-service';
+import Search from "../common/search";
 
+import {Redirect} from 'react-router-dom';
 
 const http = new HttpService();
 
@@ -30,8 +34,8 @@ class billing extends Component {
       },
       inputSearch: "",
       valueSelect: "5",
-      labelMontoTotal: 0,
-      
+      // labelMontoTotal: 0,
+      fireRedirect: false
 
     };
 
@@ -69,8 +73,8 @@ class billing extends Component {
   }
   
   onButtonBuscar(event) {
-    this.loadData();
     event.preventDefault();
+    this.loadData();
   };
 
   productList = () => {
@@ -92,6 +96,13 @@ class billing extends Component {
 
     console.log(this.state.infcliente);
   }
+
+  safeBillong(event){
+    event.preventDefault();
+    this.setState({fireRedirect:true});
+
+  }
+
   render() {
     return (
       <Home >
@@ -100,16 +111,24 @@ class billing extends Component {
           <div className="row">
             <div className="col-md-8">
               <h1 id="detFacturacion">Detalle de Facturación</h1>
-              <form className="billing-form pt-4">
+              <form className="billing-form pt-3 pb-3">
                 <h3 id="infCliente">Productos</h3>
-                <div className="mt-2">
+                <Search 
+                  name="inputSearch"
+                  label="Filtro"
+                  inputSearch={this.state.inputSearch}
+                  setSearch={this.setSearch.bind(this)}
+                  onButtonBuscar={this.onButtonBuscar.bind(this)}
+                  valueSelect={this.state.valueSelect}
+                  setValueSelect={this.setValueSelect.bind(this)}
+                />
+                {/* <div className="mt-2">
                   <label className="font-weight-bold"> Filtro: </label>
                   <input type="search" className="form-control d-inline w-50 ml-1 mb-3" id="inputSearch" value={this.state.inputSearch} 
                     onChange={this.setSearch.bind(this)} />
 
                   <button className="btn btn-outline-primary ml-1" onClick={this.onButtonBuscar.bind(this)}>Buscar</button>
 
-                  {/* <label className="font-weight-bold">Mostrar:</label> */}
                   <label className="ml-2">Mostrar</label>
                   <select
                     value={this.state.valueSelect}
@@ -123,7 +142,7 @@ class billing extends Component {
                     <option value="30">30</option>
                   </select>
                   <label className="ml-2">registros</label>
-                </div>
+                </div> */}
 
                 <table className="table">
                 </table>
@@ -138,7 +157,7 @@ class billing extends Component {
                 {this.productList()}
               </form>
               <br />
-              <form className="billing-form pt-4">
+              <form className="billing-form pt-3 pb-3">
                 <h3 id="infCliente">Información del Cliente</h3>
                 <div className="form-group">
                   <div className="row">
@@ -150,11 +169,7 @@ class billing extends Component {
                         placeholder = "Cedula/Rnc/Pasaport"
                         onChange = {this.handleInput.bind(this)}
                       />
-                      {/* <label htmlFor="identificacion" className="form-control-label">Identifación</label>
-                      <div className="field">
-                        <input type="text" className="form-control" name="identificacion" value={this.state.identificacion} 
-                        placeholder="Cedula/Pasaport/Rnc" onChange={this.handleInput.bind(this)}/>
-                      </div> */}
+                      
                     </div>
                     <div className="col-md-8">
                       <Input 
@@ -247,18 +262,23 @@ class billing extends Component {
                   <span aria-hidden="true">&times;</span>
                 </button>
               </Link>
-              <div className="billing-form buylist pt-4">
+              {/* <div className="billing-form buylist pt-4"> */}
                 
                 <BuyList />
                   
-              </div>
+              {/* </div> */}
             </div>
           </div>
           <div className="mt-4 mb-5 float-right">
-            <button id="Save" className="btn btn-primary mr-1">
+            <button id="Save" className="btn btn-primary mr-1" onClick={this.safeBillong.bind(this)}>
               Grabar
             </button>
           </div>
+          
+          {/* redirect al component luego de grabar */}
+          {this.state.fireRedirect && (
+            <Redirect to="/home"/>
+          )}
 
           {/* <Route exact path="/" component={Home} /> */}
           

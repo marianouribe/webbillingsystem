@@ -48,7 +48,7 @@ class BuyList extends Component {
    
     render() {
         ca.calculoFactura(this.state.buyList)
-        return <div>
+        return <div className="billing-form buylist pt-4">
 
             <div className="row">
                 <div className="col-md-10"><h3 className="">Seleccionados </h3></div>
