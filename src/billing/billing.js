@@ -13,6 +13,7 @@ import HttpService from '../services/http-service';
 import Search from "../common/search";
 
 import {Redirect} from 'react-router-dom';
+import Toastr from 'toastr';
 
 const http = new HttpService();
 
@@ -101,6 +102,7 @@ class billing extends Component {
     event.preventDefault();
     this.setState({fireRedirect:true});
 
+    Toastr.success("Listo save");
   }
 
   render() {
