@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
-import Home from '../home/home';
+// import Home from '../home/home';
+// import Input from '../common/input';
 import './login.css';
+import Toastr from 'toastr';
+// import Home from '../home/home';
 
 // import '../node_modules'
 
@@ -16,73 +19,80 @@ class Login extends Component{
             
         //this.setState({userIdInput:this.props.userIdInput});
         //    var userIdInput = document.getElementById('userIdInput');
-            this.state = {userIdInput: '', userIdBorderInput: '', passwordInput: '', passwordPasswordInput: ''};
-            this._buttonClick = this._buttonClick.bind(this);
+            this.state = {login: {userIdInput: '', passwordInput: ''}, formRedirect: false};
+            // this._buttonClick = this._buttonClick.bind(this);
        }
 
-    _handleUserIdChange(event){
-        this.setState({userIdInput: event.target.value});
-        // console.log(event.target.value);
+    handleInput(event){
+        let value = event.target.value;
+        let name = event.target.name;
+        let login = this.state.login;
+
+        login[name] = value;
+
+        this.setState({login});
+        console.log(login);
     }
 
-    _handlePasswordChange(event){
-        this.setState({passwordInput: event.target.value});
-    }
-
-    _buttonClick = (event)=> {        
-
-       const bordercolor  = "form-control ";
-        
-        if (this.state.userIdInput === ''){
-            this.setState({userIdBorderInput: bordercolor + "valida-border-danger"});
-        }else {
-            this.setState({userIdBorderInput: bordercolor + "valida-border-succes"});
-        }
-        
-        if (this.state.passwordInput === ''){
-            this.setState({passwordPasswordInput: bordercolor + "valida-border-danger"});
-        }else {
-            this.setState({passwordPasswordInput: bordercolor + "valida-border-succes"});
-        }
-
-        // ReactDOM.render(<Home /> , document.getElementById('root'));
-        // <Home />
-        // validLogin = true;
-
-        if (this.state.userIdInput !== '' && this.state.passwordInput  !== ''){
-                //ReactDOM.render(<Home />, document.getElementById('root'));
-                // <Home />
-        }
-
-        event.preventDefault();
-    }
-
-    componentDidMount(){
-        this.setState({userIdBorderInput: "form-control valida-border-succes",
-        passwordPasswordInput: "form-control valida-border-succes" ,userIdInput:'',passwordInput: ''});
-    }
-
-    componentWillMount(){
-        this.setState({userIdBorderInput: "form-control valida-border-succes",
-        passwordPasswordInput: "form-control valida-border-succes" ,userIdInput:'',passwordInput: ''});
-    }
     
+
+    FormIsValid(){        
+        
+        // this.setState({isValid:true});
+        let isValid = true;
+
+        if (this.state.login.userIdInput.length === 0){
+           isValid=false;
+           Toastr.warning("Usuario incorrecto, por favor verifique.");
+        }
+        
+        if (this.state.login.passwordInput.length === 0){
+            isValid = false;
+            Toastr.warning("Clave incorrecta, por favor verifique.");
+        }
+
+        return (isValid);
+
+        // event.preventDefault();
+    }
+
+    FormAccept(event){
+        event.preventDefault();
+
+        if (!this.FormIsValid()){
+            return;
+        }
+
+        this.setState({formRedirect:true});
+    }
+   
     render(){
+        let wrapperClass = "form-group";
+        if (this.state.isValid === false && this.state.login.userIdInput.length === 0) {
+            wrapperClass += " has-danger";
+        }
+
+        if (this.state.isValid == false && this.state.login.passwordInput.length === 0) {
+            wrapperClass += " has-danger";
+        }
         return(
             <div className="container login-container">
                 <div>
                     <form className="login-form">
                         <h4 className="loginhead"><i className="fa fa-desktop"></i> Web Billing System</h4>
-                        <div className="form-group left icon-login input">
-                            <span className="input-group-lg"><i className="fas icon-login fa-user"></i></span>
-                            
-                            <input type="text" className={this.state.userIdBorderInput} id='userIdInput'
-                            placeholder="Usuario" onChange={this._handleUserIdChange.bind(this)}/>
+                        
+                        <div className= "form-group left icon-login input">
+                            <i className="fas icon-login fa-user"></i>
+                                <input type="text" className="form-control valida-border-succes" name='userIdInput' value={this.state.userIdInput}
+                                placeholder="Usuario" onChange={this.handleInput.bind(this)}/>
                         </div>
-                        <div className="form-group left icon-login input">
+
+                        <div className= "form-group left icon-login input">
                             <i className="fas icon-login fa-lock"></i>
-                            <input type="password" className={this.state.passwordPasswordInput} id="passwordInput" 
-                            placeholder="Clave" onChange={this._handlePasswordChange.bind(this)}/>
+                            
+                                <input type="password" className="form-control valida-border-succes" name="passwordInput" value={this.state.passwordInput}
+                                placeholder="Clave" onChange={this.handleInput.bind(this)}/>
+                            
                         </div>
                         <div className="row" >
                             <div className="col-6">
@@ -91,9 +101,12 @@ class Login extends Component{
                             </div>
                             
                             <div className="col-4">
-                                <Link to = "/home" className="btn btn-primary btn-login" >Aceptar 
+                                <button className="btn btn-primary btn-login" onClick={this.FormAccept.bind(this)}>Aceptar 
                                 <i className="fas fa-arrow-right"></i>
-                                </Link>
+                                </button>
+                                {this.state.formRedirect && (
+                                    <Redirect to = '/home'/>
+                                )}
                             </div>
                         </div>
                         <hr/>

@@ -30,16 +30,16 @@ input.form-control {
     font-size: 13px;
     transition: opacity 0.3s ease;
 }
-
+/* 
 .form-control.valida-border-succes {
     border-color: rgb(189, 186, 186);
 }
 
 .form-control.valida-border-danger {
     border-color: red;
-}
+} */
 
-.form-group[class*="left icon-login"].input>input {
+.left.icon-login.input>input {
     padding-left: 2.2em !important;
     padding-right: 1em !important;
     opacity: 1;
@@ -81,9 +81,9 @@ div .font-size-text {
     font-size: 12px;
 }
 
-div.verticalLine {
+/* div.verticalLine {
     border-left: 1px solid #ff0000;
-}
+} */
 
 .modalFormWrapper {
     padding: 2rem;

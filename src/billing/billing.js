@@ -98,7 +98,7 @@ class billing extends Component {
     console.log(this.state.infcliente);
   }
 
-  safeBillong(event){
+  safeBilling(event){
     event.preventDefault();
     this.setState({fireRedirect:true});
 
@@ -272,7 +272,7 @@ class billing extends Component {
             </div>
           </div>
           <div className="mt-4 mb-5 float-right">
-            <button id="Save" className="btn btn-primary mr-1" onClick={this.safeBillong.bind(this)}>
+            <button id="Save" className="btn btn-primary mr-1" onClick={this.safeBilling.bind(this)}>
               Grabar
             </button>
           </div>
