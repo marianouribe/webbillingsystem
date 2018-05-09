@@ -9,6 +9,7 @@ class Input extends React.Component{
                 <input type="text" className="form-control" name={this.props.name} value={this.props.value} 
                 placeholder={this.props.placeholder} onChange={this.props.onChange}/>
             </div>
+            <div className="text-danger"></div>
         </div>
         );
     }

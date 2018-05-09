@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Redirect } from 'react-router-dom';
 
+import DataService from "../services/data-service";
+import HttpService from '../services/http-service';
 // import Home from '../home/home';
 // import Input from '../common/input';
 import './login.css';
@@ -10,18 +12,35 @@ import Toastr from 'toastr';
 
 // import '../node_modules'
 
-let validLogin=true;
+const http = new HttpService;
+let ds = new DataService;
+
 
 class Login extends Component{
                 
-        constructor() {
-            super();
-            
-        //this.setState({userIdInput:this.props.userIdInput});
-        //    var userIdInput = document.getElementById('userIdInput');
-            this.state = {login: {userIdInput: '', passwordInput: ''}, formRedirect: false};
-            // this._buttonClick = this._buttonClick.bind(this);
-       }
+    constructor() {
+        super();
+
+        this.state = {user:[], login: {userIdInput: '', passwordInput: ''}, formRedirect: false};
+
+    }
+
+    // componentWillMount(){
+    //     this.loadData();
+    // }
+
+    loadData = () => {
+        let self = this;
+        // console.log(this.state.inputSearch);
+        http.getProducts("usuario/" + this.state.login.userIdInput + "/" + this.state.login.passwordInput)
+        .then(
+            data => {
+            self.setState({ user: data.recordset });
+            // console.log(self.state.user);
+            },
+            er => {}
+        );
+    };
 
     handleInput(event){
         let value = event.target.value;
@@ -35,7 +54,6 @@ class Login extends Component{
     }
 
     
-
     FormIsValid(){        
         
         // this.setState({isValid:true});
@@ -62,19 +80,21 @@ class Login extends Component{
         if (!this.FormIsValid()){
             return;
         }
-
-        this.setState({formRedirect:true});
+        this.loadData();
+        const listUser = this.state.user.map(user=>(user));
+        console.log(listUser);
+        this.setState({formRedirect:false});
     }
    
     render(){
-        let wrapperClass = "form-group";
-        if (this.state.isValid === false && this.state.login.userIdInput.length === 0) {
-            wrapperClass += " has-danger";
-        }
+        // let wrapperClass = "";
+        // if (this.state.login.userIdInput.length === 0) {
+        //     wrapperClass = "has-danger";
+        // }
 
-        if (this.state.isValid == false && this.state.login.passwordInput.length === 0) {
-            wrapperClass += " has-danger";
-        }
+        // if (this.state.isValid == false && this.state.login.passwordInput.length === 0) {
+        //     wrapperClass += " has-danger";
+        // }
         return(
             <div className="container login-container">
                 <div>
@@ -83,15 +103,18 @@ class Login extends Component{
                         
                         <div className= "form-group left icon-login input">
                             <i className="fas icon-login fa-user"></i>
-                                <input type="text" className="form-control valida-border-succes" name='userIdInput' value={this.state.userIdInput}
+                            <div>
+                                <input type="text" className="form-control" name='userIdInput' value={this.state.userIdInput}
                                 placeholder="Usuario" onChange={this.handleInput.bind(this)}/>
+                            </div>
                         </div>
 
                         <div className= "form-group left icon-login input">
                             <i className="fas icon-login fa-lock"></i>
-                            
-                                <input type="password" className="form-control valida-border-succes" name="passwordInput" value={this.state.passwordInput}
+                            <div>
+                                <input type="password" className="form-control" name="passwordInput" value={this.state.passwordInput}
                                 placeholder="Clave" onChange={this.handleInput.bind(this)}/>
+                            </div>
                             
                         </div>
                         <div className="row" >

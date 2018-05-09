@@ -39,7 +39,7 @@ input.form-control {
     border-color: red;
 } */
 
-.left.icon-login.input>input {
+.left.icon-login.input div>input {
     padding-left: 2.2em !important;
     padding-right: 1em !important;
     opacity: 1;

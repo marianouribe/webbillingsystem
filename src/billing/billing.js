@@ -91,11 +91,11 @@ class billing extends Component {
     let name = event.target.name;
     let infcliente = this.state.infcliente;
 
-    console.log(name);
+    // console.log(name);
     infcliente[name] = value;
     this.setState({infcliente});
 
-    console.log(this.state.infcliente);
+    // console.log(this.state.infcliente);
   }
 
   safeBilling(event){
