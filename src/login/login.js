@@ -8,38 +8,51 @@ import HttpService from '../services/http-service';
 // import Input from '../common/input';
 import './login.css';
 import Toastr from 'toastr';
-// import Home from '../home/home';
+import Home from '../home/home';
 
 // import '../node_modules'
 
 const http = new HttpService;
 let ds = new DataService;
 
+const LoginContext = React.createContext();
 
 class Login extends Component{
                 
     constructor() {
         super();
 
-        this.state = {user:[], login: {userIdInput: '', passwordInput: ''}, formRedirect: false};
+        this.state = {user:[], userName:'', login: {userIdInput: '', passwordInput: ''}, formRedirect: false};
 
     }
 
-    // componentWillMount(){
-    //     this.loadData();
-    // }
+    componentDidMount(){
+        // this.setState({userIdInput:'', passwordInput:''});
+        // this.loadData();
+    }
 
     loadData = () => {
         let self = this;
+        // let listUser;
         // console.log(this.state.inputSearch);
-        http.getProducts("usuario/" + this.state.login.userIdInput + "/" + this.state.login.passwordInput)
+        http.getApi("usuario/" + this.state.login.userIdInput + "/" + this.state.login.passwordInput)
         .then(
             data => {
             self.setState({ user: data.recordset });
-            // console.log(self.state.user);
+            // self.setState({userName: self.state.user.Nombre});
+            // listUser = self.state.user.map(user=>user.Nombre);
+                this.setState({userName: self.state.user.map(user=>user.userName)});
+                
+                if (this.state.userName.length > 0) {
+                    this.setState({formRedirect:true});
+                }else{
+                    Toastr.warning("Login incorrecto, por favor verifique.");
+                }
             },
             er => {}
         );
+
+        // return (listUser);
     };
 
     handleInput(event){
@@ -50,7 +63,7 @@ class Login extends Component{
         login[name] = value;
 
         this.setState({login});
-        console.log(login);
+        // console.log(login);
     }
 
     
@@ -76,14 +89,21 @@ class Login extends Component{
 
     FormAccept(event){
         event.preventDefault();
-
+        
         if (!this.FormIsValid()){
             return;
         }
-        this.loadData();
-        const listUser = this.state.user.map(user=>(user));
-        console.log(listUser);
-        this.setState({formRedirect:false});
+        // console.log(this.loadData());
+
+        this.loadData();      
+        // console.log(this.state.userName);
+        // let listUser = this.state.user.map(user=>user.Nombre);
+        // console.log(listUser);
+        // this.setState({formRedirect:false});
+
+        // this.state.user.map(user=>{console.log(user.Nombre)});
+        // console.log(this.user.Nombre);
+        
     }
    
     render(){
@@ -128,7 +148,10 @@ class Login extends Component{
                                 <i className="fas fa-arrow-right"></i>
                                 </button>
                                 {this.state.formRedirect && (
-                                    <Redirect to = '/home'/>
+                                    // <LoginContext.Provider value={this.state.userName}>
+                                        
+                                        <Redirect to='/home'/>
+                                    // </LoginContext.Provider>
                                 )}
                             </div>
                         </div>

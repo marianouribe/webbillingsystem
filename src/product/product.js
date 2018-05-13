@@ -67,6 +67,7 @@ class Product extends Component{
                 <div className="row mb-2 product-detalle">
                     
                     {/* <div className="col-md-2"><img className="img-detalle" src={_img} alt="Product" ></img></div> */}
+                    
                     <div className="col-md-2">{this.props.articulo.CodigoArticulo}</div>
                     <div className="col-md-6">{this.props.articulo.DescripcionArticulo}</div>
                     <div className="col-md-2 text-right">{l10nDO.format(this.props.articulo.PrecioUnitarioArticulo)}</div>
@@ -74,7 +75,16 @@ class Product extends Component{
                         <a href="#" onClick={(e) => this.onButtonClicked(e)}>
                         <button className={btnClass}>
                             {this.state.onBuyList ? "Quitar" : "Agregar"}</button></a>
-                    </div>
+                    </div> 
+                  
+                        {/* <React.Fragment>
+                            
+                                <td>{this.props.articulo.CodigoArticulo}</td>
+                                <dd>{this.props.articulo.DescripcionArticulo}</dd>
+                                
+                            
+                        </React.Fragment> */}
+                       
                 </div>
             
 

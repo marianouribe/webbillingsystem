@@ -25,7 +25,7 @@ class Header extends Component {
                     
                     <form className="form-inline navbar-right">
                         <div className="text-white mr-3">
-                            <i className="fas fa-shopping-cart fa-lg">1</i>
+                            <i className="fas fa-shopping-cart fa-lg">{this.props.username}</i>
                         </div>
                         <div className="form-inline icon-search-custom input">
                             <i className="fas icon-search fa-search"></i>

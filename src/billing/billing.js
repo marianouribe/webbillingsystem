@@ -43,7 +43,8 @@ class billing extends Component {
     this.productList = this.productList.bind(this);
   }
 
-  componentWillMount(){
+  componentDidMount(){
+    // this.setState({valueSelect:"5", inputSearch:""});
     this.loadData();
   }
 
@@ -54,7 +55,7 @@ class billing extends Component {
   loadData = () => {
     let self = this;
     // console.log(this.state.inputSearch);
-    http.getProducts("articulo/" + this.state.valueSelect + "/" + this.state.inputSearch)
+    http.getApi("articulo/" + this.state.valueSelect + "/" + this.state.inputSearch)
       .then(
         data => {
           self.setState({ products: data.recordset });
@@ -100,16 +101,19 @@ class billing extends Component {
 
   safeBilling(event){
     event.preventDefault();
-    this.setState({fireRedirect:true});
+    this.setState({fireRedirect:false});
 
     Toastr.success("Listo save");
   }
 
   render() {
+    // this.loadData();
     return (
+      
       <Home >
+               
         <div className="ppagepanel" id="pagePanelModalBilling">
-        
+
           <div className="row">
             <div className="col-md-8">
               <h1 id="detFacturacion">Detalle de Facturación</h1>
@@ -146,15 +150,22 @@ class billing extends Component {
                   <label className="ml-2">registros</label>
                 </div> */}
 
-                <table className="table">
-                </table>
+                {/* <table className="table">
+                </table> */}
 
-                <div className="row font-weight-bold mb-3 product-header pt-1 pt-1">
+                { <div className="row font-weight-bold mb-3 product-header pt-1 pt-1">
                   <div className="col-md-2">Referencia</div>
                   <div className="col-md-6">Descripción</div>
                   <div className="col-md-2 text-right">Precio</div>
                   <div className="col-md-2" />
-                </div>
+                </div> }
+
+                {/* <React.Fragment>
+                  <td>Referencia</td>
+                  <td>Descripción</td>
+                  <td>Precio</td>
+                  <td> </td>
+                </React.Fragment> */}
 
                 {this.productList()}
               </form>

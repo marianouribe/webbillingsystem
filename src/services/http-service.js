@@ -1,7 +1,7 @@
 import 'whatwg-fetch';
 
 class HttpService{
-    getProducts = (_api_filtro) => {
+    getApi = (_api_filtro) => {
         //Asincrono
         //1 orden de ejecucion, promise para manejar peticiones asinctronas
         let promise = new Promise((resolve, reject) => {
@@ -17,6 +17,7 @@ class HttpService{
         });
 
         //3
+        // console.log(promise);
         return promise;
     }
 }

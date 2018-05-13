@@ -9,6 +9,7 @@ import Purchase from './purchase/purshase';
 import NoFound from './NoFound'
 
 const Routes =()=>{
+    
     return <App>
         <Switch>
           <Route path="/login" component={Login} />
