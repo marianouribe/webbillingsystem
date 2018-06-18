@@ -15,7 +15,7 @@ class HttpService{
               }
             );
         });
-
+ 
         //3
         // console.log(promise);
         return promise;
