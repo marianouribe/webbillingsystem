@@ -38,12 +38,12 @@ class Login extends Component{
         http.getApi("usuario/" + this.state.login.userIdInput + "/" + this.state.login.passwordInput)
         .then(
             data => {
-            self.setState({ user: data.recordset });
+            //self.setState({ user: data });//data.recordset si es con node
             // self.setState({userName: self.state.user.Nombre});
             // listUser = self.state.user.map(user=>user.Nombre);
-                this.setState({userName: self.state.user.map(user=>user.userName)});
+                this.setState({userName: data.Nombre});//self.state.user.map(user=>user.userName)
                 
-                if (this.state.userName.length > 0) {
+                if (this.state.userName !== undefined) {
                     this.setState({formRedirect:true});
                 }else{
                     Toastr.warning("Login incorrecto, por favor verifique.");
