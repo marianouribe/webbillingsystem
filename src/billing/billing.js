@@ -55,7 +55,7 @@ class billing extends Component {
   loadData = () => {
     let self = this;
     // console.log(this.state.inputSearch);
-    http.getApi("articulo/" + 1 + "/" + 1)
+    http.getApi("articulo/" + 1 + "/" + this.state.valueSelect + "/" + this.state.inputSearch)
       .then(
         data => {
           //self.setState({ products: data.recordset });
