@@ -58,7 +58,7 @@ class purchase extends Component {
       )
       .then(
         data => {
-          self.setState({ products: data.recordset });
+          self.setState({ products: data });
         },
         er => {}
       );

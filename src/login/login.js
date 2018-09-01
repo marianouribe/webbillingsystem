@@ -71,16 +71,15 @@ class Login extends Component{
         
         // this.setState({isValid:true});
         let isValid = true;
-
-        if (this.state.login.userIdInput.length === 0){
-           isValid=false;
-           Toastr.warning("Usuario incorrecto, por favor verifique.");
-        }
         
         if (this.state.login.passwordInput.length === 0){
             isValid = false;
             Toastr.warning("Clave incorrecta, por favor verifique.");
         }
+        if (this.state.login.userIdInput.length === 0){
+            isValid=false;
+            Toastr.warning("Usuario incorrecto, por favor verifique.");
+         }
 
         return (isValid);
 
