@@ -118,7 +118,7 @@ class Login extends Component{
             <div className="container login-container">
                 <div>
                     <form className="login-form">
-                        <h4 className="loginhead"><i className="fa fa-desktop"></i> Web Billing System</h4>
+                        <h3 className="loginhead"><i className="fa fa-desktop"></i> Web Billing System</h3>
                         
                         <div className= "form-group left icon-login input">
                             <i className="fas icon-login fa-user"></i>

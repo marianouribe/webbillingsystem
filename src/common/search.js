@@ -2,6 +2,7 @@ import React from 'react';
 
 class Search extends React.Component{
     render(){
+        
         return <div className="mt-2">
             <label htmlFor={this.props.name} className="font-weight-bold"> {this.props.label} </label>
             <input type="search" className="form-control d-inline w-50 ml-1 mb-3" name={this.props.name}

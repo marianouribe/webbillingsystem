@@ -40,7 +40,7 @@ class billing extends Component {
 
     };
 
-    this.productList = this.productList.bind(this);
+    // this.productList = this.productList.bind(this);
   }
 
   componentDidMount(){
@@ -80,13 +80,13 @@ class billing extends Component {
     this.loadData();
   };
 
-  productList = () => {
-    const list = this.state.products.map(articulo => (
-        <Product key={articulo.CodigoArticulo} articulo={articulo} />
-    ));
+  // productList = () => {
+  //   let list = this.state.products.map(articulo => (
+  //       <Product key={articulo.CodigoArticulo} articulo={articulo} />
+  //   ));
 
-    return list;
-  };
+  //   return list;
+  // };
 
   handleInput(event){
     let value = event.target.value;
@@ -109,8 +109,15 @@ class billing extends Component {
 
   render() {
     // this.loadData();
+
+    let listPro = this.state.products.filter((item) => item.CodigoArticulo.toLowerCase().indexOf(
+      this.state.inputSearch.toLowerCase()) !== -1 );
+    
+    listPro = listPro.filter((item) => item.DescripcionArticulo.toLowerCase().indexOf(
+      this.state.inputSearch.toLowerCase()) !== -1 );
+
     return (
-      
+     
       <Home >
                
         <div className="ppagepanel" id="pagePanelModalBilling">
@@ -128,6 +135,7 @@ class billing extends Component {
                   onButtonBuscar={this.onButtonBuscar.bind(this)}
                   valueSelect={this.state.valueSelect}
                   setValueSelect={this.setValueSelect.bind(this)}
+                  products={this.state.products}
                 />
                 {/* <div className="mt-2">
                   <label className="font-weight-bold"> Filtro: </label>
@@ -167,8 +175,10 @@ class billing extends Component {
                   <td>Precio</td>
                   <td> </td>
                 </React.Fragment> */}
-
-                {this.productList()}
+                {listPro.map(articulo => (
+                        <Product key={articulo.CodigoArticulo} articulo={articulo} />
+                    ))}
+                {/* {this.productList()} */}
               </form>
               <br />
               <form className="billing-form pt-3 pb-3">
